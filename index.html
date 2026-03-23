@@ -55,6 +55,17 @@ select:focus,input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,
   color:var(--ink-mid);font-size:.8rem;cursor:pointer;border-radius:2px;
   transition:all .15s;font-family:'Noto Sans TC',sans-serif;}
 .qbtn:hover{background:var(--gold-lt);border-color:var(--gold);}
+/* 年級色彩 */
+.qbtn-g1{background:#dbeeff;border-color:#a8ceee;color:#1a4a72;}
+.qbtn-g1:hover{background:#b8d8f5;border-color:#7ab0d8;}
+.qbtn-g2{background:#fff8d6;border-color:#e8d98a;color:#6b5a00;}
+.qbtn-g2:hover{background:#f0e49a;border-color:#c9b855;}
+.qbtn-g3{background:#d6f0dd;border-color:#8ecf9e;color:#1a5c2e;}
+.qbtn-g3:hover{background:#aaddb8;border-color:#5eab72;}
+/* 年級標籤 */
+.grade-label{font-size:.75rem;color:var(--ink-light);letter-spacing:.1em;
+  font-family:'Noto Serif TC',serif;margin:10px 0 5px;display:block;}
+.grade-label:first-child{margin-top:0;}
 .rbox{border:1px solid var(--border);background:#fff;margin-top:24px;display:none;}
 .rbox.on{display:block;}
 .rhead{background:var(--ink);color:#fff;padding:14px 22px;display:flex;align-items:center;gap:12px;}
@@ -112,7 +123,7 @@ footer{text-align:center;padding:28px;color:var(--ink-light);
 </head>
 <body>
 <div class="hero">
-  <div class="hero-seal">花蓮高中</div>
+  <div class="hero-seal">蓮</div>
   <h1>國立花蓮高級中學<span>114 學年度 第 2 學期 ‧ 課程查詢系統</span></h1>
   <div class="hero-rule"><span>實施日期 115.02.23 ～ 115.06.30</span></div>
 </div>
@@ -166,7 +177,7 @@ footer{text-align:center;padding:28px;color:var(--ink-light);
           <option value="數學科">數學科</option>
           <option value="自然科">自然科（物理／化學／生物／地科）</option>
           <option value="社會科">社會科（歷史／地理／公民）</option>
-          <option value="藝能科">藝能科（音樂／美術／家政／生活／健護／資訊／體育／輔導／國防）</option>
+          <option value="藝能科">藝能健體輔導科（音樂／美術／家政／生活／健護／資訊／體育／輔導／國防）</option>
           <option value="兼任">兼任教師</option>
         </select>
       </div>
@@ -225,16 +236,27 @@ function switchTab(tab,btn){
   if(tab==='teacher' && TDB) tchFilter();
 }
 
-// Class quick buttons
+// Class quick buttons — 依年級分組並套用色彩
 (function(){
   const w=document.getElementById('classQuick');
-  ['101','102','103','104','105','106','107','108','109','110','111','112',
-   '201','202','203','204','205','206','207','208','209','210','211','212',
-   '301','302','303','304','305','306','307','308','309','310','311','312'].forEach(c=>{
-    const b=document.createElement('button');
-    b.className='qbtn';b.textContent=c;
-    b.onclick=()=>{document.getElementById('classSelect').value=c;showClass();};
-    w.appendChild(b);
+  const grades=[
+    {lbl:'一年級', cls:['101','102','103','104','105','106','107','108','109','110','111','112'], style:'qbtn-g1'},
+    {lbl:'二年級', cls:['201','202','203','204','205','206','207','208','209','210','211','212'], style:'qbtn-g2'},
+    {lbl:'三年級', cls:['301','302','303','304','305','306','307','308','309','310','311','312'], style:'qbtn-g3'},
+  ];
+  grades.forEach(g=>{
+    const lbl=document.createElement('span');
+    lbl.className='grade-label';lbl.textContent=g.lbl;
+    w.appendChild(lbl);
+    const row=document.createElement('div');
+    row.style.cssText='display:flex;flex-wrap:wrap;gap:6px;margin-bottom:4px;';
+    g.cls.forEach(c=>{
+      const b=document.createElement('button');
+      b.className=`qbtn ${g.style}`;b.textContent=c;
+      b.onclick=()=>{document.getElementById('classSelect').value=c;showClass();};
+      row.appendChild(b);
+    });
+    w.appendChild(row);
   });
 })();
 
@@ -261,7 +283,7 @@ const TCH_FBTNS=[
   {lbl:'數學科',        val:'數學科'},
   {lbl:'自然科',        val:'自然科'},
   {lbl:'社會科',        val:'社會科'},
-  {lbl:'藝能科',        val:'藝能科'},
+  {lbl:'藝能健體輔導科', val:'藝能科'},
   {lbl:'兼任',          val:'兼任'},
 ];
 
