@@ -1,607 +1,288 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>國立花蓮高級中學 114學年度第2學期課程查詢</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500&display=swap');
-
-    :root {
-      --ink: #1a1a2e;
-      --ink-mid: #2d3561;
-      --ink-light: #4a5568;
-      --gold: #c9a84c;
-      --gold-light: #e8d49b;
-      --cream: #faf8f3;
-      --cream-mid: #f0ece0;
-      --red: #8b1a1a;
-      --border: #d4c9a8;
-    }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      background: var(--cream);
-      font-family: 'Noto Sans TC', sans-serif;
-      color: var(--ink);
-      min-height: 100vh;
-    }
-
-    /* Hero Header */
-    .hero {
-      background: var(--ink);
-      position: relative;
-      overflow: hidden;
-      padding: 56px 40px 48px;
-      text-align: center;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: 
-        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,168,76,0.15) 0%, transparent 70%),
-        repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(201,168,76,0.06) 40px),
-        repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(201,168,76,0.06) 40px);
-    }
-    .hero-seal {
-      position: relative;
-      display: inline-block;
-      width: 64px; height: 64px;
-      border: 2px solid var(--gold);
-      border-radius: 50%;
-      line-height: 60px;
-      font-size: 26px;
-      color: var(--gold);
-      margin-bottom: 18px;
-      font-family: 'Noto Serif TC', serif;
-    }
-    .hero h1 {
-      position: relative;
-      font-family: 'Noto Serif TC', serif;
-      font-size: clamp(1.4rem, 3vw, 2.2rem);
-      font-weight: 700;
-      color: #fff;
-      letter-spacing: 0.08em;
-      line-height: 1.4;
-    }
-    .hero h1 span {
-      display: block;
-      font-size: 0.6em;
-      color: var(--gold-light);
-      font-weight: 400;
-      margin-top: 6px;
-      letter-spacing: 0.15em;
-    }
-    .hero-divider {
-      position: relative;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      justify-content: center;
-      margin-top: 20px;
-    }
-    .hero-divider::before, .hero-divider::after {
-      content: '';
-      height: 1px;
-      width: 80px;
-      background: linear-gradient(to right, transparent, var(--gold));
-    }
-    .hero-divider::after { background: linear-gradient(to left, transparent, var(--gold)); }
-    .hero-divider span { color: var(--gold); font-size: 14px; letter-spacing: 0.2em; }
-
-    /* Search Section */
-    .search-section {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 48px 24px 32px;
-    }
-    .search-tabs {
-      display: flex;
-      gap: 0;
-      border-bottom: 2px solid var(--border);
-      margin-bottom: 32px;
-    }
-    .tab-btn {
-      flex: 1;
-      padding: 14px 20px;
-      background: transparent;
-      border: none;
-      font-family: 'Noto Serif TC', serif;
-      font-size: 1rem;
-      color: var(--ink-light);
-      cursor: pointer;
-      position: relative;
-      transition: color 0.2s;
-      letter-spacing: 0.05em;
-    }
-    .tab-btn::after {
-      content: '';
-      position: absolute;
-      bottom: -2px; left: 0; right: 0;
-      height: 2px;
-      background: var(--gold);
-      transform: scaleX(0);
-      transition: transform 0.25s;
-    }
-    .tab-btn.active { color: var(--ink); }
-    .tab-btn.active::after { transform: scaleX(1); }
-
-    .search-box {
-      display: none;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .search-box.active { display: flex; }
-
-    .search-label {
-      font-family: 'Noto Serif TC', serif;
-      font-size: 0.85rem;
-      color: var(--ink-light);
-      letter-spacing: 0.08em;
-      margin-bottom: 6px;
-    }
-
-    .input-row {
-      display: flex;
-      gap: 12px;
-      align-items: flex-end;
-    }
-
-    .input-group { flex: 1; }
-
-    select, input[type="text"] {
-      width: 100%;
-      padding: 12px 16px;
-      background: #fff;
-      border: 1px solid var(--border);
-      font-family: 'Noto Sans TC', sans-serif;
-      font-size: 1rem;
-      color: var(--ink);
-      outline: none;
-      transition: border-color 0.2s, box-shadow 0.2s;
-      border-radius: 2px;
-    }
-    select:focus, input:focus {
-      border-color: var(--gold);
-      box-shadow: 0 0 0 3px rgba(201,168,76,0.12);
-    }
-
-    .search-btn {
-      padding: 12px 28px;
-      background: var(--ink);
-      color: #fff;
-      border: none;
-      font-family: 'Noto Serif TC', serif;
-      font-size: 0.95rem;
-      cursor: pointer;
-      letter-spacing: 0.1em;
-      transition: background 0.2s;
-      white-space: nowrap;
-      border-radius: 2px;
-    }
-    .search-btn:hover { background: var(--ink-mid); }
-
-    /* Quick buttons */
-    .quick-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 8px;
-    }
-    .quick-btn {
-      padding: 6px 14px;
-      background: var(--cream-mid);
-      border: 1px solid var(--border);
-      color: var(--ink-mid);
-      font-size: 0.82rem;
-      cursor: pointer;
-      font-family: 'Noto Sans TC', sans-serif;
-      transition: all 0.15s;
-      border-radius: 2px;
-    }
-    .quick-btn:hover {
-      background: var(--gold-light);
-      border-color: var(--gold);
-    }
-
-    /* Result frame */
-    .result-frame {
-      border: 1px solid var(--border);
-      background: #fff;
-      margin-top: 28px;
-      min-height: 120px;
-      display: none;
-    }
-    .result-frame.visible { display: block; }
-    .result-header {
-      background: var(--ink);
-      color: #fff;
-      padding: 14px 24px;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .result-header h2 {
-      font-family: 'Noto Serif TC', serif;
-      font-size: 1.05rem;
-      letter-spacing: 0.08em;
-    }
-    .result-badge {
-      background: var(--gold);
-      color: var(--ink);
-      font-size: 0.75rem;
-      padding: 3px 10px;
-      font-weight: 500;
-      border-radius: 2px;
-    }
-    .result-body { padding: 24px; }
-    .info-row {
-      display: flex;
-      gap: 32px;
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-    }
-    .info-item { font-size: 0.88rem; color: var(--ink-light); }
-    .info-item strong { color: var(--ink); margin-right: 4px; }
-
-    /* Schedule Table */
-    .schedule-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.83rem;
-      overflow: auto;
-    }
-    .table-wrapper { overflow-x: auto; }
-    .schedule-table th {
-      background: var(--ink);
-      color: #fff;
-      padding: 10px 8px;
-      text-align: center;
-      font-family: 'Noto Serif TC', serif;
-      font-weight: 400;
-      letter-spacing: 0.06em;
-      white-space: nowrap;
-    }
-    .schedule-table td {
-      border: 1px solid var(--cream-mid);
-      padding: 8px 6px;
-      text-align: center;
-      vertical-align: middle;
-      line-height: 1.45;
-      min-width: 90px;
-      min-height: 44px;
-      height: 44px;
-    }
-    .schedule-table tr:nth-child(even) td { background: var(--cream); }
-    .schedule-table td.period-label {
-      background: var(--cream-mid);
-      font-weight: 500;
-      color: var(--ink-mid);
-      min-width: 60px;
-      font-size: 0.8rem;
-    }
-    .course-name { display: block; color: var(--ink); font-weight: 500; }
-    .teacher-name { display: block; font-size: 0.75rem; color: var(--ink-light); margin-top: 2px; }
-    .empty-cell { color: var(--border); font-size: 0.85rem; line-height: 44px; display: block; }
-
-    /* PDF link */
-    .pdf-link-row {
-      margin-top: 20px;
-      padding-top: 16px;
-      border-top: 1px solid var(--cream-mid);
-      font-size: 0.85rem;
-      color: var(--ink-light);
-    }
-    .pdf-link-row a {
-      color: var(--red);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .pdf-link-row a:hover { text-decoration: underline; }
-
-    .no-result {
-      text-align: center;
-      padding: 48px 24px;
-      color: var(--ink-light);
-      font-size: 0.9rem;
-    }
-
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 32px;
-      color: var(--ink-light);
-      font-size: 0.78rem;
-      letter-spacing: 0.08em;
-      border-top: 1px solid var(--border);
-      margin-top: 48px;
-    }
-
-    @media(max-width:600px) {
-      .hero { padding: 36px 20px 32px; }
-      .search-section { padding: 28px 16px 24px; }
-      .input-row { flex-direction: column; }
-      .search-btn { width: 100%; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>國立花蓮高級中學 114學年度第2學期 課程查詢</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500&display=swap');
+:root{
+  --ink:#1a1a2e;--ink-mid:#2d3561;--ink-light:#4a5568;
+  --gold:#c9a84c;--gold-lt:#e8d49b;
+  --cream:#faf8f3;--cream-mid:#f0ece0;
+  --border:#d4c9a8;--red:#8b1a1a;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--cream);font-family:'Noto Sans TC',sans-serif;color:var(--ink);}
+.hero{background:var(--ink);padding:52px 40px 44px;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(201,168,76,.15) 0%,transparent 70%),
+  repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(201,168,76,.05) 40px),
+  repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(201,168,76,.05) 40px);}
+.hero-seal{position:relative;display:inline-block;width:60px;height:60px;
+  border:2px solid var(--gold);border-radius:50%;line-height:56px;font-size:24px;
+  color:var(--gold);margin-bottom:16px;font-family:'Noto Serif TC',serif;}
+.hero h1{position:relative;font-family:'Noto Serif TC',serif;
+  font-size:clamp(1.3rem,3vw,2rem);font-weight:700;color:#fff;letter-spacing:.08em;line-height:1.4;}
+.hero h1 span{display:block;font-size:.58em;color:var(--gold-lt);font-weight:400;margin-top:6px;letter-spacing:.15em;}
+.hero-rule{position:relative;display:flex;align-items:center;gap:12px;justify-content:center;margin-top:18px;}
+.hero-rule::before,.hero-rule::after{content:'';height:1px;width:70px;background:linear-gradient(to right,transparent,var(--gold));}
+.hero-rule::after{background:linear-gradient(to left,transparent,var(--gold));}
+.hero-rule span{color:var(--gold);font-size:13px;letter-spacing:.18em;}
+.wrap{max-width:960px;margin:0 auto;padding:40px 24px 0;}
+.tabs{display:flex;border-bottom:2px solid var(--border);margin-bottom:28px;}
+.tab-btn{flex:1;padding:13px 16px;background:transparent;border:none;
+  font-family:'Noto Serif TC',serif;font-size:.95rem;color:var(--ink-light);cursor:pointer;
+  position:relative;transition:color .2s;letter-spacing:.05em;}
+.tab-btn::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:2px;
+  background:var(--gold);transform:scaleX(0);transition:transform .25s;}
+.tab-btn.active{color:var(--ink);}
+.tab-btn.active::after{transform:scaleX(1);}
+.panel{display:none;}.panel.active{display:block;}
+.slabel{font-size:.82rem;color:var(--ink-light);letter-spacing:.08em;margin-bottom:7px;}
+.irow{display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap;}
+.ig{flex:1;min-width:180px;}
+select,input[type=text]{width:100%;padding:11px 14px;background:#fff;
+  border:1px solid var(--border);font-family:'Noto Sans TC',sans-serif;font-size:.95rem;
+  color:var(--ink);outline:none;transition:border-color .2s;border-radius:2px;}
+select:focus,input:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,.12);}
+.btn{padding:11px 26px;background:var(--ink);color:#fff;border:none;
+  font-family:'Noto Serif TC',serif;font-size:.9rem;cursor:pointer;
+  letter-spacing:.1em;white-space:nowrap;transition:background .2s;border-radius:2px;}
+.btn:hover{background:var(--ink-mid);}
+.qrow{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px;}
+.qbtn{padding:5px 12px;background:var(--cream-mid);border:1px solid var(--border);
+  color:var(--ink-mid);font-size:.8rem;cursor:pointer;border-radius:2px;
+  transition:all .15s;font-family:'Noto Sans TC',sans-serif;}
+.qbtn:hover{background:var(--gold-lt);border-color:var(--gold);}
+.rbox{border:1px solid var(--border);background:#fff;margin-top:24px;display:none;}
+.rbox.on{display:block;}
+.rhead{background:var(--ink);color:#fff;padding:14px 22px;display:flex;align-items:center;gap:12px;}
+.rhead h2{font-family:'Noto Serif TC',serif;font-size:1rem;letter-spacing:.08em;}
+.rbadge{background:var(--gold);color:var(--ink);font-size:.72rem;padding:3px 9px;border-radius:2px;}
+.rbody{padding:22px;}
+.irow2{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:18px;
+  padding-bottom:16px;border-bottom:1px solid var(--cream-mid);}
+.ii{font-size:.85rem;color:var(--ink-light);}
+.ii strong{color:var(--ink);margin-right:3px;}
+.twrap{overflow-x:auto;}
+table.sch{width:100%;border-collapse:collapse;font-size:.82rem;}
+table.sch th{background:var(--ink);color:#fff;padding:9px 7px;text-align:center;
+  font-family:'Noto Serif TC',serif;font-weight:400;letter-spacing:.05em;white-space:nowrap;}
+table.sch td{border:1px solid var(--cream-mid);padding:0;text-align:center;
+  vertical-align:middle;min-width:88px;height:52px;}
+table.sch tr:nth-child(even) td{background:var(--cream);}
+table.sch td.pl{background:var(--cream-mid);font-size:.78rem;color:var(--ink-mid);
+  min-width:56px;font-weight:500;padding:6px 4px;height:52px;}
+.ci{display:flex;flex-direction:column;align-items:center;justify-content:center;
+  height:52px;padding:4px 5px;gap:2px;}
+.cn{font-weight:500;color:var(--ink);font-size:.82rem;line-height:1.3;}
+.tn{font-size:.72rem;color:var(--ink-light);}
+.ec{color:#ccc;font-size:.85rem;}
+.pdfrow{margin-top:16px;padding-top:14px;border-top:1px solid var(--cream-mid);
+  font-size:.83rem;color:var(--ink-light);}
+.pdfrow a{color:var(--red);text-decoration:none;}
+.pdfrow a:hover{text-decoration:underline;}
+.nodata{text-align:center;padding:40px;color:var(--ink-light);font-size:.88rem;}
+footer{text-align:center;padding:28px;color:var(--ink-light);
+  font-size:.76rem;letter-spacing:.08em;border-top:1px solid var(--border);margin-top:40px;}
+</style>
 </head>
 <body>
-
 <div class="hero">
   <div class="hero-seal">蓮</div>
-  <h1>國立花蓮高級中學<span>114 學年度 第 2 學期 · 課程表查詢系統</span></h1>
-  <div class="hero-divider"><span>實施日期 115.02.23 ~ 115.06.30</span></div>
+  <h1>國立花蓮高級中學<span>114 學年度 第 2 學期 ‧ 課程查詢系統</span></h1>
+  <div class="hero-rule"><span>實施日期 115.02.23 ～ 115.06.30</span></div>
 </div>
 
-<div class="search-section">
-
-  <div class="search-tabs">
-    <button class="tab-btn active" onclick="switchTab('class')">📋 班級課表查詢</button>
-    <button class="tab-btn" onclick="switchTab('teacher')">👤 教師課表查詢</button>
+<div class="wrap">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchTab('class',this)">📋 班級課表查詢</button>
+    <button class="tab-btn" onclick="switchTab('teacher',this)">👤 教師課表查詢</button>
   </div>
 
-  <!-- 班級查詢 -->
-  <div class="search-box active" id="classSearch">
-    <div class="input-group">
-      <div class="search-label">選擇或輸入班級編號</div>
-      <div class="input-row">
-        <select id="classSelect" onchange="onClassSelect(this)">
+  <div class="panel active" id="classPanel">
+    <div class="slabel">選擇班級</div>
+    <div class="irow">
+      <div class="ig">
+        <select id="classSelect">
           <option value="">── 請選擇班級 ──</option>
           <optgroup label="一年級">
-            <option value="101">101班</option><option value="102">102班</option>
-            <option value="103">103班</option><option value="104">104班</option>
-            <option value="105">105班</option><option value="106">106班</option>
-            <option value="107">107班</option><option value="108">108班</option>
-            <option value="109">109班</option><option value="110">110班</option>
-            <option value="111">111班</option><option value="112">112班</option>
+            <option>101</option><option>102</option><option>103</option><option>104</option>
+            <option>105</option><option>106</option><option>107</option><option>108</option>
+            <option>109</option><option>110</option><option>111</option><option>112</option>
           </optgroup>
           <optgroup label="二年級">
-            <option value="201">201班</option><option value="202">202班</option>
-            <option value="203">203班</option><option value="204">204班</option>
-            <option value="205">205班</option><option value="206">206班</option>
-            <option value="207">207班</option><option value="208">208班</option>
-            <option value="209">209班</option><option value="210">210班</option>
-            <option value="211">211班</option><option value="212">212班</option>
+            <option>201</option><option>202</option><option>203</option><option>204</option>
+            <option>205</option><option>206</option><option>207</option><option>208</option>
+            <option>209</option><option>210</option><option>211</option><option>212</option>
           </optgroup>
           <optgroup label="三年級">
-            <option value="301">301班</option><option value="302">302班</option>
-            <option value="303">303班</option><option value="304">304班</option>
-            <option value="305">305班</option><option value="306">306班</option>
-            <option value="307">307班</option><option value="308">308班</option>
-            <option value="309">309班</option><option value="310">310班</option>
-            <option value="311">311班</option><option value="312">312班</option>
+            <option>301</option><option>302</option><option>303</option><option>304</option>
+            <option>305</option><option>306</option><option>307</option><option>308</option>
+            <option>309</option><option>310</option><option>311</option><option>312</option>
           </optgroup>
         </select>
-        <button class="search-btn" onclick="searchClass()">查詢</button>
       </div>
+      <button class="btn" onclick="showClass()">查詢</button>
     </div>
-    <div>
-      <div class="search-label">快速選擇</div>
-      <div class="quick-links" id="classQuickLinks"></div>
-    </div>
+    <div class="qrow" id="classQuick"></div>
   </div>
 
-  <!-- 教師查詢 -->
-  <div class="search-box" id="teacherSearch">
-    <div class="input-group">
-      <div class="search-label">輸入教師姓名（或選擇）</div>
-      <div class="input-row">
-        <input type="text" id="teacherInput" placeholder="輸入姓名關鍵字，如：張銘傑" oninput="filterTeachers()" list="teacherList">
-        <datalist id="teacherList"></datalist>
-        <button class="search-btn" onclick="searchTeacher()">查詢</button>
+  <div class="panel" id="teacherPanel">
+    <div class="slabel">輸入教師姓名</div>
+    <div class="irow">
+      <div class="ig">
+        <input type="text" id="tchInput" placeholder="輸入姓名關鍵字，如：張銘傑" oninput="filterTchQuick()" list="tchList">
+        <datalist id="tchList"></datalist>
       </div>
+      <button class="btn" onclick="showTeacher()">查詢</button>
     </div>
-    <div>
-      <div class="search-label">快速搜尋</div>
-      <div class="quick-links" id="teacherQuickLinks"></div>
-    </div>
+    <div class="qrow" id="tchQuick"></div>
   </div>
 
-  <!-- 結果 -->
-  <div class="result-frame" id="resultFrame">
-    <div class="result-header">
-      <h2 id="resultTitle">查詢結果</h2>
-      <span class="result-badge" id="resultBadge"></span>
-    </div>
-    <div class="result-body" id="resultBody"></div>
+  <div class="rbox" id="rbox">
+    <div class="rhead"><h2 id="rTitle"></h2><span class="rbadge" id="rBadge"></span></div>
+    <div class="rbody" id="rBody"></div>
   </div>
-
 </div>
+<footer>國立花蓮高級中學 ‧ 114學年度第2學期課程表 ‧ 資料更新：115.01.30</footer>
 
-<footer>
-  國立花蓮高級中學 &nbsp;·&nbsp; 114學年度第2學期課程表 &nbsp;·&nbsp; 資料更新：115.01.30
-</footer>
-
-<script src="class_data.js"></script>
 <script>
-const DAYS = ['一','二','三','四','五'];
-const PERIODS = ['早','1','2','3','4','5','6','7','8'];
-const PERIOD_TIMES = {
-  '早':'07:50-08:00', '1':'08:00-08:50', '2':'09:00-09:50',
-  '3':'10:10-11:00', '4':'11:10-12:00', '5':'13:10-14:00',
-  '6':'14:10-15:00', '7':'15:10-16:00', '8':'16:10-17:00'
-};
+const DAYS=['一','二','三','四','五'];
+const PERIODS=['1','2','3','4','5','6','7','8'];
+const PT={'1':'08:00-08:50','2':'09:00-09:50','3':'10:10-11:00',
+  '4':'11:10-12:00','5':'13:10-14:00','6':'14:10-15:00','7':'15:10-16:00','8':'16:10-17:00'};
+const PMAP={'101':1,'102':2,'103':3,'104':4,'105':5,'106':6,'107':7,'108':8,
+  '109':9,'110':10,'111':11,'112':12,'201':13,'202':14,'203':15,'204':16,
+  '205':17,'206':18,'207':19,'208':20,'209':21,'210':22,'211':23,'212':24,
+  '301':25,'302':26,'303':27,'304':28,'305':29,'306':30,'307':31,'308':32,
+  '309':33,'310':34,'311':35,'312':36};
 
-let activeTab = 'class';
+let CDB=null,TDB=null,TCH_KEYS=[];
 
-function switchTab(tab) {
-  activeTab = tab;
-  document.querySelectorAll('.tab-btn').forEach((b,i) => b.classList.toggle('active', (i===0 && tab==='class')||(i===1 && tab==='teacher')));
-  document.getElementById('classSearch').classList.toggle('active', tab==='class');
-  document.getElementById('teacherSearch').classList.toggle('active', tab==='teacher');
-  document.getElementById('resultFrame').classList.remove('visible');
-}
-
-// Init quick links
-function initQuickLinks() {
-  const classLinks = document.getElementById('classQuickLinks');
-  ['101','102','103','104','105','106','107','108','109','110','111','112',
-   '201','202','203','204','205','206','207','208','209','210','211','212',
-   '301','302','303','304','305','306','307','308','309','310','311','312'].forEach(c => {
-    const btn = document.createElement('button');
-    btn.className = 'quick-btn';
-    btn.textContent = c;
-    btn.onclick = () => { document.getElementById('classSelect').value = c; searchClass(); };
-    classLinks.appendChild(btn);
-  });
-
-  const dl = document.getElementById('teacherList');
-  const tLinks = document.getElementById('teacherQuickLinks');
-  // Show first 20 teachers as quick links
-  teacherIndex.slice(0, 20).forEach(t => {
-    const btn = document.createElement('button');
-    btn.className = 'quick-btn';
-    btn.textContent = t.name;
-    btn.onclick = () => { document.getElementById('teacherInput').value = t.name; searchTeacher(); };
-    tLinks.appendChild(btn);
-    const opt = document.createElement('option');
-    opt.value = t.name;
-    dl.appendChild(opt);
-  });
-  teacherIndex.slice(20).forEach(t => {
-    const opt = document.createElement('option');
-    opt.value = t.name;
-    dl.appendChild(opt);
-  });
-}
-
-function onClassSelect(sel) { if (sel.value) searchClass(); }
-
-function searchClass() {
-  const val = document.getElementById('classSelect').value;
-  if (!val) return;
-  const data = classScheduleData[val];
-  if (!data) { showNoResult('找不到班級 ' + val + ' 的課表資料'); return; }
-
-  document.getElementById('resultTitle').textContent = val + ' 班 課程表';
-  document.getElementById('resultBadge').textContent = '班級';
-
-  // Build schedule grid
-  const grid = {};
-  PERIODS.forEach(p => { grid[p] = {}; DAYS.forEach(d => { grid[p][d] = null; }); });
-  data.schedule.forEach(([period, day, course, teacher]) => {
-    if (grid[period]) grid[period][day] = { course, teacher };
-  });
-
-  let html = `<div class="info-row">
-    <div class="info-item"><strong>班級：</strong>${data.className}班</div>
-    <div class="info-item"><strong>導師：</strong>${data.homeroom}</div>
-    <div class="info-item"><strong>課諮師：</strong>${data.advisor}</div>
-    <div class="info-item"><strong>總時數：</strong>${data.totalHours} 節</div>
-  </div>
-  <div class="table-wrapper"><table class="schedule-table">
-    <tr><th>節次</th><th>時間</th><th>星期一</th><th>星期二</th><th>星期三</th><th>星期四</th><th>星期五</th></tr>`;
-
-  PERIODS.forEach(p => {
-    html += `<tr><td class="period-label">${p === '早' ? '早自習' : '第'+p+'節'}</td><td class="period-label" style="font-size:0.72rem">${PERIOD_TIMES[p]}</td>`;
-    DAYS.forEach(d => {
-      const cell = grid[p][d];
-      const showDash = p !== '早' && p !== '8';
-      if (cell && cell.course) {
-        html += `<td><span class="course-name">${cell.course}</span>${cell.teacher ? `<span class="teacher-name">${cell.teacher}</span>` : ''}</td>`;
-      } else if (showDash) {
-        html += `<td><span class="empty-cell">—</span></td>`;
-      } else {
-        html += `<td></td>`;
-      }
-    });
-    html += '</tr>';
-  });
-
-  html += `</table></div>
-  <div class="pdf-link-row">
-    📄 完整課表請參閱：<a href="班級正式課表0130.pdf#page=${getClassPage(val)}" target="_blank">班級正式課表0130.pdf（第${getClassPage(val)}頁）</a>
-  </div>`;
-
-  showResult(html);
-}
-
-function getClassPage(cls) {
-  const pageMap = {
-    '101':1,'102':2,'103':3,'104':4,'105':5,'106':6,'107':7,'108':8,'109':9,'110':10,'111':11,'112':12,
-    '201':13,'202':14,'203':15,'204':16,'205':17,'206':18,'207':19,'208':20,'209':21,'210':22,'211':23,'212':24,
-    '301':25,'302':26,'303':27,'304':28,'305':29,'306':30,'307':31,'308':32,'309':33,'310':34,'311':35,'312':36
-  };
-  return pageMap[cls] || 1;
-}
-
-function filterTeachers() {
-  const val = document.getElementById('teacherInput').value.trim();
-  const tLinks = document.getElementById('teacherQuickLinks');
-  tLinks.innerHTML = '';
-  const matches = teacherIndex.filter(t => t.name.includes(val));
-  matches.slice(0, 30).forEach(t => {
-    const btn = document.createElement('button');
-    btn.className = 'quick-btn';
-    btn.textContent = t.name;
-    btn.onclick = () => { document.getElementById('teacherInput').value = t.name; searchTeacher(); };
-    tLinks.appendChild(btn);
-  });
-}
-
-function searchTeacher() {
-  const val = document.getElementById('teacherInput').value.trim();
-  if (!val) return;
-  const matches = teacherIndex.filter(t => t.name.includes(val));
-  if (matches.length === 0) { showNoResult('找不到教師「' + val + '」的資料'); return; }
-
-  if (matches.length > 1) {
-    // Show multiple matches
-    let html = `<p style="color:var(--ink-light);margin-bottom:16px;font-size:0.88rem">找到 ${matches.length} 位符合的教師，請點選：</p>
-    <div style="display:flex;flex-wrap:wrap;gap:10px;">`;
-    matches.forEach(t => {
-      html += `<button class="quick-btn" style="padding:10px 16px;" onclick="showTeacher(${t.page},'${t.name}','${t.role}')">
-        ${t.name}<span style="display:block;font-size:0.75rem;color:var(--ink-light)">${t.role}</span>
-      </button>`;
-    });
-    html += '</div>';
-    document.getElementById('resultTitle').textContent = '搜尋結果';
-    document.getElementById('resultBadge').textContent = '教師';
-    showResult(html);
-  } else {
-    showTeacher(matches[0].page, matches[0].name, matches[0].role);
+async function load(){
+  if(!CDB){const r=await fetch('classdb.json');CDB=await r.json();}
+  if(!TDB){
+    const r=await fetch('teacherdb.json');TDB=await r.json();
+    TCH_KEYS=Object.keys(TDB);
+    const dl=document.getElementById('tchList');
+    TCH_KEYS.forEach(n=>{const o=document.createElement('option');o.value=n;dl.appendChild(o);});
+    buildTchQuick('');
   }
 }
 
-function showTeacher(page, name, role) {
-  document.getElementById('resultTitle').textContent = name + ' 老師 課程表';
-  document.getElementById('resultBadge').textContent = '教師';
+function switchTab(tab,btn){
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('classPanel').classList.toggle('active',tab==='class');
+  document.getElementById('teacherPanel').classList.toggle('active',tab==='teacher');
+  document.getElementById('rbox').classList.remove('on');
+}
 
-  const html = `<div class="info-row">
-    <div class="info-item"><strong>教師：</strong>${name}</div>
-    <div class="info-item"><strong>職務：</strong>${role || '未列'}</div>
-  </div>
-  <div class="no-result" style="background:var(--cream);border:1px dashed var(--border);padding:28px;border-radius:2px;text-align:center;">
-    <p style="font-size:1rem;margin-bottom:8px;">📄 教師詳細課表請查閱原始 PDF</p>
-    <p style="font-size:0.85rem;color:var(--ink-light);margin-bottom:16px">教師課表包含完整節次、班級及兼課資訊</p>
-    <a href="教師正式課表0130.pdf#page=${page}" target="_blank" style="display:inline-block;padding:10px 24px;background:var(--ink);color:#fff;text-decoration:none;font-size:0.9rem;letter-spacing:0.08em;border-radius:2px;">
-      開啟課表（第 ${page} 頁）
-    </a>
-  </div>
-  <div class="pdf-link-row" style="margin-top:16px;">
-    📄 完整資料：<a href="教師正式課表0130.pdf#page=${page}" target="_blank">教師正式課表0130.pdf（第${page}頁）</a>
+// Class quick buttons
+(function(){
+  const w=document.getElementById('classQuick');
+  ['101','102','103','104','105','106','107','108','109','110','111','112',
+   '201','202','203','204','205','206','207','208','209','210','211','212',
+   '301','302','303','304','305','306','307','308','309','310','311','312'].forEach(c=>{
+    const b=document.createElement('button');
+    b.className='qbtn';b.textContent=c;
+    b.onclick=()=>{document.getElementById('classSelect').value=c;showClass();};
+    w.appendChild(b);
+  });
+})();
+
+function buildTchQuick(filter){
+  const w=document.getElementById('tchQuick');w.innerHTML='';
+  TCH_KEYS.filter(n=>!filter||n.includes(filter)).slice(0,30).forEach(n=>{
+    const b=document.createElement('button');b.className='qbtn';b.textContent=n;
+    b.onclick=()=>{document.getElementById('tchInput').value=n;showTeacher();};
+    w.appendChild(b);
+  });
+}
+function filterTchQuick(){buildTchQuick(document.getElementById('tchInput').value.trim());}
+
+function buildTable(getCell){
+  let h=`<div class="twrap"><table class="sch"><tr><th>節次</th><th>時間</th>`;
+  h+=DAYS.map(d=>`<th>星期${d}</th>`).join('')+'</tr>';
+  PERIODS.forEach(p=>{
+    h+=`<tr><td class="pl">第${p}節</td><td class="pl" style="font-size:.7rem;white-space:nowrap">${PT[p]}</td>`;
+    DAYS.forEach(d=>{
+      const {main,sub,empty}=getCell(d,p);
+      if(main){
+        h+=`<td><div class="ci"><span class="cn">${main}</span>${sub?`<span class="tn">${sub}</span>`:''}</div></td>`;
+      } else if(p!=='8'){
+        h+=`<td><div class="ci"><span class="ec">—</span></div></td>`;
+      } else {
+        h+=`<td></td>`;
+      }
+    });
+    h+='</tr>';
+  });
+  return h+'</table></div>';
+}
+
+async function showClass(){
+  await load();
+  const cls=document.getElementById('classSelect').value;
+  if(!cls)return;
+  const rec=CDB[cls];
+  if(!rec){render(`${cls}班課表`,'班級',`<div class="nodata">找不到 ${cls} 班資料</div>`);return;}
+  let h=`<div class="irow2">
+    <div class="ii"><strong>班級：</strong>${rec.class}班</div>
+    <div class="ii"><strong>導師：</strong>${rec.homeroom}</div>
+    <div class="ii"><strong>課諮師：</strong>${rec.advisor}</div>
   </div>`;
-
-  showResult(html);
+  h+=buildTable((d,p)=>{
+    const c=rec.timetable[d][p];
+    const ok=c&&c.course&&c.course!=='-';
+    return{main:ok?c.course:null,sub:(ok&&c.teacher&&c.teacher!=='-')?c.teacher:null};
+  });
+  h+=`<div class="pdfrow">📄 原始課表：<a href="班級正式課表0130.pdf#page=${PMAP[cls]||1}" target="_blank">班級正式課表0130.pdf（第${PMAP[cls]||1}頁）</a></div>`;
+  render(`${cls} 班課程表`,'班級',h);
 }
 
-function showNoResult(msg) {
-  document.getElementById('resultTitle').textContent = '查詢結果';
-  document.getElementById('resultBadge').textContent = '無資料';
-  showResult(`<div class="no-result"><p>${msg}</p></div>`);
+async function showTeacher(){
+  await load();
+  const val=document.getElementById('tchInput').value.trim();
+  if(!val)return;
+  const hits=TCH_KEYS.filter(n=>n.includes(val));
+  if(!hits.length){render('查詢結果','教師',`<div class="nodata">找不到「${val}」的資料</div>`);return;}
+  if(hits.length>1){
+    const btns=hits.map(n=>`<button class="qbtn" style="padding:9px 16px;font-size:.88rem" onclick="pickTeacher('${n}')">${n}<small style="display:block;color:var(--ink-light);font-size:.72rem">${TDB[n].role}</small></button>`).join('');
+    render('搜尋結果','教師',`<p style="font-size:.87rem;color:var(--ink-light);margin-bottom:14px">找到 ${hits.length} 位，請選擇：</p><div style="display:flex;flex-wrap:wrap;gap:9px">${btns}</div>`);
+    return;
+  }
+  pickTeacher(hits[0]);
 }
 
-function showResult(html) {
-  document.getElementById('resultBody').innerHTML = html;
-  document.getElementById('resultFrame').classList.add('visible');
-  document.getElementById('resultFrame').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+function pickTeacher(name){
+  const rec=TDB[name];if(!rec)return;
+  let h=`<div class="irow2">
+    <div class="ii"><strong>教師：</strong>${rec.name}</div>
+    <div class="ii"><strong>職務：</strong>${rec.role||'—'}</div>
+  </div>`;
+  h+=buildTable((d,p)=>{
+    const c=rec.timetable[d][p];
+    const ok=c&&c.course&&c.course!=='-';
+    const hasCls=ok&&c.class&&c.class!=='-';
+    return{main:ok?c.course:null,sub:hasCls?c.class+'班':null};
+  });
+  const pg=TCH_KEYS.indexOf(name)+1;
+  h+=`<div class="pdfrow">📄 原始課表：<a href="教師正式課表0130.pdf#page=${pg}" target="_blank">教師正式課表0130.pdf（第${pg}頁）</a></div>`;
+  render(`${name} 老師課程表`,'教師',h);
 }
 
-initQuickLinks();
+function render(title,badge,html){
+  document.getElementById('rTitle').textContent=title;
+  document.getElementById('rBadge').textContent=badge;
+  document.getElementById('rBody').innerHTML=html;
+  const b=document.getElementById('rbox');b.classList.add('on');
+  b.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+load();
 </script>
 </body>
 </html>

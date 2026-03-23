@@ -1,280 +1,122 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>教師課表查詢 - 國立花蓮高中</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500&display=swap');
-
-    :root {
-      --ink: #1a1a2e; --ink-mid: #2d3561; --ink-light: #4a5568;
-      --gold: #c9a84c; --gold-light: #e8d49b;
-      --cream: #faf8f3; --cream-mid: #f0ece0; --red: #8b1a1a;
-      --border: #d4c9a8;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { background: var(--cream); font-family: 'Noto Sans TC', sans-serif; color: var(--ink); }
-
-    .topbar {
-      background: var(--ink);
-      padding: 12px 32px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    .topbar a {
-      color: var(--gold-light);
-      text-decoration: none;
-      font-size: 0.85rem;
-    }
-    .topbar a:hover { color: var(--gold); }
-    .topbar-sep { color: rgba(255,255,255,0.3); }
-    .topbar-title { color: #fff; font-family: 'Noto Serif TC', serif; font-size: 0.9rem; }
-
-    .page-header {
-      background: var(--ink-mid);
-      padding: 36px 40px 32px;
-      position: relative;
-      overflow: hidden;
-    }
-    .page-header::before {
-      content: '';
-      position: absolute; inset: 0;
-      background: radial-gradient(ellipse 60% 80% at 100% 50%, rgba(201,168,76,0.12) 0%, transparent 70%);
-    }
-    .page-header h1 {
-      position: relative;
-      font-family: 'Noto Serif TC', serif;
-      font-size: 1.6rem;
-      color: #fff;
-      letter-spacing: 0.06em;
-    }
-    .page-header p {
-      position: relative;
-      color: var(--gold-light);
-      font-size: 0.85rem;
-      margin-top: 6px;
-      letter-spacing: 0.08em;
-    }
-
-    .container { max-width: 1100px; margin: 0 auto; padding: 40px 24px; }
-
-    .search-card {
-      background: #fff;
-      border: 1px solid var(--border);
-      padding: 28px;
-      margin-bottom: 32px;
-    }
-    .search-row {
-      display: flex;
-      gap: 12px;
-      align-items: flex-end;
-      flex-wrap: wrap;
-    }
-    .search-label { font-size: 0.82rem; color: var(--ink-light); margin-bottom: 6px; letter-spacing: 0.06em; }
-    .input-g { flex: 1; min-width: 200px; }
-
-    input[type="text"], select {
-      width: 100%;
-      padding: 11px 14px;
-      background: var(--cream);
-      border: 1px solid var(--border);
-      font-family: 'Noto Sans TC', sans-serif;
-      font-size: 0.95rem;
-      color: var(--ink);
-      outline: none;
-      transition: border-color 0.2s;
-      border-radius: 2px;
-    }
-    input:focus, select:focus { border-color: var(--gold); background: #fff; }
-
-    .btn {
-      padding: 11px 24px;
-      background: var(--ink);
-      color: #fff;
-      border: none;
-      cursor: pointer;
-      font-family: 'Noto Serif TC', serif;
-      font-size: 0.9rem;
-      letter-spacing: 0.08em;
-      white-space: nowrap;
-      transition: background 0.2s;
-      border-radius: 2px;
-    }
-    .btn:hover { background: var(--ink-mid); }
-    .btn-outline {
-      background: transparent;
-      color: var(--ink);
-      border: 1px solid var(--border);
-    }
-    .btn-outline:hover { background: var(--cream-mid); }
-
-    /* Teacher grid */
-    .teacher-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      margin-bottom: 32px;
-    }
-    .teacher-card {
-      background: #fff;
-      padding: 14px 16px;
-      cursor: pointer;
-      transition: background 0.15s;
-      border: none;
-      text-align: left;
-      width: 100%;
-    }
-    .teacher-card:hover { background: var(--gold-light); }
-    .teacher-card.selected { background: var(--ink); color: #fff; }
-    .teacher-card.selected .tc-role { color: var(--gold-light); }
-    .tc-name { font-family: 'Noto Serif TC', serif; font-size: 0.95rem; display: block; }
-    .tc-role { font-size: 0.72rem; color: var(--ink-light); margin-top: 2px; display: block; }
-
-    /* Group headers */
-    .group-header {
-      grid-column: 1 / -1;
-      background: var(--cream-mid);
-      padding: 8px 16px;
-      font-size: 0.78rem;
-      color: var(--ink-light);
-      letter-spacing: 0.1em;
-      font-family: 'Noto Serif TC', serif;
-      border-top: 2px solid var(--border);
-    }
-
-    /* Detail Panel */
-    .detail-panel {
-      display: none;
-      background: #fff;
-      border: 1px solid var(--border);
-    }
-    .detail-panel.visible { display: block; }
-    .detail-top {
-      background: var(--ink);
-      padding: 20px 28px;
-      display: flex;
-      align-items: baseline;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-    .detail-top h2 {
-      font-family: 'Noto Serif TC', serif;
-      color: #fff;
-      font-size: 1.2rem;
-      letter-spacing: 0.06em;
-    }
-    .detail-badge {
-      background: var(--gold);
-      color: var(--ink);
-      font-size: 0.78rem;
-      padding: 3px 10px;
-      border-radius: 2px;
-    }
-    .detail-body { padding: 28px; }
-
-    .pdf-viewer-note {
-      background: var(--cream);
-      border: 1px dashed var(--border);
-      padding: 24px 28px;
-      text-align: center;
-      border-radius: 2px;
-    }
-    .pdf-viewer-note p { color: var(--ink-light); font-size: 0.88rem; margin-bottom: 14px; line-height: 1.6; }
-    .pdf-viewer-note .open-btn {
-      display: inline-block;
-      padding: 12px 28px;
-      background: var(--ink);
-      color: #fff;
-      text-decoration: none;
-      font-family: 'Noto Serif TC', serif;
-      font-size: 0.9rem;
-      letter-spacing: 0.08em;
-      border-radius: 2px;
-      transition: background 0.2s;
-    }
-    .pdf-viewer-note .open-btn:hover { background: var(--ink-mid); }
-
-    /* Stats row */
-    .stats-row {
-      display: flex;
-      gap: 24px;
-      padding: 0 0 20px;
-      border-bottom: 1px solid var(--cream-mid);
-      margin-bottom: 20px;
-      flex-wrap: wrap;
-    }
-    .stat-item { font-size: 0.85rem; }
-    .stat-item span { color: var(--ink-light); margin-right: 4px; }
-
-    /* Classes taught list */
-    .classes-section { margin-top: 20px; }
-    .classes-title { font-size: 0.82rem; color: var(--ink-light); margin-bottom: 10px; letter-spacing: 0.06em; }
-    .classes-list { display: flex; flex-wrap: wrap; gap: 8px; }
-    .class-tag {
-      padding: 5px 14px;
-      background: var(--cream-mid);
-      border: 1px solid var(--border);
-      font-size: 0.82rem;
-      color: var(--ink-mid);
-      cursor: pointer;
-      transition: all 0.15s;
-      border-radius: 2px;
-      text-decoration: none;
-    }
-    .class-tag:hover { background: var(--gold-light); border-color: var(--gold); }
-
-    /* Filter buttons */
-    .filter-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
-    .filter-btn {
-      padding: 6px 14px;
-      background: var(--cream-mid);
-      border: 1px solid var(--border);
-      font-size: 0.8rem;
-      cursor: pointer;
-      transition: all 0.15s;
-      border-radius: 2px;
-      font-family: 'Noto Sans TC', sans-serif;
-    }
-    .filter-btn:hover, .filter-btn.active { background: var(--ink); color: #fff; border-color: var(--ink); }
-
-    footer {
-      text-align: center;
-      padding: 28px;
-      color: var(--ink-light);
-      font-size: 0.78rem;
-      letter-spacing: 0.08em;
-      border-top: 1px solid var(--border);
-      margin-top: 40px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>教師課表查詢 - 國立花蓮高中</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500&display=swap');
+:root{
+  --ink:#1a1a2e;--ink-mid:#2d3561;--ink-light:#4a5568;
+  --gold:#c9a84c;--gold-lt:#e8d49b;
+  --cream:#faf8f3;--cream-mid:#f0ece0;
+  --border:#d4c9a8;--red:#8b1a1a;--blue-lt:#eef2ff;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--cream);font-family:'Noto Sans TC',sans-serif;color:var(--ink);}
+.topbar{background:var(--ink);padding:11px 28px;display:flex;align-items:center;gap:14px;}
+.topbar a{color:var(--gold-lt);text-decoration:none;font-size:.83rem;}
+.topbar a:hover{color:var(--gold);}
+.topbar-sep{color:rgba(255,255,255,.3);}
+.topbar-t{color:#fff;font-family:'Noto Serif TC',serif;font-size:.88rem;}
+.ph{background:var(--ink-mid);padding:32px 36px 28px;position:relative;overflow:hidden;}
+.ph::before{content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 80% at 100% 50%,rgba(201,168,76,.12) 0%,transparent 70%);}
+.ph h1{position:relative;font-family:'Noto Serif TC',serif;font-size:1.5rem;color:#fff;letter-spacing:.06em;}
+.ph p{position:relative;color:var(--gold-lt);font-size:.83rem;margin-top:5px;letter-spacing:.08em;}
+.container{max-width:1100px;margin:0 auto;padding:32px 20px;}
+/* Search */
+.scard{background:#fff;border:1px solid var(--border);padding:24px;margin-bottom:28px;}
+.slabel{font-size:.8rem;color:var(--ink-light);margin-bottom:6px;letter-spacing:.06em;}
+.srow{display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap;}
+.ig{flex:1;min-width:180px;}
+input[type=text],select{width:100%;padding:10px 13px;background:var(--cream);
+  border:1px solid var(--border);font-family:'Noto Sans TC',sans-serif;font-size:.92rem;
+  color:var(--ink);outline:none;transition:border-color .2s;border-radius:2px;}
+input:focus,select:focus{border-color:var(--gold);background:#fff;}
+.btn{padding:10px 22px;background:var(--ink);color:#fff;border:none;
+  font-family:'Noto Serif TC',serif;font-size:.88rem;cursor:pointer;
+  letter-spacing:.08em;white-space:nowrap;transition:background .2s;border-radius:2px;}
+.btn:hover{background:var(--ink-mid);}
+.btn-o{background:transparent;color:var(--ink);border:1px solid var(--border);}
+.btn-o:hover{background:var(--cream-mid);}
+.frow{display:flex;gap:7px;flex-wrap:wrap;margin-top:14px;}
+.fbtn{padding:5px 13px;background:var(--cream-mid);border:1px solid var(--border);
+  font-size:.78rem;cursor:pointer;border-radius:2px;font-family:'Noto Sans TC',sans-serif;transition:all .15s;}
+.fbtn:hover,.fbtn.active{background:var(--ink);color:#fff;border-color:var(--ink);}
+/* Teacher grid */
+.tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));
+  gap:1px;background:var(--border);border:1px solid var(--border);margin-bottom:28px;}
+.gh{grid-column:1/-1;background:var(--cream-mid);padding:7px 14px;
+  font-size:.76rem;color:var(--ink-light);letter-spacing:.1em;
+  font-family:'Noto Serif TC',serif;border-top:2px solid var(--border);}
+.tcard{background:#fff;padding:13px 15px;cursor:pointer;transition:background .15s;
+  border:none;text-align:left;width:100%;}
+.tcard:hover{background:var(--gold-lt);}
+.tcard.sel{background:var(--ink);color:#fff;}
+.tcard.sel .tc-role{color:var(--gold-lt);}
+.tc-name{font-family:'Noto Serif TC',serif;font-size:.92rem;display:block;}
+.tc-role{font-size:.7rem;color:var(--ink-light);margin-top:2px;display:block;}
+/* Detail */
+.dp{display:none;background:#fff;border:1px solid var(--border);}
+.dp.on{display:block;}
+.dp-top{background:var(--ink);padding:18px 24px;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;}
+.dp-top h2{font-family:'Noto Serif TC',serif;color:#fff;font-size:1.1rem;letter-spacing:.06em;}
+.dp-badge{background:var(--gold);color:var(--ink);font-size:.75rem;padding:3px 9px;border-radius:2px;}
+.dp-body{padding:24px;}
+.dp-info{display:flex;gap:24px;flex-wrap:wrap;margin-bottom:20px;
+  padding-bottom:18px;border-bottom:1px solid var(--cream-mid);}
+.dp-ii{font-size:.85rem;color:var(--ink-light);}
+.dp-ii strong{color:var(--ink);margin-right:3px;}
+/* Schedule table */
+.twrap{overflow-x:auto;}
+table.sch{width:100%;border-collapse:collapse;font-size:.81rem;}
+table.sch th{background:var(--ink);color:#fff;padding:9px 7px;text-align:center;
+  font-family:'Noto Serif TC',serif;font-weight:400;letter-spacing:.05em;white-space:nowrap;}
+table.sch td{border:1px solid var(--cream-mid);padding:0;text-align:center;
+  vertical-align:middle;min-width:86px;height:52px;}
+table.sch tr:nth-child(even) td{background:var(--cream);}
+table.sch td.pl{background:var(--cream-mid);font-size:.76rem;color:var(--ink-mid);
+  min-width:54px;font-weight:500;padding:6px 4px;height:52px;}
+.ci{display:flex;flex-direction:column;align-items:center;justify-content:center;
+  height:52px;padding:4px 5px;gap:2px;}
+.cn{font-weight:500;color:var(--ink);font-size:.81rem;line-height:1.3;}
+.tn{font-size:.7rem;color:var(--ink-light);}
+.ec{color:#ccc;font-size:.85rem;}
+/* Classes taught */
+.ctitle{font-size:.8rem;color:var(--ink-light);margin:18px 0 9px;letter-spacing:.06em;}
+.ctags{display:flex;flex-wrap:wrap;gap:7px;}
+.ctag{padding:4px 13px;background:var(--cream-mid);border:1px solid var(--border);
+  font-size:.8rem;color:var(--ink-mid);cursor:pointer;border-radius:2px;
+  text-decoration:none;transition:all .15s;}
+.ctag:hover{background:var(--gold-lt);border-color:var(--gold);}
+.pdfrow{margin-top:18px;padding-top:14px;border-top:1px solid var(--cream-mid);
+  font-size:.82rem;color:var(--ink-light);}
+.pdfrow a{color:var(--red);text-decoration:none;}
+.pdfrow a:hover{text-decoration:underline;}
+footer{text-align:center;padding:26px;color:var(--ink-light);font-size:.76rem;
+  letter-spacing:.08em;border-top:1px solid var(--border);margin-top:36px;}
+</style>
 </head>
 <body>
-
 <div class="topbar">
   <a href="index.html">← 返回首頁</a>
   <span class="topbar-sep">|</span>
-  <span class="topbar-title">教師課表查詢</span>
+  <span class="topbar-t">教師課表查詢</span>
 </div>
-
-<div class="page-header">
+<div class="ph">
   <h1>教師課表查詢</h1>
-  <p>國立花蓮高級中學 &nbsp;·&nbsp; 114學年度 第2學期 &nbsp;·&nbsp; 共 112 位教師</p>
+  <p>國立花蓮高級中學 ‧ 114學年度 第2學期 ‧ 共 112 位教師</p>
 </div>
-
 <div class="container">
-
-  <div class="search-card">
-    <div class="search-label">搜尋教師</div>
-    <div class="search-row">
-      <div class="input-g">
-        <input type="text" id="teacherSearch" placeholder="輸入姓名關鍵字…" oninput="filterTeacherGrid()">
+  <div class="scard">
+    <div class="slabel">搜尋教師</div>
+    <div class="srow">
+      <div class="ig">
+        <input type="text" id="srch" placeholder="輸入姓名關鍵字…" oninput="filterGrid()">
       </div>
-      <div class="input-g">
-        <select id="roleFilter" onchange="filterTeacherGrid()">
+      <div class="ig">
+        <select id="roleFilter" onchange="filterGrid()">
           <option value="">── 所有職務 ──</option>
           <option value="導師">導師</option>
           <option value="專任">專任</option>
@@ -284,200 +126,199 @@
           <option value="專輔">專輔</option>
         </select>
       </div>
-      <button class="btn" onclick="filterTeacherGrid()">搜尋</button>
-      <button class="btn btn-outline" onclick="resetFilter()">清除</button>
+      <button class="btn" onclick="filterGrid()">搜尋</button>
+      <button class="btn btn-o" onclick="resetFilter()">清除</button>
     </div>
-    <div class="filter-row" id="filterBtns">
-      <button class="filter-btn active" onclick="setFilter('')">全部</button>
-      <button class="filter-btn" onclick="setFilter('國')">國文科</button>
-      <button class="filter-btn" onclick="setFilter('英')">英文科</button>
-      <button class="filter-btn" onclick="setFilter('數')">數學科</button>
-      <button class="filter-btn" onclick="setFilter('自然')">自然科</button>
-      <button class="filter-btn" onclick="setFilter('社會')">社會科</button>
-      <button class="filter-btn" onclick="setFilter('體育')">體育</button>
-      <button class="filter-btn" onclick="setFilter('藝')">藝術</button>
+    <div class="frow" id="frow"></div>
+  </div>
+  <div class="tgrid" id="tgrid"></div>
+  <div class="dp" id="dp">
+    <div class="dp-top">
+      <h2 id="dpName"></h2>
+      <span class="dp-badge" id="dpRole"></span>
+    </div>
+    <div class="dp-body">
+      <div class="dp-info" id="dpInfo"></div>
+      <div class="twrap"><table class="sch" id="dpTable"></table></div>
+      <div id="dpClasses"></div>
+      <div class="pdfrow" id="dpPdf"></div>
     </div>
   </div>
-
-  <div class="teacher-grid" id="teacherGrid"></div>
-
-  <div class="detail-panel" id="detailPanel">
-    <div class="detail-top">
-      <h2 id="detailName">教師姓名</h2>
-      <span class="detail-badge" id="detailRole">職務</span>
-    </div>
-    <div class="detail-body">
-      <div class="stats-row" id="statsRow"></div>
-      <div class="pdf-viewer-note">
-        <p>教師課表包含完整節次、科目、授課班級及兼課時數等詳細資訊。<br>請點選下方按鈕開啟 PDF 課表（跳至對應頁面）。</p>
-        <a id="pdfOpenBtn" href="#" target="_blank" class="open-btn">📄 開啟教師課表 PDF</a>
-      </div>
-      <div class="classes-section" id="classesTaught"></div>
-    </div>
-  </div>
-
 </div>
+<footer>國立花蓮高級中學 ‧ 114學年度第2學期 ‧ 教師課表查詢</footer>
 
-<footer>國立花蓮高級中學 &nbsp;·&nbsp; 114學年度第2學期 &nbsp;·&nbsp; 教師課表查詢</footer>
-
-<script src="class_data.js"></script>
 <script>
-let currentFilter = '';
+const DAYS=['一','二','三','四','五'];
+const PERIODS=['1','2','3','4','5','6','7','8'];
+const PT={'1':'08:00\n08:50','2':'09:00\n09:50','3':'10:10\n11:00',
+  '4':'11:10\n12:00','5':'13:10\n14:00','6':'14:10\n15:00','7':'15:10\n16:00','8':'16:10\n17:00'};
 
-function roleCategory(role) {
-  if (!role) return '其他';
-  if (role.includes('主任') || role.includes('組長') || role.includes('校長')) return '行政';
-  if (role.includes('導師')) return '導師';
-  if (role.includes('專任')) return '專任';
-  if (role.includes('兼任')) return '兼任';
-  if (role.includes('教練')) return '教練';
-  if (role.includes('專輔')) return '輔導';
+let TDB=null, TCH_KEYS=[], curFilter='';
+
+async function load(){
+  if(!TDB){const r=await fetch('teacherdb.json');TDB=await r.json();TCH_KEYS=Object.keys(TDB);}
+}
+
+function roleGroup(role){
+  if(!role)return '其他';
+  if(/主任|組長/.test(role))return '行政';
+  if(/導師/.test(role))return '導師';
+  if(/專任/.test(role))return '專任';
+  if(/兼任/.test(role))return '兼任';
+  if(/教練/.test(role))return '教練';
+  if(/專輔/.test(role))return '輔導';
   return '其他';
 }
 
-function matchesSubjectFilter(t, kw) {
-  if (!kw) return true;
-  // Find classes this teacher teaches in class schedules
-  let subjects = [];
-  Object.values(classScheduleData).forEach(cls => {
-    cls.schedule.forEach(([p, d, course, teacher]) => {
-      if (teacher && teacher.includes(t.name)) subjects.push(course);
-    });
-  });
-  if (kw === '國') return subjects.some(s => s.startsWith('國語文') || s.includes('國文'));
-  if (kw === '英') return subjects.some(s => s.includes('英語') || s.includes('英文'));
-  if (kw === '數') return subjects.some(s => s.includes('數學'));
-  if (kw === '自然') return subjects.some(s => ['物理','化學','生物','地球科學'].some(n => s.includes(n)));
-  if (kw === '社會') return subjects.some(s => ['歷史','地理','公民'].some(n => s.includes(n)));
-  if (kw === '體育') return subjects.some(s => s.includes('體育'));
-  if (kw === '藝') return subjects.some(s => ['音樂','美術','藝術'].some(n => s.includes(n)));
-  return true;
-}
-
-function renderGrid(filtered) {
-  const grid = document.getElementById('teacherGrid');
-  grid.innerHTML = '';
-
-  let lastGroup = '';
-  const groups = [
-    { label: '行政人員', fn: t => roleCategory(t.role) === '行政' },
-    { label: '導師', fn: t => roleCategory(t.role) === '導師' },
-    { label: '專任教師', fn: t => roleCategory(t.role) === '專任' },
-    { label: '輔導教師', fn: t => roleCategory(t.role) === '輔導' },
-    { label: '教練', fn: t => roleCategory(t.role) === '教練' },
-    { label: '兼任教師', fn: t => roleCategory(t.role) === '兼任' },
-    { label: '其他', fn: t => !['行政','導師','專任','輔導','教練','兼任'].includes(roleCategory(t.role)) },
+function renderGrid(names){
+  const grid=document.getElementById('tgrid');grid.innerHTML='';
+  const groups=[
+    {lbl:'行政人員',fn:t=>roleGroup(t.role)==='行政'},
+    {lbl:'導師',fn:t=>roleGroup(t.role)==='導師'},
+    {lbl:'專任教師',fn:t=>roleGroup(t.role)==='專任'},
+    {lbl:'輔導教師',fn:t=>roleGroup(t.role)==='輔導'},
+    {lbl:'教練',fn:t=>roleGroup(t.role)==='教練'},
+    {lbl:'兼任教師',fn:t=>roleGroup(t.role)==='兼任'},
+    {lbl:'其他',fn:t=>!['行政','導師','專任','輔導','教練','兼任'].includes(roleGroup(t.role))},
   ];
-
-  groups.forEach(g => {
-    const inGroup = filtered.filter(g.fn);
-    if (inGroup.length === 0) return;
-    const gh = document.createElement('div');
-    gh.className = 'group-header';
-    gh.textContent = g.label + ` (${inGroup.length})`;
-    grid.appendChild(gh);
-    inGroup.forEach(t => {
-      const card = document.createElement('button');
-      card.className = 'teacher-card';
-      card.dataset.page = t.page;
-      card.dataset.name = t.name;
-      card.dataset.role = t.role;
-      card.innerHTML = `<span class="tc-name">${t.name}</span><span class="tc-role">${t.role || '—'}</span>`;
-      card.onclick = () => selectTeacher(card, t);
-      grid.appendChild(card);
+  let any=false;
+  groups.forEach(g=>{
+    const sub=names.filter(n=>g.fn(TDB[n]));
+    if(!sub.length)return;
+    any=true;
+    const gh=document.createElement('div');gh.className='gh';
+    gh.textContent=g.lbl+` (${sub.length})`;grid.appendChild(gh);
+    sub.forEach(n=>{
+      const c=document.createElement('button');c.className='tcard';c.dataset.name=n;
+      c.innerHTML=`<span class="tc-name">${n}</span><span class="tc-role">${TDB[n].role||'—'}</span>`;
+      c.onclick=()=>selectTeacher(n,c);
+      grid.appendChild(c);
     });
   });
-
-  if (grid.children.length === 0) {
-    grid.innerHTML = '<div style="padding:32px;text-align:center;color:var(--ink-light);font-size:0.9rem;background:#fff;">無符合條件的教師</div>';
-  }
+  if(!any) grid.innerHTML='<div style="padding:28px;text-align:center;color:var(--ink-light);font-size:.88rem;background:#fff">無符合條件的教師</div>';
 }
 
-function filterTeacherGrid() {
-  const kw = document.getElementById('teacherSearch').value.trim();
-  const role = document.getElementById('roleFilter').value;
-
-  const filtered = teacherIndex.filter(t => {
-    const nameMatch = !kw || t.name.includes(kw) || t.role.includes(kw);
-    const roleMatch = !role || t.role.includes(role) || (role === '主任' && (t.role.includes('主任') || t.role.includes('組長')));
-    const subjectMatch = matchesSubjectFilter(t, currentFilter);
-    return nameMatch && roleMatch && subjectMatch;
+function filterGrid(){
+  if(!TDB)return;
+  const kw=document.getElementById('srch').value.trim();
+  const rf=document.getElementById('roleFilter').value;
+  const names=TCH_KEYS.filter(n=>{
+    const nameOk=!kw||(n.includes(kw)||TDB[n].role.includes(kw));
+    const roleOk=!rf||(TDB[n].role.includes(rf)||
+      (rf==='主任'&&/主任|組長/.test(TDB[n].role)));
+    return nameOk&&roleOk;
   });
-
-  renderGrid(filtered);
+  renderGrid(names);
 }
 
-function setFilter(kw) {
-  currentFilter = kw;
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  event.target.classList.add('active');
-  filterTeacherGrid();
+function resetFilter(){
+  document.getElementById('srch').value='';
+  document.getElementById('roleFilter').value='';
+  curFilter='';
+  document.querySelectorAll('.fbtn').forEach((b,i)=>b.classList.toggle('active',i===0));
+  renderGrid(TCH_KEYS);
+  document.getElementById('dp').classList.remove('on');
 }
 
-function resetFilter() {
-  document.getElementById('teacherSearch').value = '';
-  document.getElementById('roleFilter').value = '';
-  currentFilter = '';
-  document.querySelectorAll('.filter-btn').forEach((b,i) => b.classList.toggle('active', i===0));
-  filterTeacherGrid();
-  document.getElementById('detailPanel').classList.remove('visible');
+// Filter buttons
+const FBTNS=[
+  {lbl:'全部',kw:''},
+  {lbl:'國文科',kw:'國語文'},
+  {lbl:'英文科',kw:'英語'},
+  {lbl:'數學科',kw:'數學'},
+  {lbl:'自然科',kw:'物理|化學|生物|地球科學'},
+  {lbl:'社會科',kw:'歷史|地理|公民'},
+  {lbl:'體育',kw:'體育'},
+  {lbl:'藝術',kw:'音樂|美術|藝術'},
+];
+(function(){
+  const fr=document.getElementById('frow');
+  FBTNS.forEach((fb,i)=>{
+    const b=document.createElement('button');b.className='fbtn'+(i===0?' active':'');
+    b.textContent=fb.lbl;
+    b.onclick=()=>{
+      curFilter=fb.kw;
+      document.querySelectorAll('.fbtn').forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');
+      applySubjectFilter();
+    };
+    fr.appendChild(b);
+  });
+})();
+
+function applySubjectFilter(){
+  if(!TDB){return;}
+  if(!curFilter){filterGrid();return;}
+  const re=new RegExp(curFilter);
+  const names=TCH_KEYS.filter(n=>{
+    return DAYS.some(d=>PERIODS.some(p=>{
+      const c=TDB[n].timetable[d][p];
+      return c&&c.course&&c.course!=='-'&&re.test(c.course);
+    }));
+  });
+  renderGrid(names);
 }
 
-function selectTeacher(card, t) {
-  document.querySelectorAll('.teacher-card').forEach(c => c.classList.remove('selected'));
-  card.classList.add('selected');
+function selectTeacher(name,card){
+  document.querySelectorAll('.tcard').forEach(c=>c.classList.remove('sel'));
+  if(card)card.classList.add('sel');
+  const rec=TDB[name];if(!rec)return;
+  document.getElementById('dpName').textContent=name+' 老師';
+  document.getElementById('dpRole').textContent=rec.role||'—';
+  document.getElementById('dpInfo').innerHTML=`
+    <div class="dp-ii"><strong>姓名：</strong>${rec.name}</div>
+    <div class="dp-ii"><strong>職務：</strong>${rec.role||'—'}</div>`;
 
-  document.getElementById('detailName').textContent = t.name + ' 老師';
-  document.getElementById('detailRole').textContent = t.role || '未列';
-
-  // Stats
-  const statsHTML = `
-    <div class="stat-item"><span>姓名：</span>${t.name}</div>
-    <div class="stat-item"><span>職務：</span>${t.role || '—'}</div>
-    <div class="stat-item"><span>課表頁碼：</span>第 ${t.page} 頁</div>
-  `;
-  document.getElementById('statsRow').innerHTML = statsHTML;
-
-  // PDF link
-  document.getElementById('pdfOpenBtn').href = `教師正式課表0130.pdf#page=${t.page}`;
-  document.getElementById('pdfOpenBtn').textContent = `📄 開啟 ${t.name} 老師課表（第 ${t.page} 頁）`;
-
-  // Find classes this teacher teaches
-  const classMap = {};
-  Object.values(classScheduleData).forEach(cls => {
-    cls.schedule.forEach(([p, d, course, teacher]) => {
-      if (teacher && teacher.includes(t.name)) {
-        if (!classMap[cls.className]) classMap[cls.className] = new Set();
-        classMap[cls.className].add(course);
+  // Build table
+  let h=`<tr><th>節次</th><th>時間</th>${DAYS.map(d=>`<th>星期${d}</th>`).join('')}</tr>`;
+  PERIODS.forEach(p=>{
+    const times=PT[p].split('\n');
+    h+=`<tr><td class="pl">第${p}節</td><td class="pl" style="font-size:.7rem;white-space:nowrap">${times[0]}~${times[1]}</td>`;
+    DAYS.forEach(d=>{
+      const cell=rec.timetable[d][p];
+      const ok=cell&&cell.course&&cell.course!=='-';
+      const hasCls=ok&&cell.class&&cell.class!=='-';
+      if(ok){
+        h+=`<td><div class="ci"><span class="cn">${cell.course}</span>${hasCls?`<span class="tn">${cell.class}班</span>`:''}</div></td>`;
+      } else if(p!=='8'){
+        h+=`<td><div class="ci"><span class="ec">—</span></div></td>`;
+      } else {
+        h+=`<td></td>`;
       }
     });
+    h+='</tr>';
   });
+  document.getElementById('dpTable').innerHTML=h;
 
-  let classesHTML = '';
-  const classIds = Object.keys(classMap).sort();
-  if (classIds.length > 0) {
-    classesHTML = `<div class="classes-title">在以下班級授課（共 ${classIds.length} 班）：</div>
-    <div class="classes-list">`;
-    classIds.forEach(cid => {
-      const subjects = [...classMap[cid]].join('、');
-      classesHTML += `<a href="class_schedule.html?class=${cid}" class="class-tag" title="${subjects}">${cid}班</a>`;
-    });
-    classesHTML += '</div>';
-    if (classIds.length > 0) {
-      classesHTML += `<div style="margin-top:12px;font-size:0.78rem;color:var(--ink-light)">* 點選班級編號可查看該班完整課表</div>`;
+  // Classes taught
+  const classMap={};
+  DAYS.forEach(d=>PERIODS.forEach(p=>{
+    const c=rec.timetable[d][p];
+    if(c&&c.class&&c.class!=='-'&&/^\d{3}$/.test(c.class)){
+      if(!classMap[c.class])classMap[c.class]=new Set();
+      if(c.course!=='-')classMap[c.class].add(c.course);
     }
-  } else {
-    classesHTML = '<div class="classes-title" style="color:var(--ink-light);font-style:italic;">無授課班級資料（請參閱PDF課表）</div>';
+  }));
+  const cls=Object.keys(classMap).sort();
+  let clsHtml='';
+  if(cls.length){
+    clsHtml=`<div class="ctitle">授課班級（共${cls.length}班）：</div><div class="ctags">`;
+    cls.forEach(c=>{
+      clsHtml+=`<a href="class_schedule.html?class=${c}" class="ctag" title="${[...classMap[c]].join('、')}">${c}班</a>`;
+    });
+    clsHtml+='</div>';
   }
-  document.getElementById('classesTaught').innerHTML = classesHTML;
+  document.getElementById('dpClasses').innerHTML=clsHtml;
 
-  const panel = document.getElementById('detailPanel');
-  panel.classList.add('visible');
-  panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  const pg=TCH_KEYS.indexOf(name)+1;
+  document.getElementById('dpPdf').innerHTML=
+    `📄 原始課表：<a href="教師正式課表0130.pdf#page=${pg}" target="_blank">教師正式課表0130.pdf（第${pg}頁）</a>`;
+
+  const dp=document.getElementById('dp');dp.classList.add('on');
+  dp.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 
-// Init
-renderGrid(teacherIndex);
+load().then(()=>renderGrid(TCH_KEYS));
 </script>
 </body>
 </html>

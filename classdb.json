@@ -1,0 +1,6374 @@
+{
+  "101": {
+    "class": "101",
+    "homeroom": "張銘傑",
+    "advisor": "楊成勛",
+    "timetable": {
+      "一": {
+        "1": {
+          "course": "各類文學選讀",
+          "teacher": "王清平"
+        },
+        "2": {
+          "course": "數學",
+          "teacher": "吳東岳"
+        },
+        "3": {
+          "course": "音樂",
+          "teacher": "白欣蓉"
+        },
+        "4": {
+          "course": "音樂",
+          "teacher": "白欣蓉"
+        },
+        "5": {
+          "course": "物理",
+          "teacher": "黃蕾靜"
+        },
+        "6": {
+          "course": "地理",
+          "teacher": "黃俊諺"
+        },
+        "7": {
+          "course": "公民與社會",
+          "teacher": "李勵佳"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "二": {
+        "1": {
+          "course": "英語文",
+          "teacher": "謝璦羽"
+        },
+        "2": {
+          "course": "生涯規劃",
+          "teacher": "廖姿穎"
+        },
+        "3": {
+          "course": "公民與社會",
+          "teacher": "李勵佳"
+        },
+        "4": {
+          "course": "物理",
+          "teacher": "黃蕾靜"
+        },
+        "5": {
+          "course": "體育",
+          "teacher": "許劭廷"
+        },
+        "6": {
+          "course": "國語文",
+          "teacher": "王清平"
+        },
+        "7": {
+          "course": "數學",
+          "teacher": "吳東岳"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "三": {
+        "1": {
+          "course": "國語文",
+          "teacher": "王清平"
+        },
+        "2": {
+          "course": "英語文",
+          "teacher": "謝璦羽"
+        },
+        "3": {
+          "course": "數學",
+          "teacher": "吳東岳"
+        },
+        "4": {
+          "course": "地球科學",
+          "teacher": "侯統源"
+        },
+        "5": {
+          "course": "英文聽力",
+          "teacher": "謝璦羽何頤華"
+        },
+        "6": {
+          "course": "導師時間",
+          "teacher": "張銘傑"
+        },
+        "7": {
+          "course": "每週團體活動時間",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "四": {
+        "1": {
+          "course": "歷史",
+          "teacher": "張銘傑"
+        },
+        "2": {
+          "course": "數學",
+          "teacher": "吳東岳"
+        },
+        "3": {
+          "course": "花蓮學",
+          "teacher": "吳家凌"
+        },
+        "4": {
+          "course": "花蓮學",
+          "teacher": "吳家凌"
+        },
+        "5": {
+          "course": "國語文",
+          "teacher": "王清平"
+        },
+        "6": {
+          "course": "國語文",
+          "teacher": "王清平"
+        },
+        "7": {
+          "course": "英語文",
+          "teacher": "謝璦羽"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "五": {
+        "1": {
+          "course": "歷史",
+          "teacher": "張銘傑"
+        },
+        "2": {
+          "course": "體育",
+          "teacher": "許劭廷"
+        },
+        "3": {
+          "course": "英語文",
+          "teacher": "謝璦羽"
+        },
+        "4": {
+          "course": "地理",
+          "teacher": "黃俊諺"
+        },
+        "5": {
+          "course": "地球科學",
+          "teacher": "侯統源"
+        },
+        "6": {
+          "course": "彈性學習1",
+          "teacher": "張銘傑"
+        },
+        "7": {
+          "course": "彈性學習1",
+          "teacher": "張銘傑"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      }
+    }
+  },
+  "102": {
+    "class": "102",
+    "homeroom": "陳曉玲",
+    "advisor": "陳曉玲",
+    "timetable": {
+      "一": {
+        "1": {
+          "course": "英語文",
+          "teacher": "莊明倩"
+        },
+        "2": {
+          "course": "英文聽力",
+          "teacher": "莊明倩何頤華"
+        },
+        "3": {
+          "course": "地球科學",
+          "teacher": "侯統源"
+        },
+        "4": {
+          "course": "體育",
+          "teacher": "許劭廷"
+        },
+        "5": {
+          "course": "公民與社會",
+          "teacher": "李勵佳"
+        },
+        "6": {
+          "course": "地理",
+          "teacher": "陳曉玲"
+        },
+        "7": {
+          "course": "數學",
+          "teacher": "林映全"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "二": {
+        "1": {
+          "course": "地理",
+          "teacher": "陳曉玲"
+        },
+        "2": {
+          "course": "物理",
+          "teacher": "黃蕾靜"
+        },
+        "3": {
+          "course": "數學",
+          "teacher": "林映全"
+        },
+        "4": {
+          "course": "英語文",
+          "teacher": "莊明倩"
+        },
+        "5": {
+          "course": "生涯規劃",
+          "teacher": "廖姿穎"
+        },
+        "6": {
+          "course": "公民與社會",
+          "teacher": "李勵佳"
+        },
+        "7": {
+          "course": "各類文學選讀",
+          "teacher": "王清平"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "三": {
+        "1": {
+          "course": "英語文",
+          "teacher": "莊明倩"
+        },
+        "2": {
+          "course": "體育",
+          "teacher": "許劭廷"
+        },
+        "3": {
+          "course": "數學",
+          "teacher": "林映全"
+        },
+        "4": {
+          "course": "國語文",
+          "teacher": "王清平"
+        },
+        "5": {
+          "course": "歷史",
+          "teacher": "張銘傑"
+        },
+        "6": {
+          "course": "導師時間",
+          "teacher": "陳曉玲"
+        },
+        "7": {
+          "course": "每週團體活動時間",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "四": {
+        "1": {
+          "course": "國語文",
+          "teacher": "王清平"
+        },
+        "2": {
+          "course": "國語文",
+          "teacher": "王清平"
+        },
+        "3": {
+          "course": "花蓮學",
+          "teacher": "林佩琪"
+        },
+        "4": {
+          "course": "花蓮學",
+          "teacher": "林佩琪"
+        },
+        "5": {
+          "course": "物理",
+          "teacher": "黃蕾靜"
+        },
+        "6": {
+          "course": "英語文",
+          "teacher": "莊明倩"
+        },
+        "7": {
+          "course": "地球科學",
+          "teacher": "侯統源"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "五": {
+        "1": {
+          "course": "音樂",
+          "teacher": "白欣蓉"
+        },
+        "2": {
+          "course": "音樂",
+          "teacher": "白欣蓉"
+        },
+        "3": {
+          "course": "數學",
+          "teacher": "林映全"
+        },
+        "4": {
+          "course": "國語文",
+          "teacher": "王清平"
+        },
+        "5": {
+          "course": "歷史",
+          "teacher": "張銘傑"
+        },
+        "6": {
+          "course": "彈性學習1",
+          "teacher": "陳曉玲"
+        },
+        "7": {
+          "course": "彈性學習1",
+          "teacher": "陳曉玲"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      }
+    }
+  },
+  "103": {
+    "class": "103",
+    "homeroom": "陳昱璋",
+    "advisor": "楊成勛",
+    "timetable": {
+      "一": {
+        "1": {
+          "course": "地球科學",
+          "teacher": "侯統源"
+        },
+        "2": {
+          "course": "國語文",
+          "teacher": "陳昱璋"
+        },
+        "3": {
+          "course": "英文聽力",
+          "teacher": "莊明倩何頤華"
+        },
+        "4": {
+          "course": "數學",
+          "teacher": "林哲宇"
+        },
+        "5": {
+          "course": "歷史",
+          "teacher": "張銘傑"
+        },
+        "6": {
+          "course": "物理",
+          "teacher": "黃蕾靜"
+        },
+        "7": {
+          "course": "英語文",
+          "teacher": "莊明倩"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "二": {
+        "1": {
+          "course": "體育",
+          "teacher": "許劭廷"
+        },
+        "2": {
+          "course": "數學",
+          "teacher": "林哲宇"
+        },
+        "3": {
+          "course": "英語文",
+          "teacher": "莊明倩"
+        },
+        "4": {
+          "course": "國語文",
+          "teacher": "陳昱璋"
+        },
+        "5": {
+          "course": "地理",
+          "teacher": "黃俊諺"
+        },
+        "6": {
+          "course": "生涯規劃",
+          "teacher": "廖姿穎"
+        },
+        "7": {
+          "course": "公民與社會",
+          "teacher": "李勵佳"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "三": {
+        "1": {
+          "course": "地球科學",
+          "teacher": "侯統源"
+        },
+        "2": {
+          "course": "英語文",
+          "teacher": "莊明倩"
+        },
+        "3": {
+          "course": "國語文",
+          "teacher": "陳昱璋"
+        },
+        "4": {
+          "course": "公民與社會",
+          "teacher": "李勵佳"
+        },
+        "5": {
+          "course": "數學",
+          "teacher": "林哲宇"
+        },
+        "6": {
+          "course": "導師時間",
+          "teacher": "陳昱璋"
+        },
+        "7": {
+          "course": "每週團體活動時間",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "四": {
+        "1": {
+          "course": "體育",
+          "teacher": "許劭廷"
+        },
+        "2": {
+          "course": "地理",
+          "teacher": "黃俊諺"
+        },
+        "3": {
+          "course": "花蓮學",
+          "teacher": "黃楨喻"
+        },
+        "4": {
+          "course": "花蓮學",
+          "teacher": "黃楨喻"
+        },
+        "5": {
+          "course": "音樂",
+          "teacher": "白欣蓉"
+        },
+        "6": {
+          "course": "音樂",
+          "teacher": "白欣蓉"
+        },
+        "7": {
+          "course": "各類文學選讀",
+          "teacher": "陳昱璋"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "五": {
+        "1": {
+          "course": "數學",
+          "teacher": "林哲宇"
+        },
+        "2": {
+          "course": "英語文",
+          "teacher": "莊明倩"
+        },
+        "3": {
+          "course": "歷史",
+          "teacher": "張銘傑"
+        },
+        "4": {
+          "course": "物理",
+          "teacher": "黃蕾靜"
+        },
+        "5": {
+          "course": "國語文",
+          "teacher": "陳昱璋"
+        },
+        "6": {
+          "course": "彈性學習1",
+          "teacher": "陳昱璋"
+        },
+        "7": {
+          "course": "彈性學習1",
+          "teacher": "陳昱璋"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      }
+    }
+  },
+  "104": {
+    "class": "104",
+    "homeroom": "徐清雲",
+    "advisor": "陳曉玲",
+    "timetable": {
+      "一": {
+        "1": {
+          "course": "數學",
+          "teacher": "林映全"
+        },
+        "2": {
+          "course": "英語文",
+          "teacher": "游若玲"
+        },
+        "3": {
+          "course": "英語文",
+          "teacher": "游若玲"
+        },
+        "4": {
+          "course": "國語文",
+          "teacher": "李依蓉"
+        },
+        "5": {
+          "course": "地理",
+          "teacher": "黃俊諺"
+        },
+        "6": {
+          "course": "歷史",
+          "teacher": "徐清雲"
+        },
+        "7": {
+          "course": "生涯規劃",
+          "teacher": "何昌澤"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "二": {
+        "1": {
+          "course": "公民與社會",
+          "teacher": "李勵佳"
+        },
+        "2": {
+          "course": "體育",
+          "teacher": "許劭廷"
+        },
+        "3": {
+          "course": "音樂",
+          "teacher": "白欣蓉"
+        },
+        "4": {
+          "course": "音樂",
+          "teacher": "白欣蓉"
+        },
+        "5": {
+          "course": "數學",
+          "teacher": "林映全"
+        },
+        "6": {
+          "course": "數學",
+          "teacher": "林映全"
+        },
+        "7": {
+          "course": "歷史",
+          "teacher": "徐清雲"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "三": {
+        "1": {
+          "course": "公民與社會",
+          "teacher": "李勵佳"
+        },
+        "2": {
+          "course": "地球科學",
+          "teacher": "侯統源"
+        },
+        "3": {
+          "course": "各類文學選讀",
+          "teacher": "李依蓉"
+        },
+        "4": {
+          "course": "國語文",
+          "teacher": "李依蓉"
+        },
+        "5": {
+          "course": "數學",
+          "teacher": "林映全"
+        },
+        "6": {
+          "course": "導師時間",
+          "teacher": "徐清雲"
+        },
+        "7": {
+          "course": "每週團體活動時間",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "四": {
+        "1": {
+          "course": "國語文",
+          "teacher": "李依蓉"
+        },
+        "2": {
+          "course": "體育",
+          "teacher": "許劭廷"
+        },
+        "3": {
+          "course": "花蓮學",
+          "teacher": "麥芃芃"
+        },
+        "4": {
+          "course": "花蓮學",
+          "teacher": "麥芃芃"
+        },
+        "5": {
+          "course": "英語文",
+          "teacher": "游若玲"
+        },
+        "6": {
+          "course": "英文聽力",
+          "teacher": "游若玲何頤華"
+        },
+        "7": {
+          "course": "物理",
+          "teacher": "黃蕾靜"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "五": {
+        "1": {
+          "course": "地球科學",
+          "teacher": "侯統源"
+        },
+        "2": {
+          "course": "物理",
+          "teacher": "黃蕾靜"
+        },
+        "3": {
+          "course": "國語文",
+          "teacher": "李依蓉"
+        },
+        "4": {
+          "course": "英語文",
+          "teacher": "游若玲"
+        },
+        "5": {
+          "course": "地理",
+          "teacher": "黃俊諺"
+        },
+        "6": {
+          "course": "彈性學習1",
+          "teacher": "徐清雲"
+        },
+        "7": {
+          "course": "彈性學習1",
+          "teacher": "徐清雲"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      }
+    }
+  },
+  "105": {
+    "class": "105",
+    "homeroom": "陳盈諭",
+    "advisor": "陳曉玲",
+    "timetable": {
+      "一": {
+        "1": {
+          "course": "體育",
+          "teacher": "呂彥瑩"
+        },
+        "2": {
+          "course": "國語文",
+          "teacher": "李依蓉"
+        },
+        "3": {
+          "course": "資訊科技",
+          "teacher": "趙義雄"
+        },
+        "4": {
+          "course": "資訊科技",
+          "teacher": "趙義雄"
+        },
+        "5": {
+          "course": "英語文",
+          "teacher": "徐尚如"
+        },
+        "6": {
+          "course": "公民與社會",
+          "teacher": "李勵佳"
+        },
+        "7": {
+          "course": "英語文",
+          "teacher": "徐尚如"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "二": {
+        "1": {
+          "course": "地理",
+          "teacher": "黃俊諺"
+        },
+        "2": {
+          "course": "生物",
+          "teacher": "吳曙序"
+        },
+        "3": {
+          "course": "國語文",
+          "teacher": "李依蓉"
+        },
+        "4": {
+          "course": "各類文學選讀",
+          "teacher": "李依蓉"
+        },
+        "5": {
+          "course": "數學",
+          "teacher": "陳盈諭"
+        },
+        "6": {
+          "course": "化學",
+          "teacher": "陳慧哲"
+        },
+        "7": {
+          "course": "生涯規劃",
+          "teacher": "何昌澤"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "三": {
+        "1": {
+          "course": "生物",
+          "teacher": "吳曙序"
+        },
+        "2": {
+          "course": "歷史",
+          "teacher": "張銘傑"
+        },
+        "3": {
+          "course": "數學",
+          "teacher": "陳盈諭"
+        },
+        "4": {
+          "course": "英文聽力",
+          "teacher": "徐尚如何頤華"
+        },
+        "5": {
+          "course": "體育",
+          "teacher": "呂彥瑩"
+        },
+        "6": {
+          "course": "導師時間",
+          "teacher": "陳盈諭"
+        },
+        "7": {
+          "course": "每週團體活動時間",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "四": {
+        "1": {
+          "course": "數學",
+          "teacher": "陳盈諭"
+        },
+        "2": {
+          "course": "歷史",
+          "teacher": "張銘傑"
+        },
+        "3": {
+          "course": "花蓮學",
+          "teacher": "陳有志"
+        },
+        "4": {
+          "course": "花蓮學",
+          "teacher": "陳有志"
+        },
+        "5": {
+          "course": "國語文",
+          "teacher": "李依蓉"
+        },
+        "6": {
+          "course": "英語文",
+          "teacher": "徐尚如"
+        },
+        "7": {
+          "course": "化學",
+          "teacher": "陳慧哲"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "五": {
+        "1": {
+          "course": "國語文",
+          "teacher": "李依蓉"
+        },
+        "2": {
+          "course": "公民與社會",
+          "teacher": "李勵佳"
+        },
+        "3": {
+          "course": "地理",
+          "teacher": "黃俊諺"
+        },
+        "4": {
+          "course": "數學",
+          "teacher": "陳盈諭"
+        },
+        "5": {
+          "course": "英語文",
+          "teacher": "徐尚如"
+        },
+        "6": {
+          "course": "彈性學習1",
+          "teacher": "陳盈諭"
+        },
+        "7": {
+          "course": "彈性學習1",
+          "teacher": "陳盈諭"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      }
+    }
+  },
+  "106": {
+    "class": "106",
+    "homeroom": "楊成勛",
+    "advisor": "楊成勛",
+    "timetable": {
+      "一": {
+        "1": {
+          "course": "資訊科技",
+          "teacher": "趙義雄"
+        },
+        "2": {
+          "course": "資訊科技",
+          "teacher": "趙義雄"
+        },
+        "3": {
+          "course": "國語文",
+          "teacher": "王清平"
+        },
+        "4": {
+          "course": "國語文",
+          "teacher": "王清平"
+        },
+        "5": {
+          "course": "英語文",
+          "teacher": "楊成勛"
+        },
+        "6": {
+          "course": "數學",
+          "teacher": "林映全"
+        },
+        "7": {
+          "course": "化學",
+          "teacher": "陳慧哲"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "二": {
+        "1": {
+          "course": "生物",
+          "teacher": "吳曙序"
+        },
+        "2": {
+          "course": "公民與社會",
+          "teacher": "李勵佳"
+        },
+        "3": {
+          "course": "英語文",
+          "teacher": "楊成勛"
+        },
+        "4": {
+          "course": "化學",
+          "teacher": "陳慧哲"
+        },
+        "5": {
+          "course": "各類文學選讀",
+          "teacher": "王清平"
+        },
+        "6": {
+          "course": "地理",
+          "teacher": "陳暐婷"
+        },
+        "7": {
+          "course": "數學",
+          "teacher": "林映全"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "三": {
+        "1": {
+          "course": "英語文",
+          "teacher": "楊成勛"
+        },
+        "2": {
+          "course": "體育",
+          "teacher": "郭文杰"
+        },
+        "3": {
+          "course": "本土語",
+          "teacher": "-"
+        },
+        "4": {
+          "course": "本土語",
+          "teacher": "-"
+        },
+        "5": {
+          "course": "生物",
+          "teacher": "吳曙序"
+        },
+        "6": {
+          "course": "導師時間",
+          "teacher": "楊成勛"
+        },
+        "7": {
+          "course": "每週團體活動時間",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "四": {
+        "1": {
+          "course": "數學",
+          "teacher": "林映全"
+        },
+        "2": {
+          "course": "生涯規劃",
+          "teacher": "何昌澤"
+        },
+        "3": {
+          "course": "花蓮學",
+          "teacher": "白欣蓉"
+        },
+        "4": {
+          "course": "花蓮學",
+          "teacher": "白欣蓉"
+        },
+        "5": {
+          "course": "英文聽力",
+          "teacher": "楊成勛何頤華"
+        },
+        "6": {
+          "course": "歷史",
+          "teacher": "葉集凱"
+        },
+        "7": {
+          "course": "國語文",
+          "teacher": "王清平"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "五": {
+        "1": {
+          "course": "地理",
+          "teacher": "陳暐婷"
+        },
+        "2": {
+          "course": "數學",
+          "teacher": "林映全"
+        },
+        "3": {
+          "course": "公民與社會",
+          "teacher": "李勵佳"
+        },
+        "4": {
+          "course": "歷史",
+          "teacher": "葉集凱"
+        },
+        "5": {
+          "course": "國語文",
+          "teacher": "王清平"
+        },
+        "6": {
+          "course": "英語文",
+          "teacher": "楊成勛"
+        },
+        "7": {
+          "course": "體育",
+          "teacher": "郭文杰"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      }
+    }
+  },
+  "107": {
+    "class": "107",
+    "homeroom": "李郁庭",
+    "advisor": "陳淑萍",
+    "timetable": {
+      "一": {
+        "1": {
+          "course": "數學",
+          "teacher": "李郁庭"
+        },
+        "2": {
+          "course": "地理",
+          "teacher": "陳暐婷"
+        },
+        "3": {
+          "course": "國語文",
+          "teacher": "李依蓉"
+        },
+        "4": {
+          "course": "體育",
+          "teacher": "郭文杰"
+        },
+        "5": {
+          "course": "歷史",
+          "teacher": "葉集凱"
+        },
+        "6": {
+          "course": "生涯規劃",
+          "teacher": "何昌澤"
+        },
+        "7": {
+          "course": "生物",
+          "teacher": "吳曙序"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "二": {
+        "1": {
+          "course": "歷史",
+          "teacher": "葉集凱"
+        },
+        "2": {
+          "course": "英文聽力",
+          "teacher": "李欣儒何頤華"
+        },
+        "3": {
+          "course": "英語文",
+          "teacher": "李欣儒"
+        },
+        "4": {
+          "course": "英語文",
+          "teacher": "李欣儒"
+        },
+        "5": {
+          "course": "化學",
+          "teacher": "陳慧哲"
+        },
+        "6": {
+          "course": "數學",
+          "teacher": "李郁庭"
+        },
+        "7": {
+          "course": "國語文",
+          "teacher": "李依蓉"
+        },
+        "8": {
+          "course": "數學輔",
+          "teacher": "李郁庭"
+        }
+      },
+      "三": {
+        "1": {
+          "course": "國語文",
+          "teacher": "李依蓉"
+        },
+        "2": {
+          "course": "數學",
+          "teacher": "李郁庭"
+        },
+        "3": {
+          "course": "本土語",
+          "teacher": "-"
+        },
+        "4": {
+          "course": "本土語",
+          "teacher": "-"
+        },
+        "5": {
+          "course": "化學",
+          "teacher": "陳慧哲"
+        },
+        "6": {
+          "course": "導師時間",
+          "teacher": "李郁庭"
+        },
+        "7": {
+          "course": "每週團體活動時間",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "四": {
+        "1": {
+          "course": "公民與社會",
+          "teacher": "李勵佳"
+        },
+        "2": {
+          "course": "數學",
+          "teacher": "李郁庭"
+        },
+        "3": {
+          "course": "花蓮學",
+          "teacher": "楊媛婷"
+        },
+        "4": {
+          "course": "花蓮學",
+          "teacher": "楊媛婷"
+        },
+        "5": {
+          "course": "資訊科技",
+          "teacher": "趙義雄"
+        },
+        "6": {
+          "course": "資訊科技",
+          "teacher": "趙義雄"
+        },
+        "7": {
+          "course": "國語文",
+          "teacher": "李依蓉"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "五": {
+        "1": {
+          "course": "生物",
+          "teacher": "吳曙序"
+        },
+        "2": {
+          "course": "英語文",
+          "teacher": "李欣儒"
+        },
+        "3": {
+          "course": "英語文",
+          "teacher": "李欣儒"
+        },
+        "4": {
+          "course": "各類文學選讀",
+          "teacher": "李依蓉"
+        },
+        "5": {
+          "course": "公民與社會",
+          "teacher": "李勵佳"
+        },
+        "6": {
+          "course": "體育",
+          "teacher": "郭文杰"
+        },
+        "7": {
+          "course": "地理",
+          "teacher": "陳暐婷"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      }
+    }
+  },
+  "108": {
+    "class": "108",
+    "homeroom": "游若玲",
+    "advisor": "陳淑萍",
+    "timetable": {
+      "一": {
+        "1": {
+          "course": "數學",
+          "teacher": "林哲宇"
+        },
+        "2": {
+          "course": "體育",
+          "teacher": "郭文杰"
+        },
+        "3": {
+          "course": "國語文",
+          "teacher": "陳昱璋"
+        },
+        "4": {
+          "course": "國語文",
+          "teacher": "陳昱璋"
+        },
+        "5": {
+          "course": "生物",
+          "teacher": "吳曙序"
+        },
+        "6": {
+          "course": "英語文",
+          "teacher": "游若玲"
+        },
+        "7": {
+          "course": "英語文",
+          "teacher": "游若玲"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "二": {
+        "1": {
+          "course": "化學",
+          "teacher": "陳慧哲"
+        },
+        "2": {
+          "course": "歷史",
+          "teacher": "葉集凱"
+        },
+        "3": {
+          "course": "數學",
+          "teacher": "林哲宇"
+        },
+        "4": {
+          "course": "地理",
+          "teacher": "陳暐婷"
+        },
+        "5": {
+          "course": "資訊科技",
+          "teacher": "趙義雄"
+        },
+        "6": {
+          "course": "資訊科技",
+          "teacher": "趙義雄"
+        },
+        "7": {
+          "course": "國語文",
+          "teacher": "陳昱璋"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "三": {
+        "1": {
+          "course": "英語文",
+          "teacher": "游若玲"
+        },
+        "2": {
+          "course": "生物",
+          "teacher": "吳曙序"
+        },
+        "3": {
+          "course": "本土語",
+          "teacher": "-"
+        },
+        "4": {
+          "course": "本土語",
+          "teacher": "-"
+        },
+        "5": {
+          "course": "國語文",
+          "teacher": "陳昱璋"
+        },
+        "6": {
+          "course": "導師時間",
+          "teacher": "游若玲"
+        },
+        "7": {
+          "course": "每週團體活動時間",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "四": {
+        "1": {
+          "course": "數學",
+          "teacher": "林哲宇"
+        },
+        "2": {
+          "course": "公民與社會",
+          "teacher": "李勵佳"
+        },
+        "3": {
+          "course": "花蓮學",
+          "teacher": "王文宏"
+        },
+        "4": {
+          "course": "花蓮學",
+          "teacher": "王文宏"
+        },
+        "5": {
+          "course": "化學",
+          "teacher": "陳慧哲"
+        },
+        "6": {
+          "course": "各類文學選讀",
+          "teacher": "陳昱璋"
+        },
+        "7": {
+          "course": "英文聽力",
+          "teacher": "游若玲何頤華"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "五": {
+        "1": {
+          "course": "體育",
+          "teacher": "郭文杰"
+        },
+        "2": {
+          "course": "數學",
+          "teacher": "林哲宇"
+        },
+        "3": {
+          "course": "英語文",
+          "teacher": "游若玲"
+        },
+        "4": {
+          "course": "公民與社會",
+          "teacher": "李勵佳"
+        },
+        "5": {
+          "course": "歷史",
+          "teacher": "葉集凱"
+        },
+        "6": {
+          "course": "地理",
+          "teacher": "陳暐婷"
+        },
+        "7": {
+          "course": "生涯規劃",
+          "teacher": "何昌澤"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      }
+    }
+  },
+  "109": {
+    "class": "109",
+    "homeroom": "陳淑萍",
+    "advisor": "陳淑萍",
+    "timetable": {
+      "一": {
+        "1": {
+          "course": "英語文",
+          "teacher": "涂琇慧"
+        },
+        "2": {
+          "course": "國語文",
+          "teacher": "陳淑萍"
+        },
+        "3": {
+          "course": "生物",
+          "teacher": "吳曙序"
+        },
+        "4": {
+          "course": "數學",
+          "teacher": "李典匡"
+        },
+        "5": {
+          "course": "英文聽力",
+          "teacher": "涂琇慧何頤華"
+        },
+        "6": {
+          "course": "化學",
+          "teacher": "陳慧哲"
+        },
+        "7": {
+          "course": "生涯規劃",
+          "teacher": "李卓穎"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "二": {
+        "1": {
+          "course": "體育",
+          "teacher": "郭文杰"
+        },
+        "2": {
+          "course": "地理",
+          "teacher": "陳暐婷"
+        },
+        "3": {
+          "course": "英語文",
+          "teacher": "涂琇慧"
+        },
+        "4": {
+          "course": "國語文",
+          "teacher": "陳淑萍"
+        },
+        "5": {
+          "course": "公民與社會",
+          "teacher": "李勵佳"
+        },
+        "6": {
+          "course": "數學",
+          "teacher": "李典匡"
+        },
+        "7": {
+          "course": "歷史",
+          "teacher": "葉集凱"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "三": {
+        "1": {
+          "course": "數學",
+          "teacher": "李典匡"
+        },
+        "2": {
+          "course": "英語文",
+          "teacher": "涂琇慧"
+        },
+        "3": {
+          "course": "本土語",
+          "teacher": "-"
+        },
+        "4": {
+          "course": "本土語",
+          "teacher": "-"
+        },
+        "5": {
+          "course": "地理",
+          "teacher": "陳暐婷"
+        },
+        "6": {
+          "course": "導師時間",
+          "teacher": "陳淑萍"
+        },
+        "7": {
+          "course": "每週團體活動時間",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "四": {
+        "1": {
+          "course": "歷史",
+          "teacher": "葉集凱"
+        },
+        "2": {
+          "course": "體育",
+          "teacher": "郭文杰"
+        },
+        "3": {
+          "course": "花蓮學",
+          "teacher": "葉集凱"
+        },
+        "4": {
+          "course": "花蓮學",
+          "teacher": "葉集凱"
+        },
+        "5": {
+          "course": "各類文學選讀",
+          "teacher": "陳淑萍"
+        },
+        "6": {
+          "course": "公民與社會",
+          "teacher": "李勵佳"
+        },
+        "7": {
+          "course": "英語文",
+          "teacher": "涂琇慧"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "五": {
+        "1": {
+          "course": "資訊科技",
+          "teacher": "趙義雄"
+        },
+        "2": {
+          "course": "資訊科技",
+          "teacher": "趙義雄"
+        },
+        "3": {
+          "course": "數學",
+          "teacher": "李典匡"
+        },
+        "4": {
+          "course": "化學",
+          "teacher": "陳慧哲"
+        },
+        "5": {
+          "course": "生物",
+          "teacher": "吳曙序"
+        },
+        "6": {
+          "course": "國語文",
+          "teacher": "陳淑萍"
+        },
+        "7": {
+          "course": "國語文",
+          "teacher": "陳淑萍"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      }
+    }
+  },
+  "110": {
+    "class": "110",
+    "homeroom": "徐尚如",
+    "advisor": "翁文婷",
+    "timetable": {
+      "一": {
+        "1": {
+          "course": "英語文",
+          "teacher": "徐尚如"
+        },
+        "2": {
+          "course": "數學",
+          "teacher": "李郁庭"
+        },
+        "3": {
+          "course": "音樂欣賞",
+          "teacher": "李韋翰"
+        },
+        "4": {
+          "course": "國語文",
+          "teacher": "林慧菁"
+        },
+        "5": {
+          "course": "副修",
+          "teacher": "-"
+        },
+        "6": {
+          "course": "主修",
+          "teacher": "-"
+        },
+        "7": {
+          "course": "體育",
+          "teacher": "呂彥瑩"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "二": {
+        "1": {
+          "course": "物理",
+          "teacher": "黃蕾靜"
+        },
+        "2": {
+          "course": "國語文",
+          "teacher": "林慧菁"
+        },
+        "3": {
+          "course": "數學",
+          "teacher": "李郁庭"
+        },
+        "4": {
+          "course": "英文閱讀與寫作",
+          "teacher": "徐尚如"
+        },
+        "5": {
+          "course": "和聲",
+          "teacher": "劉靜江"
+        },
+        "6": {
+          "course": "音樂基礎訓練",
+          "teacher": "翁文婷"
+        },
+        "7": {
+          "course": "音樂基礎訓練",
+          "teacher": "翁文婷"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "三": {
+        "1": {
+          "course": "英語文",
+          "teacher": "徐尚如"
+        },
+        "2": {
+          "course": "民主政治與法律",
+          "teacher": "李勵佳"
+        },
+        "3": {
+          "course": "英文聽力",
+          "teacher": "徐尚如何頤華"
+        },
+        "4": {
+          "course": "數學",
+          "teacher": "李郁庭"
+        },
+        "5": {
+          "course": "各類文學選讀",
+          "teacher": "林慧菁"
+        },
+        "6": {
+          "course": "導師時間",
+          "teacher": "徐尚如"
+        },
+        "7": {
+          "course": "每週團體活動時間",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "四": {
+        "1": {
+          "course": "數學",
+          "teacher": "李郁庭"
+        },
+        "2": {
+          "course": "室內樂",
+          "teacher": "林靜玟"
+        },
+        "3": {
+          "course": "國語文",
+          "teacher": "林慧菁"
+        },
+        "4": {
+          "course": "科技、環境與藝術的歷",
+          "teacher": "張銘傑"
+        },
+        "5": {
+          "course": "樂理",
+          "teacher": "翁文婷"
+        },
+        "6": {
+          "course": "體育",
+          "teacher": "呂彥瑩"
+        },
+        "7": {
+          "course": "英語文",
+          "teacher": "徐尚如"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "五": {
+        "1": {
+          "course": "英語文",
+          "teacher": "徐尚如"
+        },
+        "2": {
+          "course": "科技、環境與藝術的歷",
+          "teacher": "張銘傑"
+        },
+        "3": {
+          "course": "物理",
+          "teacher": "黃蕾靜"
+        },
+        "4": {
+          "course": "爵士樂初探與實作(二",
+          "teacher": "江忻薇"
+        },
+        "5": {
+          "course": "國語文",
+          "teacher": "林慧菁"
+        },
+        "6": {
+          "course": "彈性學習1",
+          "teacher": "徐尚如"
+        },
+        "7": {
+          "course": "彈性學習1",
+          "teacher": "徐尚如"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      }
+    }
+  },
+  "111": {
+    "class": "111",
+    "homeroom": "林慧菁",
+    "advisor": "孟昭安",
+    "timetable": {
+      "一": {
+        "1": {
+          "course": "英語文",
+          "teacher": "黃燕靜"
+        },
+        "2": {
+          "course": "數學",
+          "teacher": "陳盈諭"
+        },
+        "3": {
+          "course": "國語文",
+          "teacher": "林慧菁"
+        },
+        "4": {
+          "course": "英文聽力",
+          "teacher": "黃燕靜何頤華"
+        },
+        "5": {
+          "course": "獨立研究陳盈諭林于人",
+          "teacher": "侯統源趙義雄"
+        },
+        "6": {
+          "course": "獨立研究陳盈諭林于人",
+          "teacher": "侯統源趙義雄"
+        },
+        "7": {
+          "course": "獨立研究陳盈諭林于人",
+          "teacher": "侯統源趙義雄"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "二": {
+        "1": {
+          "course": "國語文",
+          "teacher": "林慧菁"
+        },
+        "2": {
+          "course": "應用數學",
+          "teacher": "陳盈諭"
+        },
+        "3": {
+          "course": "地理",
+          "teacher": "陳暐婷"
+        },
+        "4": {
+          "course": "體育",
+          "teacher": "郭文杰"
+        },
+        "5": {
+          "course": "化學",
+          "teacher": "林于人"
+        },
+        "6": {
+          "course": "化學-探究B",
+          "teacher": "張端雅"
+        },
+        "7": {
+          "course": "應用數學",
+          "teacher": "陳盈諭"
+        },
+        "8": {
+          "course": "化學輔",
+          "teacher": "林于人"
+        }
+      },
+      "三": {
+        "1": {
+          "course": "資訊科技",
+          "teacher": "趙義雄"
+        },
+        "2": {
+          "course": "資訊科技",
+          "teacher": "趙義雄"
+        },
+        "3": {
+          "course": "本土語",
+          "teacher": "-"
+        },
+        "4": {
+          "course": "本土語",
+          "teacher": "-"
+        },
+        "5": {
+          "course": "物理",
+          "teacher": "胡育豪"
+        },
+        "6": {
+          "course": "導師時間",
+          "teacher": "林慧菁"
+        },
+        "7": {
+          "course": "每週團體活動時間",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "物理輔",
+          "teacher": "胡育豪"
+        }
+      },
+      "四": {
+        "1": {
+          "course": "英語文",
+          "teacher": "黃燕靜"
+        },
+        "2": {
+          "course": "英語文",
+          "teacher": "黃燕靜"
+        },
+        "3": {
+          "course": "數學",
+          "teacher": "陳盈諭"
+        },
+        "4": {
+          "course": "數學",
+          "teacher": "陳盈諭"
+        },
+        "5": {
+          "course": "體育",
+          "teacher": "郭文杰"
+        },
+        "6": {
+          "course": "生命教育",
+          "teacher": "李卓穎"
+        },
+        "7": {
+          "course": "國學常識",
+          "teacher": "林慧菁"
+        },
+        "8": {
+          "course": "英文輔(1)黃燕靜國文輔(2)林慧菁",
+          "teacher": "-"
+        }
+      },
+      "五": {
+        "1": {
+          "course": "化學-探究B",
+          "teacher": "林于人"
+        },
+        "2": {
+          "course": "英語文",
+          "teacher": "黃燕靜"
+        },
+        "3": {
+          "course": "數學",
+          "teacher": "陳盈諭"
+        },
+        "4": {
+          "course": "地理",
+          "teacher": "陳暐婷"
+        },
+        "5": {
+          "course": "胞與遺傳",
+          "teacher": "張端雅"
+        },
+        "6": {
+          "course": "國語文",
+          "teacher": "林慧菁"
+        },
+        "7": {
+          "course": "國語文",
+          "teacher": "林慧菁"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      }
+    }
+  },
+  "112": {
+    "class": "112",
+    "homeroom": "郭文杰",
+    "advisor": "翁文婷",
+    "timetable": {
+      "一": {
+        "1": {
+          "course": "物理",
+          "teacher": "陳耿維"
+        },
+        "2": {
+          "course": "地球科學",
+          "teacher": "侯統源"
+        },
+        "3": {
+          "course": "數學",
+          "teacher": "李振宇"
+        },
+        "4": {
+          "course": "國語文",
+          "teacher": "陳俊坊"
+        },
+        "5": {
+          "course": "專項體能訓練",
+          "teacher": "黃陞中梁汝農"
+        },
+        "6": {
+          "course": "專項體能訓練",
+          "teacher": "黃陞中梁汝農"
+        },
+        "7": {
+          "course": "專項體能訓練",
+          "teacher": "黃陞中梁汝農"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "二": {
+        "1": {
+          "course": "地球科學",
+          "teacher": "侯統源"
+        },
+        "2": {
+          "course": "英語文",
+          "teacher": "徐尚如"
+        },
+        "3": {
+          "course": "歷史",
+          "teacher": "葉集凱"
+        },
+        "4": {
+          "course": "數學",
+          "teacher": "李振宇"
+        },
+        "5": {
+          "course": "音樂",
+          "teacher": "白欣蓉"
+        },
+        "6": {
+          "course": "專項技術訓練",
+          "teacher": "黃陞中梁汝農"
+        },
+        "7": {
+          "course": "專項技術訓練",
+          "teacher": "黃陞中梁汝農"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "三": {
+        "1": {
+          "course": "國語文",
+          "teacher": "陳俊坊"
+        },
+        "2": {
+          "course": "數學",
+          "teacher": "李振宇"
+        },
+        "3": {
+          "course": "本土語",
+          "teacher": "-"
+        },
+        "4": {
+          "course": "本土語",
+          "teacher": "-"
+        },
+        "5": {
+          "course": "英語文",
+          "teacher": "徐尚如"
+        },
+        "6": {
+          "course": "導師時間",
+          "teacher": "郭文杰"
+        },
+        "7": {
+          "course": "每週團體活動時間",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "四": {
+        "1": {
+          "course": "國語文",
+          "teacher": "陳俊坊"
+        },
+        "2": {
+          "course": "國語文",
+          "teacher": "陳俊坊"
+        },
+        "3": {
+          "course": "地理",
+          "teacher": "黃俊諺"
+        },
+        "4": {
+          "course": "英語文",
+          "teacher": "徐尚如"
+        },
+        "5": {
+          "course": "歷史",
+          "teacher": "葉集凱"
+        },
+        "6": {
+          "course": "專項技術訓練",
+          "teacher": "黃陞中梁汝農"
+        },
+        "7": {
+          "course": "專項技術訓練",
+          "teacher": "黃陞中梁汝農"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "五": {
+        "1": {
+          "course": "數學",
+          "teacher": "李振宇"
+        },
+        "2": {
+          "course": "英語文",
+          "teacher": "徐尚如"
+        },
+        "3": {
+          "course": "公民與社會",
+          "teacher": "李運生"
+        },
+        "4": {
+          "course": "物理",
+          "teacher": "陳耿維"
+        },
+        "5": {
+          "course": "專項戰術訓練",
+          "teacher": "黃陞中梁汝農"
+        },
+        "6": {
+          "course": "專項體能訓練",
+          "teacher": "黃陞中梁汝農"
+        },
+        "7": {
+          "course": "每週彈性學習時間",
+          "teacher": "黃陞中梁汝農"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      }
+    }
+  },
+  "201": {
+    "class": "201",
+    "homeroom": "江錦玨",
+    "advisor": "葉紫玲",
+    "timetable": {
+      "一": {
+        "1": {
+          "course": "選修數學",
+          "teacher": "-"
+        },
+        "2": {
+          "course": "選修數學",
+          "teacher": "-"
+        },
+        "3": {
+          "course": "跨領域語表寫作",
+          "teacher": "江錦玨"
+        },
+        "4": {
+          "course": "英文聽力",
+          "teacher": "涂琇慧墨漢"
+        },
+        "5": {
+          "course": "公民與社會",
+          "teacher": "孫錫忠"
+        },
+        "6": {
+          "course": "藝術生活",
+          "teacher": "李冠儀"
+        },
+        "7": {
+          "course": "藝術生活",
+          "teacher": "李冠儀"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "二": {
+        "1": {
+          "course": "探究與實作：歷史學探",
+          "teacher": "葉紫玲"
+        },
+        "2": {
+          "course": "探究與實作：歷史學探",
+          "teacher": "葉紫玲"
+        },
+        "3": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "4": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "5": {
+          "course": "國語文",
+          "teacher": "江錦玨"
+        },
+        "6": {
+          "course": "體育",
+          "teacher": "黃科贏"
+        },
+        "7": {
+          "course": "地理",
+          "teacher": "江其叡"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "三": {
+        "1": {
+          "course": "化學-探究B",
+          "teacher": "黃蕾靜陳慧哲"
+        },
+        "2": {
+          "course": "化學-探究B",
+          "teacher": "黃蕾靜陳慧哲"
+        },
+        "3": {
+          "course": "美術",
+          "teacher": "王文宏"
+        },
+        "4": {
+          "course": "美術",
+          "teacher": "王文宏"
+        },
+        "5": {
+          "course": "英語文",
+          "teacher": "涂琇慧"
+        },
+        "6": {
+          "course": "導師時間",
+          "teacher": "江錦玨"
+        },
+        "7": {
+          "course": "每週團體活動時間",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "四": {
+        "1": {
+          "course": "國語文",
+          "teacher": "江錦玨"
+        },
+        "2": {
+          "course": "國語文",
+          "teacher": "江錦玨"
+        },
+        "3": {
+          "course": "選修數學",
+          "teacher": "-"
+        },
+        "4": {
+          "course": "選修數學",
+          "teacher": "-"
+        },
+        "5": {
+          "course": "英語文",
+          "teacher": "涂琇慧"
+        },
+        "6": {
+          "course": "全民國防教育",
+          "teacher": "林奕昇"
+        },
+        "7": {
+          "course": "地理",
+          "teacher": "江其叡"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "五": {
+        "1": {
+          "course": "體育",
+          "teacher": "黃科贏"
+        },
+        "2": {
+          "course": "英語文",
+          "teacher": "涂琇慧"
+        },
+        "3": {
+          "course": "英語文",
+          "teacher": "涂琇慧"
+        },
+        "4": {
+          "course": "國語文",
+          "teacher": "江錦玨"
+        },
+        "5": {
+          "course": "公民與社會",
+          "teacher": "孫錫忠"
+        },
+        "6": {
+          "course": "彈性學習1",
+          "teacher": "江錦玨"
+        },
+        "7": {
+          "course": "彈性學習1",
+          "teacher": "江錦玨"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      }
+    }
+  },
+  "202": {
+    "class": "202",
+    "homeroom": "葉紫玲",
+    "advisor": "葉紫玲",
+    "timetable": {
+      "一": {
+        "1": {
+          "course": "英語文",
+          "teacher": "何靜萍"
+        },
+        "2": {
+          "course": "國語文",
+          "teacher": "陳有志"
+        },
+        "3": {
+          "course": "美術",
+          "teacher": "王文宏"
+        },
+        "4": {
+          "course": "美術",
+          "teacher": "王文宏"
+        },
+        "5": {
+          "course": "體育",
+          "teacher": "黃科贏"
+        },
+        "6": {
+          "course": "英語文",
+          "teacher": "何靜萍"
+        },
+        "7": {
+          "course": "地理",
+          "teacher": "江其叡"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "二": {
+        "1": {
+          "course": "選修數學",
+          "teacher": "-"
+        },
+        "2": {
+          "course": "選修數學",
+          "teacher": "-"
+        },
+        "3": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "4": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "5": {
+          "course": "地理",
+          "teacher": "江其叡"
+        },
+        "6": {
+          "course": "國語文",
+          "teacher": "陳有志"
+        },
+        "7": {
+          "course": "全民國防教育",
+          "teacher": "林奕昇"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "三": {
+        "1": {
+          "course": "英語文",
+          "teacher": "何靜萍"
+        },
+        "2": {
+          "course": "英文聽力",
+          "teacher": "何靜萍墨漢"
+        },
+        "3": {
+          "course": "化學-探究B",
+          "teacher": "黃蕾靜曾文宣"
+        },
+        "4": {
+          "course": "化學-探究B",
+          "teacher": "黃蕾靜曾文宣"
+        },
+        "5": {
+          "course": "公民與社會",
+          "teacher": "孫錫忠"
+        },
+        "6": {
+          "course": "導師時間",
+          "teacher": "葉紫玲"
+        },
+        "7": {
+          "course": "每週團體活動時間",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "四": {
+        "1": {
+          "course": "藝術生活",
+          "teacher": "李冠儀"
+        },
+        "2": {
+          "course": "藝術生活",
+          "teacher": "李冠儀"
+        },
+        "3": {
+          "course": "探究與實作：歷史學探",
+          "teacher": "葉紫玲"
+        },
+        "4": {
+          "course": "探究與實作：歷史學探",
+          "teacher": "葉紫玲"
+        },
+        "5": {
+          "course": "跨領域語表寫作",
+          "teacher": "陳有志"
+        },
+        "6": {
+          "course": "公民與社會",
+          "teacher": "孫錫忠"
+        },
+        "7": {
+          "course": "體育",
+          "teacher": "黃科贏"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "五": {
+        "1": {
+          "course": "國語文",
+          "teacher": "陳有志"
+        },
+        "2": {
+          "course": "國語文",
+          "teacher": "陳有志"
+        },
+        "3": {
+          "course": "選修數學",
+          "teacher": "-"
+        },
+        "4": {
+          "course": "選修數學",
+          "teacher": "-"
+        },
+        "5": {
+          "course": "英語文",
+          "teacher": "何靜萍"
+        },
+        "6": {
+          "course": "彈性學習1",
+          "teacher": "葉紫玲"
+        },
+        "7": {
+          "course": "彈性學習1",
+          "teacher": "葉紫玲"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      }
+    }
+  },
+  "203": {
+    "class": "203",
+    "homeroom": "李易儒",
+    "advisor": "莊明倩",
+    "timetable": {
+      "一": {
+        "1": {
+          "course": "物理-探究A",
+          "teacher": "孟昭安曾文宣"
+        },
+        "2": {
+          "course": "物理-探究A",
+          "teacher": "孟昭安曾文宣"
+        },
+        "3": {
+          "course": "英文聽力",
+          "teacher": "洪佳琳墨漢"
+        },
+        "4": {
+          "course": "全民國防教育",
+          "teacher": "林奕昇"
+        },
+        "5": {
+          "course": "英語文",
+          "teacher": "洪佳琳"
+        },
+        "6": {
+          "course": "探究與實作：公共議題",
+          "teacher": "孫錫忠"
+        },
+        "7": {
+          "course": "探究與實作：公共議題",
+          "teacher": "孫錫忠"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "二": {
+        "1": {
+          "course": "選修數學",
+          "teacher": "-"
+        },
+        "2": {
+          "course": "選修數學",
+          "teacher": "-"
+        },
+        "3": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "4": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "5": {
+          "course": "體育",
+          "teacher": "楊宗樺"
+        },
+        "6": {
+          "course": "跨領域語表寫作",
+          "teacher": "林翠華"
+        },
+        "7": {
+          "course": "國語文",
+          "teacher": "林翠華"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "三": {
+        "1": {
+          "course": "生活科技",
+          "teacher": "楊媛婷"
+        },
+        "2": {
+          "course": "生活科技",
+          "teacher": "楊媛婷"
+        },
+        "3": {
+          "course": "歷史",
+          "teacher": "葉集凱"
+        },
+        "4": {
+          "course": "英語文",
+          "teacher": "洪佳琳"
+        },
+        "5": {
+          "course": "英語文",
+          "teacher": "洪佳琳"
+        },
+        "6": {
+          "course": "導師時間",
+          "teacher": "李易儒"
+        },
+        "7": {
+          "course": "每週團體活動時間",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "四": {
+        "1": {
+          "course": "國語文",
+          "teacher": "林翠華"
+        },
+        "2": {
+          "course": "英語文",
+          "teacher": "洪佳琳"
+        },
+        "3": {
+          "course": "探究與實作：地理與人",
+          "teacher": "陳暐婷"
+        },
+        "4": {
+          "course": "探究與實作：地理與人",
+          "teacher": "陳暐婷"
+        },
+        "5": {
+          "course": "國語文",
+          "teacher": "林翠華"
+        },
+        "6": {
+          "course": "體育",
+          "teacher": "楊宗樺"
+        },
+        "7": {
+          "course": "歷史",
+          "teacher": "葉集凱"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "五": {
+        "1": {
+          "course": "家政",
+          "teacher": "林佩琪"
+        },
+        "2": {
+          "course": "家政",
+          "teacher": "林佩琪"
+        },
+        "3": {
+          "course": "選修數學",
+          "teacher": "-"
+        },
+        "4": {
+          "course": "選修數學",
+          "teacher": "-"
+        },
+        "5": {
+          "course": "國語文",
+          "teacher": "林翠華"
+        },
+        "6": {
+          "course": "彈性學習1",
+          "teacher": "李易儒"
+        },
+        "7": {
+          "course": "彈性學習1",
+          "teacher": "李易儒"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      }
+    }
+  },
+  "204": {
+    "class": "204",
+    "homeroom": "孫錫忠",
+    "advisor": "莊明倩",
+    "timetable": {
+      "一": {
+        "1": {
+          "course": "選修數學",
+          "teacher": "-"
+        },
+        "2": {
+          "course": "選修數學",
+          "teacher": "-"
+        },
+        "3": {
+          "course": "物理-探究A",
+          "teacher": "孟昭安曾文宣"
+        },
+        "4": {
+          "course": "物理-探究A",
+          "teacher": "孟昭安曾文宣"
+        },
+        "5": {
+          "course": "英語文",
+          "teacher": "莊明倩"
+        },
+        "6": {
+          "course": "體育",
+          "teacher": "楊宗樺"
+        },
+        "7": {
+          "course": "國語文",
+          "teacher": "張函雯"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "二": {
+        "1": {
+          "course": "探究與實作：公共議題",
+          "teacher": "孫錫忠"
+        },
+        "2": {
+          "course": "探究與實作：公共議題",
+          "teacher": "孫錫忠"
+        },
+        "3": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "4": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "5": {
+          "course": "國語文",
+          "teacher": "張函雯"
+        },
+        "6": {
+          "course": "國語文",
+          "teacher": "張函雯"
+        },
+        "7": {
+          "course": "英語文",
+          "teacher": "莊明倩"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "三": {
+        "1": {
+          "course": "家政",
+          "teacher": "林佩琪"
+        },
+        "2": {
+          "course": "家政",
+          "teacher": "林佩琪"
+        },
+        "3": {
+          "course": "英文聽力",
+          "teacher": "莊明倩墨漢"
+        },
+        "4": {
+          "course": "歷史",
+          "teacher": "葉集凱"
+        },
+        "5": {
+          "course": "全民國防教育",
+          "teacher": "林奕昇"
+        },
+        "6": {
+          "course": "導師時間",
+          "teacher": "孫錫忠"
+        },
+        "7": {
+          "course": "每週團體活動時間",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "四": {
+        "1": {
+          "course": "跨領域語表寫作",
+          "teacher": "張函雯"
+        },
+        "2": {
+          "course": "英語文",
+          "teacher": "莊明倩"
+        },
+        "3": {
+          "course": "選修數學",
+          "teacher": "-"
+        },
+        "4": {
+          "course": "選修數學",
+          "teacher": "-"
+        },
+        "5": {
+          "course": "探究與實作：地理與人",
+          "teacher": "陳暐婷"
+        },
+        "6": {
+          "course": "探究與實作：地理與人",
+          "teacher": "陳暐婷"
+        },
+        "7": {
+          "course": "體育",
+          "teacher": "楊宗樺"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "五": {
+        "1": {
+          "course": "生活科技",
+          "teacher": "楊媛婷"
+        },
+        "2": {
+          "course": "生活科技",
+          "teacher": "楊媛婷"
+        },
+        "3": {
+          "course": "歷史",
+          "teacher": "葉集凱"
+        },
+        "4": {
+          "course": "國語文",
+          "teacher": "張函雯"
+        },
+        "5": {
+          "course": "英語文",
+          "teacher": "莊明倩"
+        },
+        "6": {
+          "course": "彈性學習1",
+          "teacher": "孫錫忠"
+        },
+        "7": {
+          "course": "彈性學習1",
+          "teacher": "孫錫忠"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      }
+    }
+  },
+  "205": {
+    "class": "205",
+    "homeroom": "林翠華",
+    "advisor": "莊明倩",
+    "timetable": {
+      "一": {
+        "1": {
+          "course": "化學-探究B",
+          "teacher": "黃蕾靜陳慧哲"
+        },
+        "2": {
+          "course": "化學-探究B",
+          "teacher": "黃蕾靜陳慧哲"
+        },
+        "3": {
+          "course": "學二與熱",
+          "teacher": "胡育豪"
+        },
+        "4": {
+          "course": "質構造與",
+          "teacher": "李俊賢"
+        },
+        "5": {
+          "course": "數學A",
+          "teacher": "李郁庭"
+        },
+        "6": {
+          "course": "英語文",
+          "teacher": "莊明倩"
+        },
+        "7": {
+          "course": "全民國防教育",
+          "teacher": "林奕昇"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "二": {
+        "1": {
+          "course": "跨領域語表寫作",
+          "teacher": "林翠華"
+        },
+        "2": {
+          "course": "地理",
+          "teacher": "黃俊諺"
+        },
+        "3": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "4": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "5": {
+          "course": "數學A",
+          "teacher": "李郁庭"
+        },
+        "6": {
+          "course": "體育",
+          "teacher": "楊宗樺"
+        },
+        "7": {
+          "course": "選修物理-力學二與熱",
+          "teacher": "胡育豪"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "三": {
+        "1": {
+          "course": "數學A",
+          "teacher": "李郁庭"
+        },
+        "2": {
+          "course": "公民與社會",
+          "teacher": "孫錫忠"
+        },
+        "3": {
+          "course": "國語文",
+          "teacher": "林翠華"
+        },
+        "4": {
+          "course": "英文聽力",
+          "teacher": "莊明倩墨漢"
+        },
+        "5": {
+          "course": "地理",
+          "teacher": "黃俊諺"
+        },
+        "6": {
+          "course": "導師時間",
+          "teacher": "林翠華"
+        },
+        "7": {
+          "course": "每週團體活動時間",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "四": {
+        "1": {
+          "course": "美術",
+          "teacher": "王文宏"
+        },
+        "2": {
+          "course": "美術",
+          "teacher": "王文宏"
+        },
+        "3": {
+          "course": "英語文",
+          "teacher": "莊明倩"
+        },
+        "4": {
+          "course": "公民與社會",
+          "teacher": "孫錫忠"
+        },
+        "5": {
+          "course": "英語文",
+          "teacher": "莊明倩"
+        },
+        "6": {
+          "course": "質構造與",
+          "teacher": "李俊賢"
+        },
+        "7": {
+          "course": "國語文",
+          "teacher": "林翠華"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "五": {
+        "1": {
+          "course": "國語文",
+          "teacher": "林翠華"
+        },
+        "2": {
+          "course": "國語文",
+          "teacher": "林翠華"
+        },
+        "3": {
+          "course": "英語文",
+          "teacher": "莊明倩"
+        },
+        "4": {
+          "course": "數學A",
+          "teacher": "李郁庭"
+        },
+        "5": {
+          "course": "體育",
+          "teacher": "楊宗樺"
+        },
+        "6": {
+          "course": "彈性學習1",
+          "teacher": "林翠華"
+        },
+        "7": {
+          "course": "彈性學習1",
+          "teacher": "林翠華"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      }
+    }
+  },
+  "206": {
+    "class": "206",
+    "homeroom": "胡育豪",
+    "advisor": "楊媛婷",
+    "timetable": {
+      "一": {
+        "1": {
+          "course": "公民與社會",
+          "teacher": "孫錫忠"
+        },
+        "2": {
+          "course": "質構造與",
+          "teacher": "李俊賢"
+        },
+        "3": {
+          "course": "化學-探究B",
+          "teacher": "黃蕾靜陳慧哲"
+        },
+        "4": {
+          "course": "化學-探究B",
+          "teacher": "黃蕾靜陳慧哲"
+        },
+        "5": {
+          "course": "美術",
+          "teacher": "王文宏"
+        },
+        "6": {
+          "course": "美術",
+          "teacher": "王文宏"
+        },
+        "7": {
+          "course": "體育",
+          "teacher": "楊宗樺"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "二": {
+        "1": {
+          "course": "國語文",
+          "teacher": "張函雯"
+        },
+        "2": {
+          "course": "英語文",
+          "teacher": "涂琇慧"
+        },
+        "3": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "4": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "5": {
+          "course": "選修物理-力學二與熱",
+          "teacher": "胡育豪"
+        },
+        "6": {
+          "course": "地理",
+          "teacher": "黃俊諺"
+        },
+        "7": {
+          "course": "數學A",
+          "teacher": "李易儒"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "三": {
+        "1": {
+          "course": "國語文",
+          "teacher": "張函雯"
+        },
+        "2": {
+          "course": "國語文",
+          "teacher": "張函雯"
+        },
+        "3": {
+          "course": "英語文",
+          "teacher": "涂琇慧"
+        },
+        "4": {
+          "course": "公民與社會",
+          "teacher": "孫錫忠"
+        },
+        "5": {
+          "course": "數學A",
+          "teacher": "李易儒"
+        },
+        "6": {
+          "course": "導師時間",
+          "teacher": "胡育豪"
+        },
+        "7": {
+          "course": "每週團體活動時間",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "四": {
+        "1": {
+          "course": "英文聽力",
+          "teacher": "涂琇慧墨漢"
+        },
+        "2": {
+          "course": "學二與熱",
+          "teacher": "胡育豪"
+        },
+        "3": {
+          "course": "體育",
+          "teacher": "楊宗樺"
+        },
+        "4": {
+          "course": "數學A",
+          "teacher": "李易儒"
+        },
+        "5": {
+          "course": "地理",
+          "teacher": "黃俊諺"
+        },
+        "6": {
+          "course": "英語文",
+          "teacher": "涂琇慧"
+        },
+        "7": {
+          "course": "跨領域語表寫作",
+          "teacher": "張函雯"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "五": {
+        "1": {
+          "course": "英語文",
+          "teacher": "涂琇慧"
+        },
+        "2": {
+          "course": "數學A",
+          "teacher": "李易儒"
+        },
+        "3": {
+          "course": "國語文",
+          "teacher": "張函雯"
+        },
+        "4": {
+          "course": "全民國防教育",
+          "teacher": "林奕昇"
+        },
+        "5": {
+          "course": "質構造與",
+          "teacher": "李俊賢"
+        },
+        "6": {
+          "course": "彈性學習1",
+          "teacher": "胡育豪"
+        },
+        "7": {
+          "course": "彈性學習1",
+          "teacher": "胡育豪"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      }
+    }
+  },
+  "207": {
+    "class": "207",
+    "homeroom": "李典匡",
+    "advisor": "楊媛婷",
+    "timetable": {
+      "一": {
+        "1": {
+          "course": "體育",
+          "teacher": "楊宗樺"
+        },
+        "2": {
+          "course": "地理",
+          "teacher": "黃俊諺"
+        },
+        "3": {
+          "course": "英語文",
+          "teacher": "涂琇慧"
+        },
+        "4": {
+          "course": "學二與熱",
+          "teacher": "黃聖智"
+        },
+        "5": {
+          "course": "全民國防教育",
+          "teacher": "林奕昇"
+        },
+        "6": {
+          "course": "質構造與",
+          "teacher": "楊亮星"
+        },
+        "7": {
+          "course": "數學A",
+          "teacher": "李典匡"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "二": {
+        "1": {
+          "course": "英語文",
+          "teacher": "涂琇慧"
+        },
+        "2": {
+          "course": "國語文",
+          "teacher": "陳昱文"
+        },
+        "3": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "4": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "5": {
+          "course": "美術",
+          "teacher": "王文宏"
+        },
+        "6": {
+          "course": "美術",
+          "teacher": "王文宏"
+        },
+        "7": {
+          "course": "選修化學-物質構造與",
+          "teacher": "楊亮星"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "三": {
+        "1": {
+          "course": "公民與社會",
+          "teacher": "孫錫忠"
+        },
+        "2": {
+          "course": "國語文",
+          "teacher": "陳昱文"
+        },
+        "3": {
+          "course": "國語文",
+          "teacher": "陳昱文"
+        },
+        "4": {
+          "course": "數學A",
+          "teacher": "李典匡"
+        },
+        "5": {
+          "course": "體育",
+          "teacher": "楊宗樺"
+        },
+        "6": {
+          "course": "導師時間",
+          "teacher": "李典匡"
+        },
+        "7": {
+          "course": "每週團體活動時間",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "四": {
+        "1": {
+          "course": "數學A",
+          "teacher": "李典匡"
+        },
+        "2": {
+          "course": "英文聽力",
+          "teacher": "涂琇慧墨漢"
+        },
+        "3": {
+          "course": "英語文",
+          "teacher": "涂琇慧"
+        },
+        "4": {
+          "course": "國語文",
+          "teacher": "陳昱文"
+        },
+        "5": {
+          "course": "學二與熱",
+          "teacher": "黃聖智"
+        },
+        "6": {
+          "course": "地理",
+          "teacher": "黃俊諺"
+        },
+        "7": {
+          "course": "公民與社會",
+          "teacher": "孫錫忠"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "五": {
+        "1": {
+          "course": "數學A",
+          "teacher": "李典匡"
+        },
+        "2": {
+          "course": "跨領域語表寫作",
+          "teacher": "陳昱文"
+        },
+        "3": {
+          "course": "物理-探究A",
+          "teacher": "孟昭安曾文宣"
+        },
+        "4": {
+          "course": "物理-探究A",
+          "teacher": "孟昭安曾文宣"
+        },
+        "5": {
+          "course": "英語文",
+          "teacher": "涂琇慧"
+        },
+        "6": {
+          "course": "彈性學習1",
+          "teacher": "李典匡"
+        },
+        "7": {
+          "course": "彈性學習1",
+          "teacher": "李典匡"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      }
+    }
+  },
+  "208": {
+    "class": "208",
+    "homeroom": "楊亮星",
+    "advisor": "楊媛婷",
+    "timetable": {
+      "一": {
+        "1": {
+          "course": "國語文",
+          "teacher": "陳俊坊"
+        },
+        "2": {
+          "course": "質構造與",
+          "teacher": "楊亮星"
+        },
+        "3": {
+          "course": "數學A",
+          "teacher": "林哲宇"
+        },
+        "4": {
+          "course": "英語文",
+          "teacher": "何靜萍"
+        },
+        "5": {
+          "course": "學二與熱",
+          "teacher": "陳耿維"
+        },
+        "6": {
+          "course": "家政",
+          "teacher": "林佩琪"
+        },
+        "7": {
+          "course": "家政",
+          "teacher": "林佩琪"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "二": {
+        "1": {
+          "course": "體育",
+          "teacher": "楊宗樺"
+        },
+        "2": {
+          "course": "質構造與",
+          "teacher": "楊亮星"
+        },
+        "3": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "4": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "5": {
+          "course": "數學A",
+          "teacher": "林哲宇"
+        },
+        "6": {
+          "course": "選修物理-力學二與熱",
+          "teacher": "陳耿維"
+        },
+        "7": {
+          "course": "歷史",
+          "teacher": "葉紫玲"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "三": {
+        "1": {
+          "course": "物理-探究A",
+          "teacher": "孟昭安莊文治"
+        },
+        "2": {
+          "course": "物理-探究A",
+          "teacher": "孟昭安莊文治"
+        },
+        "3": {
+          "course": "英語文",
+          "teacher": "何靜萍"
+        },
+        "4": {
+          "course": "跨領域語表寫作",
+          "teacher": "陳俊坊"
+        },
+        "5": {
+          "course": "歷史",
+          "teacher": "葉紫玲"
+        },
+        "6": {
+          "course": "導師時間",
+          "teacher": "楊亮星"
+        },
+        "7": {
+          "course": "每週團體活動時間",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "四": {
+        "1": {
+          "course": "英語文",
+          "teacher": "何靜萍"
+        },
+        "2": {
+          "course": "數學A",
+          "teacher": "林哲宇"
+        },
+        "3": {
+          "course": "英文聽力",
+          "teacher": "何靜萍墨漢"
+        },
+        "4": {
+          "course": "體育",
+          "teacher": "楊宗樺"
+        },
+        "5": {
+          "course": "國語文",
+          "teacher": "陳俊坊"
+        },
+        "6": {
+          "course": "生活科技",
+          "teacher": "楊媛婷"
+        },
+        "7": {
+          "course": "生活科技",
+          "teacher": "楊媛婷"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "五": {
+        "1": {
+          "course": "國語文",
+          "teacher": "陳俊坊"
+        },
+        "2": {
+          "course": "國語文",
+          "teacher": "陳俊坊"
+        },
+        "3": {
+          "course": "數學A",
+          "teacher": "林哲宇"
+        },
+        "4": {
+          "course": "英語文",
+          "teacher": "何靜萍"
+        },
+        "5": {
+          "course": "全民國防教育",
+          "teacher": "林奕昇"
+        },
+        "6": {
+          "course": "彈性學習1",
+          "teacher": "楊亮星"
+        },
+        "7": {
+          "course": "彈性學習1",
+          "teacher": "楊亮星"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      }
+    }
+  },
+  "209": {
+    "class": "209",
+    "homeroom": "何靜萍",
+    "advisor": "葉紫玲",
+    "timetable": {
+      "一": {
+        "1": {
+          "course": "質構造與",
+          "teacher": "楊亮星"
+        },
+        "2": {
+          "course": "數學A",
+          "teacher": "林哲宇"
+        },
+        "3": {
+          "course": "國語文",
+          "teacher": "陳有志"
+        },
+        "4": {
+          "course": "國語文",
+          "teacher": "陳有志"
+        },
+        "5": {
+          "course": "體育",
+          "teacher": "楊宗樺"
+        },
+        "6": {
+          "course": "歷史",
+          "teacher": "葉紫玲"
+        },
+        "7": {
+          "course": "英語文",
+          "teacher": "何靜萍"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "二": {
+        "1": {
+          "course": "數學A",
+          "teacher": "林哲宇"
+        },
+        "2": {
+          "course": "英語文",
+          "teacher": "何靜萍"
+        },
+        "3": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "4": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "5": {
+          "course": "生活科技",
+          "teacher": "楊媛婷"
+        },
+        "6": {
+          "course": "生活科技",
+          "teacher": "楊媛婷"
+        },
+        "7": {
+          "course": "國語文",
+          "teacher": "陳有志"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "三": {
+        "1": {
+          "course": "選修物理-力學二與熱",
+          "teacher": "陳耿維"
+        },
+        "2": {
+          "course": "質構造與",
+          "teacher": "楊亮星"
+        },
+        "3": {
+          "course": "物理-探究A",
+          "teacher": "孟昭安莊文治"
+        },
+        "4": {
+          "course": "物理-探究A",
+          "teacher": "孟昭安莊文治"
+        },
+        "5": {
+          "course": "國語文",
+          "teacher": "陳有志"
+        },
+        "6": {
+          "course": "導師時間",
+          "teacher": "何靜萍"
+        },
+        "7": {
+          "course": "每週團體活動時間",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "四": {
+        "1": {
+          "course": "體育",
+          "teacher": "楊宗樺"
+        },
+        "2": {
+          "course": "學二與熱",
+          "teacher": "陳耿維"
+        },
+        "3": {
+          "course": "數學A",
+          "teacher": "林哲宇"
+        },
+        "4": {
+          "course": "英文聽力",
+          "teacher": "何靜萍墨漢"
+        },
+        "5": {
+          "course": "家政",
+          "teacher": "林佩琪"
+        },
+        "6": {
+          "course": "家政",
+          "teacher": "林佩琪"
+        },
+        "7": {
+          "course": "英語文",
+          "teacher": "何靜萍"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "五": {
+        "1": {
+          "course": "全民國防教育",
+          "teacher": "林奕昇"
+        },
+        "2": {
+          "course": "英語文",
+          "teacher": "何靜萍"
+        },
+        "3": {
+          "course": "跨領域語表寫作",
+          "teacher": "陳有志"
+        },
+        "4": {
+          "course": "數學A",
+          "teacher": "林哲宇"
+        },
+        "5": {
+          "course": "歷史",
+          "teacher": "葉紫玲"
+        },
+        "6": {
+          "course": "彈性學習1",
+          "teacher": "何靜萍"
+        },
+        "7": {
+          "course": "彈性學習1",
+          "teacher": "何靜萍"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      }
+    }
+  },
+  "210": {
+    "class": "210",
+    "homeroom": "洪佳琳",
+    "advisor": "翁文婷",
+    "timetable": {
+      "一": {
+        "1": {
+          "course": "英文聽力",
+          "teacher": "洪佳琳墨漢"
+        },
+        "2": {
+          "course": "音樂欣賞",
+          "teacher": "李韋翰"
+        },
+        "3": {
+          "course": "國語文",
+          "teacher": "陳淑萍"
+        },
+        "4": {
+          "course": "國語文",
+          "teacher": "陳淑萍"
+        },
+        "5": {
+          "course": "視唱",
+          "teacher": "白欣蓉"
+        },
+        "6": {
+          "course": "樂理",
+          "teacher": "翁文婷"
+        },
+        "7": {
+          "course": "體育",
+          "teacher": "張家宜"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "二": {
+        "1": {
+          "course": "英語文",
+          "teacher": "洪佳琳"
+        },
+        "2": {
+          "course": "跨領域語表寫作",
+          "teacher": "陳淑萍"
+        },
+        "3": {
+          "course": "和聲",
+          "teacher": "劉靜江"
+        },
+        "4": {
+          "course": "曲式分析",
+          "teacher": "劉靜江"
+        },
+        "5": {
+          "course": "族群、性別與國家的歷",
+          "teacher": "徐清雲"
+        },
+        "6": {
+          "course": "音樂基礎訓練",
+          "teacher": "白欣蓉"
+        },
+        "7": {
+          "course": "音樂基礎訓練",
+          "teacher": "白欣蓉"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "三": {
+        "1": {
+          "course": "語文表達與傳播應用",
+          "teacher": "陳淑萍"
+        },
+        "2": {
+          "course": "英文作文",
+          "teacher": "洪佳琳"
+        },
+        "3": {
+          "course": "生活科技",
+          "teacher": "楊媛婷"
+        },
+        "4": {
+          "course": "生活科技",
+          "teacher": "楊媛婷"
+        },
+        "5": {
+          "course": "地球科學",
+          "teacher": "侯統源"
+        },
+        "6": {
+          "course": "導師時間",
+          "teacher": "洪佳琳"
+        },
+        "7": {
+          "course": "每週團體活動時間",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "四": {
+        "1": {
+          "course": "英語文",
+          "teacher": "洪佳琳"
+        },
+        "2": {
+          "course": "室內樂",
+          "teacher": "盧梅端"
+        },
+        "3": {
+          "course": "國語文",
+          "teacher": "陳淑萍"
+        },
+        "4": {
+          "course": "國語文",
+          "teacher": "陳淑萍"
+        },
+        "5": {
+          "course": "主修",
+          "teacher": "-"
+        },
+        "6": {
+          "course": "副修",
+          "teacher": "-"
+        },
+        "7": {
+          "course": "體育",
+          "teacher": "張家宜"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "五": {
+        "1": {
+          "course": "英語文",
+          "teacher": "洪佳琳"
+        },
+        "2": {
+          "course": "英語文",
+          "teacher": "洪佳琳"
+        },
+        "3": {
+          "course": "地球科學",
+          "teacher": "侯統源"
+        },
+        "4": {
+          "course": "即興與創作",
+          "teacher": "沈鉑恆"
+        },
+        "5": {
+          "course": "演出製作",
+          "teacher": "林靜玟"
+        },
+        "6": {
+          "course": "彈性學習1",
+          "teacher": "洪佳琳"
+        },
+        "7": {
+          "course": "彈性學習1",
+          "teacher": "洪佳琳"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      }
+    }
+  },
+  "211": {
+    "class": "211",
+    "homeroom": "李俊賢",
+    "advisor": "孟昭安",
+    "timetable": {
+      "一": {
+        "1": {
+          "course": "科學探究",
+          "teacher": "李俊賢"
+        },
+        "2": {
+          "course": "英文聽力",
+          "teacher": "洪佳琳墨漢"
+        },
+        "3": {
+          "course": "商用數學",
+          "teacher": "何璩如"
+        },
+        "4": {
+          "course": "商用數學",
+          "teacher": "何璩如"
+        },
+        "5": {
+          "course": "歷史",
+          "teacher": "葉紫玲"
+        },
+        "6": {
+          "course": "英語文",
+          "teacher": "洪佳琳"
+        },
+        "7": {
+          "course": "國語文",
+          "teacher": "江錦玨"
+        },
+        "8": {
+          "course": "英文輔",
+          "teacher": "洪佳琳"
+        }
+      },
+      "二": {
+        "1": {
+          "course": "數學A",
+          "teacher": "何璩如"
+        },
+        "2": {
+          "course": "英語文",
+          "teacher": "洪佳琳"
+        },
+        "3": {
+          "course": "歷史",
+          "teacher": "葉紫玲"
+        },
+        "4": {
+          "course": "公民與社會",
+          "teacher": "孫錫忠"
+        },
+        "5": {
+          "course": "獨立研究何璩如吳曙序",
+          "teacher": "侯統源黃聖智"
+        },
+        "6": {
+          "course": "獨立研究何璩如李俊賢",
+          "teacher": "吳曙序侯統源"
+        },
+        "7": {
+          "course": "獨立研究何璩如黃聖智",
+          "teacher": "李俊賢吳曙序"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "三": {
+        "1": {
+          "course": "數學A",
+          "teacher": "何璩如"
+        },
+        "2": {
+          "course": "國語文",
+          "teacher": "江錦玨"
+        },
+        "3": {
+          "course": "選修物理-力學一",
+          "teacher": "黃聖智"
+        },
+        "4": {
+          "course": "體育",
+          "teacher": "楊宗樺"
+        },
+        "5": {
+          "course": "科學探究",
+          "teacher": "李俊賢"
+        },
+        "6": {
+          "course": "導師時間",
+          "teacher": "李俊賢"
+        },
+        "7": {
+          "course": "每週團體活動時間",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "四": {
+        "1": {
+          "course": "生物",
+          "teacher": "吳曙序"
+        },
+        "2": {
+          "course": "公民與社會",
+          "teacher": "孫錫忠"
+        },
+        "3": {
+          "course": "數學A",
+          "teacher": "何璩如"
+        },
+        "4": {
+          "course": "國語文",
+          "teacher": "江錦玨"
+        },
+        "5": {
+          "course": "全民國防教育",
+          "teacher": "林奕昇"
+        },
+        "6": {
+          "course": "學一",
+          "teacher": "黃聖智"
+        },
+        "7": {
+          "course": "英語文",
+          "teacher": "洪佳琳"
+        },
+        "8": {
+          "course": "物理輔",
+          "teacher": "黃聖智"
+        }
+      },
+      "五": {
+        "1": {
+          "course": "體育",
+          "teacher": "楊宗樺"
+        },
+        "2": {
+          "course": "數學A",
+          "teacher": "何璩如"
+        },
+        "3": {
+          "course": "國語文",
+          "teacher": "江錦玨"
+        },
+        "4": {
+          "course": "生物研究",
+          "teacher": "吳曙序"
+        },
+        "5": {
+          "course": "英語文",
+          "teacher": "洪佳琳"
+        },
+        "6": {
+          "course": "彈性學習1",
+          "teacher": "李俊賢"
+        },
+        "7": {
+          "course": "彈性學習1",
+          "teacher": "李俊賢"
+        },
+        "8": {
+          "course": "國文輔",
+          "teacher": "江錦玨"
+        }
+      }
+    }
+  },
+  "212": {
+    "class": "212",
+    "homeroom": "楊宗樺",
+    "advisor": "翁文婷",
+    "timetable": {
+      "一": {
+        "1": {
+          "course": "地理",
+          "teacher": "陳暐婷"
+        },
+        "2": {
+          "course": "語文表達與傳播應用",
+          "teacher": "鄭宏成"
+        },
+        "3": {
+          "course": "英語文",
+          "teacher": "王婷宇"
+        },
+        "4": {
+          "course": "數學B李振宇",
+          "teacher": "專項體能"
+        },
+        "5": {
+          "course": "訓練許劭廷梁汝農陳光榮",
+          "teacher": "專項體能"
+        },
+        "6": {
+          "course": "訓練許劭廷梁汝農陳光榮",
+          "teacher": "專項體能"
+        },
+        "7": {
+          "course": "訓練許劭廷梁汝農",
+          "teacher": "陳光榮"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "二": {
+        "1": {
+          "course": "國語文",
+          "teacher": "鄭宏成"
+        },
+        "2": {
+          "course": "國語文",
+          "teacher": "鄭宏成"
+        },
+        "3": {
+          "course": "數學B",
+          "teacher": "李振宇"
+        },
+        "4": {
+          "course": "英語文",
+          "teacher": "王婷宇"
+        },
+        "5": {
+          "course": "歷史葉紫玲",
+          "teacher": "專項技術"
+        },
+        "6": {
+          "course": "訓練許劭廷梁汝農陳光榮",
+          "teacher": "專項技術"
+        },
+        "7": {
+          "course": "訓練許劭廷梁汝農",
+          "teacher": "陳光榮"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "三": {
+        "1": {
+          "course": "國語文",
+          "teacher": "鄭宏成"
+        },
+        "2": {
+          "course": "國語文",
+          "teacher": "鄭宏成"
+        },
+        "3": {
+          "course": "專項體能訓練許劭廷梁汝農陳光榮",
+          "teacher": "專項戰術"
+        },
+        "4": {
+          "course": "訓練許劭廷梁汝農",
+          "teacher": "陳光榮"
+        },
+        "5": {
+          "course": "化學",
+          "teacher": "林于人"
+        },
+        "6": {
+          "course": "導師時間",
+          "teacher": "楊宗樺"
+        },
+        "7": {
+          "course": "每週團體活動時間",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "四": {
+        "1": {
+          "course": "歷史",
+          "teacher": "葉紫玲"
+        },
+        "2": {
+          "course": "數學B",
+          "teacher": "李振宇"
+        },
+        "3": {
+          "course": "跨領域語表寫作",
+          "teacher": "鄭宏成"
+        },
+        "4": {
+          "course": "公民與社會",
+          "teacher": "李運生"
+        },
+        "5": {
+          "course": "英語文王婷宇",
+          "teacher": "專項技術"
+        },
+        "6": {
+          "course": "訓練許劭廷梁汝農陳光榮",
+          "teacher": "專項技術"
+        },
+        "7": {
+          "course": "訓練許劭廷梁汝農",
+          "teacher": "陳光榮"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "五": {
+        "1": {
+          "course": "英語文",
+          "teacher": "王婷宇"
+        },
+        "2": {
+          "course": "物理",
+          "teacher": "陳耿維"
+        },
+        "3": {
+          "course": "地理",
+          "teacher": "陳暐婷"
+        },
+        "4": {
+          "course": "公民與社會李運生",
+          "teacher": "每週彈性學"
+        },
+        "5": {
+          "course": "習時間許劭廷梁汝農陳光榮",
+          "teacher": "每週彈性學"
+        },
+        "6": {
+          "course": "習時間許劭廷梁汝農陳光榮",
+          "teacher": "每週彈性學"
+        },
+        "7": {
+          "course": "習時間許劭廷梁汝農",
+          "teacher": "陳光榮"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      }
+    }
+  },
+  "301": {
+    "class": "301",
+    "homeroom": "陳俊逸",
+    "advisor": "陳昱文",
+    "timetable": {
+      "一": {
+        "1": {
+          "course": "數學乙",
+          "teacher": "姜姿戎"
+        },
+        "2": {
+          "course": "數學乙",
+          "teacher": "姜姿戎"
+        },
+        "3": {
+          "course": "英文閱讀與寫作",
+          "teacher": "謝璦羽"
+        },
+        "4": {
+          "course": "英文閱讀與寫作",
+          "teacher": "謝璦羽"
+        },
+        "5": {
+          "course": "體育",
+          "teacher": "李世雄"
+        },
+        "6": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "7": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "二": {
+        "1": {
+          "course": "語文表達與傳播應用",
+          "teacher": "彭定源"
+        },
+        "2": {
+          "course": "語文表達與傳播應用",
+          "teacher": "彭定源"
+        },
+        "3": {
+          "course": "充實1",
+          "teacher": "陳俊逸"
+        },
+        "4": {
+          "course": "數學乙",
+          "teacher": "姜姿戎"
+        },
+        "5": {
+          "course": "社會環境議題",
+          "teacher": "陳曉玲"
+        },
+        "6": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "7": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "三": {
+        "1": {
+          "course": "英語聽講",
+          "teacher": "謝璦羽"
+        },
+        "2": {
+          "course": "科技、環境與藝術的歷",
+          "teacher": "陳俊逸"
+        },
+        "3": {
+          "course": "社會環境議題",
+          "teacher": "陳曉玲"
+        },
+        "4": {
+          "course": "社會環境議題",
+          "teacher": "陳曉玲"
+        },
+        "5": {
+          "course": "民主政治與法律",
+          "teacher": "門菊英"
+        },
+        "6": {
+          "course": "導師時間",
+          "teacher": "陳俊逸"
+        },
+        "7": {
+          "course": "每週團體活動時間",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "四": {
+        "1": {
+          "course": "體育",
+          "teacher": "李世雄"
+        },
+        "2": {
+          "course": "民主政治與法律",
+          "teacher": "門菊英"
+        },
+        "3": {
+          "course": "充實3",
+          "teacher": "門菊英"
+        },
+        "4": {
+          "course": "專題閱讀與研究",
+          "teacher": "彭定源"
+        },
+        "5": {
+          "course": "英語聽講",
+          "teacher": "謝璦羽"
+        },
+        "6": {
+          "course": "科技、環境與藝術的歷",
+          "teacher": "陳俊逸"
+        },
+        "7": {
+          "course": "科技、環境與藝術的歷",
+          "teacher": "陳俊逸"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "五": {
+        "1": {
+          "course": "充實2",
+          "teacher": "陳曉玲"
+        },
+        "2": {
+          "course": "數學乙",
+          "teacher": "姜姿戎"
+        },
+        "3": {
+          "course": "民主政治與法律",
+          "teacher": "門菊英"
+        },
+        "4": {
+          "course": "專題閱讀與研究",
+          "teacher": "彭定源"
+        },
+        "5": {
+          "course": "音樂",
+          "teacher": "李冠儀"
+        },
+        "6": {
+          "course": "健康與護理",
+          "teacher": "黃雅蕾"
+        },
+        "7": {
+          "course": "健康與護理",
+          "teacher": "黃雅蕾"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      }
+    }
+  },
+  "302": {
+    "class": "302",
+    "homeroom": "彭定源",
+    "advisor": "何璩如",
+    "timetable": {
+      "一": {
+        "1": {
+          "course": "專題閱讀與研究",
+          "teacher": "彭定源"
+        },
+        "2": {
+          "course": "體育",
+          "teacher": "李世雄"
+        },
+        "3": {
+          "course": "數學乙",
+          "teacher": "林映全"
+        },
+        "4": {
+          "course": "數學乙",
+          "teacher": "林映全"
+        },
+        "5": {
+          "course": "民主政治與法律",
+          "teacher": "門菊英"
+        },
+        "6": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "7": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "二": {
+        "1": {
+          "course": "英文閱讀與寫作",
+          "teacher": "張育瑛"
+        },
+        "2": {
+          "course": "民主政治與法律",
+          "teacher": "門菊英"
+        },
+        "3": {
+          "course": "充實3",
+          "teacher": "門菊英"
+        },
+        "4": {
+          "course": "充實1",
+          "teacher": "陳俊逸"
+        },
+        "5": {
+          "course": "專題閱讀與研究",
+          "teacher": "彭定源"
+        },
+        "6": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "7": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "三": {
+        "1": {
+          "course": "數學乙",
+          "teacher": "林映全"
+        },
+        "2": {
+          "course": "英語聽講",
+          "teacher": "張育瑛"
+        },
+        "3": {
+          "course": "科技、環境與藝術的歷",
+          "teacher": "陳俊逸"
+        },
+        "4": {
+          "course": "科技、環境與藝術的歷",
+          "teacher": "陳俊逸"
+        },
+        "5": {
+          "course": "音樂",
+          "teacher": "李冠儀"
+        },
+        "6": {
+          "course": "導師時間",
+          "teacher": "彭定源"
+        },
+        "7": {
+          "course": "每週團體活動時間",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "四": {
+        "1": {
+          "course": "語文表達與傳播應用",
+          "teacher": "彭定源"
+        },
+        "2": {
+          "course": "語文表達與傳播應用",
+          "teacher": "彭定源"
+        },
+        "3": {
+          "course": "體育",
+          "teacher": "李世雄"
+        },
+        "4": {
+          "course": "科技、環境與藝術的歷",
+          "teacher": "陳俊逸"
+        },
+        "5": {
+          "course": "社會環境議題",
+          "teacher": "陳曉玲"
+        },
+        "6": {
+          "course": "充實2",
+          "teacher": "陳曉玲"
+        },
+        "7": {
+          "course": "民主政治與法律",
+          "teacher": "門菊英"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "五": {
+        "1": {
+          "course": "健康與護理",
+          "teacher": "黃雅蕾"
+        },
+        "2": {
+          "course": "健康與護理",
+          "teacher": "黃雅蕾"
+        },
+        "3": {
+          "course": "社會環境議題",
+          "teacher": "陳曉玲"
+        },
+        "4": {
+          "course": "社會環境議題",
+          "teacher": "陳曉玲"
+        },
+        "5": {
+          "course": "數學乙",
+          "teacher": "林映全"
+        },
+        "6": {
+          "course": "英文閱讀與寫作",
+          "teacher": "張育瑛"
+        },
+        "7": {
+          "course": "英語聽講",
+          "teacher": "張育瑛"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      }
+    }
+  },
+  "303": {
+    "class": "303",
+    "homeroom": "門菊英",
+    "advisor": "何璩如",
+    "timetable": {
+      "一": {
+        "1": {
+          "course": "語文表達與傳播應用",
+          "teacher": "林鈺珊"
+        },
+        "2": {
+          "course": "語文表達與傳播應用",
+          "teacher": "林鈺珊"
+        },
+        "3": {
+          "course": "數學乙",
+          "teacher": "李易儒"
+        },
+        "4": {
+          "course": "數學乙",
+          "teacher": "李易儒"
+        },
+        "5": {
+          "course": "音樂",
+          "teacher": "李冠儀"
+        },
+        "6": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "7": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "二": {
+        "1": {
+          "course": "充實1",
+          "teacher": "徐清雲"
+        },
+        "2": {
+          "course": "專題閱讀與研究",
+          "teacher": "林鈺珊"
+        },
+        "3": {
+          "course": "健康與護理",
+          "teacher": "黃雅蕾"
+        },
+        "4": {
+          "course": "健康與護理",
+          "teacher": "黃雅蕾"
+        },
+        "5": {
+          "course": "數學乙",
+          "teacher": "李易儒"
+        },
+        "6": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "7": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "三": {
+        "1": {
+          "course": "科技、環境與藝術的歷",
+          "teacher": "徐清雲"
+        },
+        "2": {
+          "course": "充實3",
+          "teacher": "門菊英"
+        },
+        "3": {
+          "course": "英語聽講",
+          "teacher": "黃燕靜"
+        },
+        "4": {
+          "course": "體育",
+          "teacher": "李世雄"
+        },
+        "5": {
+          "course": "社會環境議題",
+          "teacher": "吳家凌"
+        },
+        "6": {
+          "course": "導師時間",
+          "teacher": "門菊英"
+        },
+        "7": {
+          "course": "每週團體活動時間",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "四": {
+        "1": {
+          "course": "充實2",
+          "teacher": "吳家凌"
+        },
+        "2": {
+          "course": "數學乙",
+          "teacher": "李易儒"
+        },
+        "3": {
+          "course": "英語聽講",
+          "teacher": "黃燕靜"
+        },
+        "4": {
+          "course": "民主政治與法律",
+          "teacher": "門菊英"
+        },
+        "5": {
+          "course": "專題閱讀與研究",
+          "teacher": "林鈺珊"
+        },
+        "6": {
+          "course": "科技、環境與藝術的歷",
+          "teacher": "徐清雲"
+        },
+        "7": {
+          "course": "科技、環境與藝術的歷",
+          "teacher": "徐清雲"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "五": {
+        "1": {
+          "course": "社會環境議題",
+          "teacher": "吳家凌"
+        },
+        "2": {
+          "course": "社會環境議題",
+          "teacher": "吳家凌"
+        },
+        "3": {
+          "course": "英文閱讀與寫作",
+          "teacher": "黃燕靜"
+        },
+        "4": {
+          "course": "英文閱讀與寫作",
+          "teacher": "黃燕靜"
+        },
+        "5": {
+          "course": "體育",
+          "teacher": "李世雄"
+        },
+        "6": {
+          "course": "民主政治與法律",
+          "teacher": "門菊英"
+        },
+        "7": {
+          "course": "民主政治與法律",
+          "teacher": "門菊英"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      }
+    }
+  },
+  "304": {
+    "class": "304",
+    "homeroom": "吳家凌",
+    "advisor": "陳昱文",
+    "timetable": {
+      "一": {
+        "1": {
+          "course": "社會環境議題",
+          "teacher": "吳家凌"
+        },
+        "2": {
+          "course": "社會環境議題",
+          "teacher": "吳家凌"
+        },
+        "3": {
+          "course": "數學乙",
+          "teacher": "羅伸儀"
+        },
+        "4": {
+          "course": "數學乙",
+          "teacher": "羅伸儀"
+        },
+        "5": {
+          "course": "充實1",
+          "teacher": "徐清雲"
+        },
+        "6": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "7": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "二": {
+        "1": {
+          "course": "健康與護理",
+          "teacher": "黃雅蕾"
+        },
+        "2": {
+          "course": "健康與護理",
+          "teacher": "黃雅蕾"
+        },
+        "3": {
+          "course": "社會環境議題",
+          "teacher": "吳家凌"
+        },
+        "4": {
+          "course": "充實3",
+          "teacher": "門菊英"
+        },
+        "5": {
+          "course": "體育",
+          "teacher": "李世雄"
+        },
+        "6": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "7": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "三": {
+        "1": {
+          "course": "數學乙",
+          "teacher": "羅伸儀"
+        },
+        "2": {
+          "course": "英語聽講",
+          "teacher": "楊成勛"
+        },
+        "3": {
+          "course": "民主政治與法律",
+          "teacher": "門菊英"
+        },
+        "4": {
+          "course": "民主政治與法律",
+          "teacher": "門菊英"
+        },
+        "5": {
+          "course": "專題閱讀與研究",
+          "teacher": "陳昱文"
+        },
+        "6": {
+          "course": "導師時間",
+          "teacher": "吳家凌"
+        },
+        "7": {
+          "course": "每週團體活動時間",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "四": {
+        "1": {
+          "course": "英語聽講",
+          "teacher": "楊成勛"
+        },
+        "2": {
+          "course": "體育",
+          "teacher": "李世雄"
+        },
+        "3": {
+          "course": "科技、環境與藝術的歷",
+          "teacher": "徐清雲"
+        },
+        "4": {
+          "course": "科技、環境與藝術的歷",
+          "teacher": "徐清雲"
+        },
+        "5": {
+          "course": "音樂",
+          "teacher": "李冠儀"
+        },
+        "6": {
+          "course": "語文表達與傳播應用",
+          "teacher": "陳昱文"
+        },
+        "7": {
+          "course": "語文表達與傳播應用",
+          "teacher": "陳昱文"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "五": {
+        "1": {
+          "course": "科技、環境與藝術的歷",
+          "teacher": "徐清雲"
+        },
+        "2": {
+          "course": "英文閱讀與寫作",
+          "teacher": "楊成勛"
+        },
+        "3": {
+          "course": "英文閱讀與寫作",
+          "teacher": "楊成勛"
+        },
+        "4": {
+          "course": "民主政治與法律",
+          "teacher": "門菊英"
+        },
+        "5": {
+          "course": "數學乙",
+          "teacher": "羅伸儀"
+        },
+        "6": {
+          "course": "專題閱讀與研究",
+          "teacher": "陳昱文"
+        },
+        "7": {
+          "course": "充實2",
+          "teacher": "吳家凌"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      }
+    }
+  },
+  "305": {
+    "class": "305",
+    "homeroom": "姜姿戎",
+    "advisor": "吳曙序",
+    "timetable": {
+      "一": {
+        "1": {
+          "course": "體育",
+          "teacher": "李世雄"
+        },
+        "2": {
+          "course": "機化學與",
+          "teacher": "林于人"
+        },
+        "3": {
+          "course": "語文表達與傳播應用",
+          "teacher": "鄭美慧"
+        },
+        "4": {
+          "course": "語文表達與傳播應用",
+          "teacher": "鄭美慧"
+        },
+        "5": {
+          "course": "英語聽講",
+          "teacher": "黃燕靜"
+        },
+        "6": {
+          "course": "生物選修",
+          "teacher": "-"
+        },
+        "7": {
+          "course": "生物選修",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "二": {
+        "1": {
+          "course": "選修物理-波動、光及",
+          "teacher": "胡育豪"
+        },
+        "2": {
+          "course": "專題閱讀與研究",
+          "teacher": "鄭美慧"
+        },
+        "3": {
+          "course": "美術",
+          "teacher": "王文宏"
+        },
+        "4": {
+          "course": "美術",
+          "teacher": "王文宏"
+        },
+        "5": {
+          "course": "數學甲",
+          "teacher": "姜姿戎"
+        },
+        "6": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "7": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "三": {
+        "1": {
+          "course": "生物選修",
+          "teacher": "-"
+        },
+        "2": {
+          "course": "生物選修",
+          "teacher": "-"
+        },
+        "3": {
+          "course": "數學甲",
+          "teacher": "姜姿戎"
+        },
+        "4": {
+          "course": "英語聽講",
+          "teacher": "黃燕靜"
+        },
+        "5": {
+          "course": "充實1",
+          "teacher": "姜姿戎"
+        },
+        "6": {
+          "course": "導師時間",
+          "teacher": "姜姿戎"
+        },
+        "7": {
+          "course": "每週團體活動時間",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "四": {
+        "1": {
+          "course": "充實2",
+          "teacher": "胡育豪"
+        },
+        "2": {
+          "course": "充實3",
+          "teacher": "林于人"
+        },
+        "3": {
+          "course": "數學甲",
+          "teacher": "姜姿戎"
+        },
+        "4": {
+          "course": "數學甲",
+          "teacher": "姜姿戎"
+        },
+        "5": {
+          "course": "英文閱讀與寫作",
+          "teacher": "黃燕靜"
+        },
+        "6": {
+          "course": "英文閱讀與寫作",
+          "teacher": "黃燕靜"
+        },
+        "7": {
+          "course": "體育",
+          "teacher": "李世雄"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "五": {
+        "1": {
+          "course": "藝術生活",
+          "teacher": "李冠儀"
+        },
+        "2": {
+          "course": "音樂",
+          "teacher": "李冠儀"
+        },
+        "3": {
+          "course": "磁現象二",
+          "teacher": "胡育豪"
+        },
+        "4": {
+          "course": "磁現象二",
+          "teacher": "胡育豪"
+        },
+        "5": {
+          "course": "專題閱讀與研究",
+          "teacher": "鄭美慧"
+        },
+        "6": {
+          "course": "學反應與",
+          "teacher": "林于人"
+        },
+        "7": {
+          "course": "學反應與",
+          "teacher": "林于人"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      }
+    }
+  },
+  "306": {
+    "class": "306",
+    "homeroom": "黃怡婷",
+    "advisor": "吳曙序",
+    "timetable": {
+      "一": {
+        "1": {
+          "course": "充實2",
+          "teacher": "胡育豪"
+        },
+        "2": {
+          "course": "磁現象二",
+          "teacher": "胡育豪"
+        },
+        "3": {
+          "course": "充實3",
+          "teacher": "林于人"
+        },
+        "4": {
+          "course": "專題閱讀與研究",
+          "teacher": "黃怡婷"
+        },
+        "5": {
+          "course": "數學甲",
+          "teacher": "邱培杰"
+        },
+        "6": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "7": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "二": {
+        "1": {
+          "course": "英文閱讀與寫作",
+          "teacher": "楊成勛"
+        },
+        "2": {
+          "course": "英文閱讀與寫作",
+          "teacher": "楊成勛"
+        },
+        "3": {
+          "course": "學反應與",
+          "teacher": "林于人"
+        },
+        "4": {
+          "course": "選修化學-化學反應與",
+          "teacher": "林于人"
+        },
+        "5": {
+          "course": "充實1",
+          "teacher": "邱培杰"
+        },
+        "6": {
+          "course": "生物選修",
+          "teacher": "-"
+        },
+        "7": {
+          "course": "生物選修",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "三": {
+        "1": {
+          "course": "藝術生活",
+          "teacher": "李冠儀"
+        },
+        "2": {
+          "course": "音樂",
+          "teacher": "李冠儀"
+        },
+        "3": {
+          "course": "磁現象二",
+          "teacher": "胡育豪"
+        },
+        "4": {
+          "course": "數學甲",
+          "teacher": "邱培杰"
+        },
+        "5": {
+          "course": "體育",
+          "teacher": "李世雄"
+        },
+        "6": {
+          "course": "導師時間",
+          "teacher": "黃怡婷"
+        },
+        "7": {
+          "course": "每週團體活動時間",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "四": {
+        "1": {
+          "course": "生物選修",
+          "teacher": "-"
+        },
+        "2": {
+          "course": "生物選修",
+          "teacher": "-"
+        },
+        "3": {
+          "course": "語文表達與傳播應用",
+          "teacher": "黃怡婷"
+        },
+        "4": {
+          "course": "語文表達與傳播應用",
+          "teacher": "黃怡婷"
+        },
+        "5": {
+          "course": "美術",
+          "teacher": "王文宏"
+        },
+        "6": {
+          "course": "美術",
+          "teacher": "王文宏"
+        },
+        "7": {
+          "course": "英語聽講",
+          "teacher": "楊成勛"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "五": {
+        "1": {
+          "course": "專題閱讀與研究",
+          "teacher": "黃怡婷"
+        },
+        "2": {
+          "course": "動、光及",
+          "teacher": "胡育豪"
+        },
+        "3": {
+          "course": "數學甲",
+          "teacher": "邱培杰"
+        },
+        "4": {
+          "course": "數學甲",
+          "teacher": "邱培杰"
+        },
+        "5": {
+          "course": "機化學與",
+          "teacher": "林于人"
+        },
+        "6": {
+          "course": "體育",
+          "teacher": "李世雄"
+        },
+        "7": {
+          "course": "英語聽講",
+          "teacher": "楊成勛"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      }
+    }
+  },
+  "307": {
+    "class": "307",
+    "homeroom": "莊文治",
+    "advisor": "何璩如",
+    "timetable": {
+      "一": {
+        "1": {
+          "course": "磁現象二",
+          "teacher": "莊文治"
+        },
+        "2": {
+          "course": "磁現象二",
+          "teacher": "莊文治"
+        },
+        "3": {
+          "course": "充實3",
+          "teacher": "楊亮星"
+        },
+        "4": {
+          "course": "英語聽講",
+          "teacher": "王婷宇"
+        },
+        "5": {
+          "course": "充實1",
+          "teacher": "何璩如"
+        },
+        "6": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "7": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "二": {
+        "1": {
+          "course": "藝術生活",
+          "teacher": "李冠儀"
+        },
+        "2": {
+          "course": "音樂",
+          "teacher": "李冠儀"
+        },
+        "3": {
+          "course": "語文表達與傳播應用",
+          "teacher": "林鈺珊"
+        },
+        "4": {
+          "course": "語文表達與傳播應用",
+          "teacher": "林鈺珊"
+        },
+        "5": {
+          "course": "充實2",
+          "teacher": "莊文治"
+        },
+        "6": {
+          "course": "生物選修",
+          "teacher": "-"
+        },
+        "7": {
+          "course": "生物選修",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "三": {
+        "1": {
+          "course": "體育",
+          "teacher": "郭文杰"
+        },
+        "2": {
+          "course": "專題閱讀與研究",
+          "teacher": "林鈺珊"
+        },
+        "3": {
+          "course": "選修化學-化學反應與",
+          "teacher": "楊亮星"
+        },
+        "4": {
+          "course": "選修化學-化學反應與",
+          "teacher": "楊亮星"
+        },
+        "5": {
+          "course": "數學甲",
+          "teacher": "何璩如"
+        },
+        "6": {
+          "course": "導師時間",
+          "teacher": "莊文治"
+        },
+        "7": {
+          "course": "每週團體活動時間",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "四": {
+        "1": {
+          "course": "生物選修",
+          "teacher": "-"
+        },
+        "2": {
+          "course": "生物選修",
+          "teacher": "-"
+        },
+        "3": {
+          "course": "專題閱讀與研究",
+          "teacher": "林鈺珊"
+        },
+        "4": {
+          "course": "數學甲",
+          "teacher": "何璩如"
+        },
+        "5": {
+          "course": "機化學與",
+          "teacher": "楊亮星"
+        },
+        "6": {
+          "course": "動、光及",
+          "teacher": "莊文治"
+        },
+        "7": {
+          "course": "英語聽講",
+          "teacher": "王婷宇"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "五": {
+        "1": {
+          "course": "美術",
+          "teacher": "王文宏"
+        },
+        "2": {
+          "course": "美術",
+          "teacher": "王文宏"
+        },
+        "3": {
+          "course": "數學甲",
+          "teacher": "何璩如"
+        },
+        "4": {
+          "course": "數學甲",
+          "teacher": "何璩如"
+        },
+        "5": {
+          "course": "體育",
+          "teacher": "郭文杰"
+        },
+        "6": {
+          "course": "英文閱讀與寫作",
+          "teacher": "王婷宇"
+        },
+        "7": {
+          "course": "英文閱讀與寫作",
+          "teacher": "王婷宇"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      }
+    }
+  },
+  "308": {
+    "class": "308",
+    "homeroom": "黃聖智",
+    "advisor": "吳曙序",
+    "timetable": {
+      "一": {
+        "1": {
+          "course": "磁現象二",
+          "teacher": "黃聖智"
+        },
+        "2": {
+          "course": "英語聽講",
+          "teacher": "張育瑛"
+        },
+        "3": {
+          "course": "英文閱讀與寫作",
+          "teacher": "張育瑛"
+        },
+        "4": {
+          "course": "數學甲",
+          "teacher": "姜姿戎"
+        },
+        "5": {
+          "course": "數學甲",
+          "teacher": "姜姿戎"
+        },
+        "6": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "7": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "二": {
+        "1": {
+          "course": "數學甲",
+          "teacher": "姜姿戎"
+        },
+        "2": {
+          "course": "數學甲",
+          "teacher": "姜姿戎"
+        },
+        "3": {
+          "course": "語文表達與傳播應用",
+          "teacher": "張函雯"
+        },
+        "4": {
+          "course": "語文表達與傳播應用",
+          "teacher": "張函雯"
+        },
+        "5": {
+          "course": "選修化學-有機化學與",
+          "teacher": "楊亮星"
+        },
+        "6": {
+          "course": "生物選修",
+          "teacher": "-"
+        },
+        "7": {
+          "course": "生物選修",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "三": {
+        "1": {
+          "course": "英語聽講",
+          "teacher": "張育瑛"
+        },
+        "2": {
+          "course": "充實1",
+          "teacher": "姜姿戎"
+        },
+        "3": {
+          "course": "體育",
+          "teacher": "郭文杰"
+        },
+        "4": {
+          "course": "選修物理-波動、光及",
+          "teacher": "黃聖智"
+        },
+        "5": {
+          "course": "專題閱讀與研究",
+          "teacher": "張函雯"
+        },
+        "6": {
+          "course": "導師時間",
+          "teacher": "黃聖智"
+        },
+        "7": {
+          "course": "每週團體活動時間",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "四": {
+        "1": {
+          "course": "生物選修",
+          "teacher": "-"
+        },
+        "2": {
+          "course": "生物選修",
+          "teacher": "-"
+        },
+        "3": {
+          "course": "藝術生活",
+          "teacher": "李冠儀"
+        },
+        "4": {
+          "course": "音樂",
+          "teacher": "李冠儀"
+        },
+        "5": {
+          "course": "專題閱讀與研究",
+          "teacher": "張函雯"
+        },
+        "6": {
+          "course": "學反應與",
+          "teacher": "楊亮星"
+        },
+        "7": {
+          "course": "學反應與",
+          "teacher": "楊亮星"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "五": {
+        "1": {
+          "course": "充實3",
+          "teacher": "楊亮星"
+        },
+        "2": {
+          "course": "體育",
+          "teacher": "郭文杰"
+        },
+        "3": {
+          "course": "充實2",
+          "teacher": "黃聖智"
+        },
+        "4": {
+          "course": "磁現象二",
+          "teacher": "黃聖智"
+        },
+        "5": {
+          "course": "英文閱讀與寫作",
+          "teacher": "張育瑛"
+        },
+        "6": {
+          "course": "美術",
+          "teacher": "王文宏"
+        },
+        "7": {
+          "course": "美術",
+          "teacher": "王文宏"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      }
+    }
+  },
+  "309": {
+    "class": "309",
+    "homeroom": "羅伸儀",
+    "advisor": "陳昱文",
+    "timetable": {
+      "一": {
+        "1": {
+          "course": "英語聽講",
+          "teacher": "游若玲"
+        },
+        "2": {
+          "course": "數學甲",
+          "teacher": "羅伸儀"
+        },
+        "3": {
+          "course": "充實2",
+          "teacher": "黃聖智"
+        },
+        "4": {
+          "course": "體育",
+          "teacher": "李世雄"
+        },
+        "5": {
+          "course": "機化學與",
+          "teacher": "楊亮星"
+        },
+        "6": {
+          "course": "生物選修",
+          "teacher": "-"
+        },
+        "7": {
+          "course": "生物選修",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "二": {
+        "1": {
+          "course": "美術",
+          "teacher": "王文宏"
+        },
+        "2": {
+          "course": "美術",
+          "teacher": "王文宏"
+        },
+        "3": {
+          "course": "充實3",
+          "teacher": "楊亮星"
+        },
+        "4": {
+          "course": "語文表達與傳播應用",
+          "teacher": "陳昱文"
+        },
+        "5": {
+          "course": "數學甲",
+          "teacher": "羅伸儀"
+        },
+        "6": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "7": {
+          "course": "多元選修",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "三": {
+        "1": {
+          "course": "生物選修",
+          "teacher": "-"
+        },
+        "2": {
+          "course": "生物選修",
+          "teacher": "-"
+        },
+        "3": {
+          "course": "數學甲",
+          "teacher": "羅伸儀"
+        },
+        "4": {
+          "course": "數學甲",
+          "teacher": "羅伸儀"
+        },
+        "5": {
+          "course": "選修物理-波動、光及",
+          "teacher": "黃聖智"
+        },
+        "6": {
+          "course": "導師時間",
+          "teacher": "羅伸儀"
+        },
+        "7": {
+          "course": "每週團體活動時間",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "四": {
+        "1": {
+          "course": "充實1",
+          "teacher": "羅伸儀"
+        },
+        "2": {
+          "course": "英文閱讀與寫作",
+          "teacher": "游若玲"
+        },
+        "3": {
+          "course": "英文閱讀與寫作",
+          "teacher": "游若玲"
+        },
+        "4": {
+          "course": "體育",
+          "teacher": "李世雄"
+        },
+        "5": {
+          "course": "專題閱讀與研究",
+          "teacher": "陳昱文"
+        },
+        "6": {
+          "course": "藝術生活",
+          "teacher": "李冠儀"
+        },
+        "7": {
+          "course": "音樂",
+          "teacher": "李冠儀"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "五": {
+        "1": {
+          "course": "語文表達與傳播應用",
+          "teacher": "陳昱文"
+        },
+        "2": {
+          "course": "英語聽講",
+          "teacher": "游若玲"
+        },
+        "3": {
+          "course": "學反應與",
+          "teacher": "楊亮星"
+        },
+        "4": {
+          "course": "學反應與",
+          "teacher": "楊亮星"
+        },
+        "5": {
+          "course": "專題閱讀與研究",
+          "teacher": "陳昱文"
+        },
+        "6": {
+          "course": "磁現象二",
+          "teacher": "黃聖智"
+        },
+        "7": {
+          "course": "磁現象二",
+          "teacher": "黃聖智"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      }
+    }
+  },
+  "310": {
+    "class": "310",
+    "homeroom": "鄭美慧",
+    "advisor": "翁文婷",
+    "timetable": {
+      "一": {
+        "1": {
+          "course": "美術",
+          "teacher": "王文宏"
+        },
+        "2": {
+          "course": "美術",
+          "teacher": "王文宏"
+        },
+        "3": {
+          "course": "全民國防教育",
+          "teacher": "林奕昇"
+        },
+        "4": {
+          "course": "音樂欣賞",
+          "teacher": "李韋翰"
+        },
+        "5": {
+          "course": "主修",
+          "teacher": "-"
+        },
+        "6": {
+          "course": "體育",
+          "teacher": "張家宜"
+        },
+        "7": {
+          "course": "充實2",
+          "teacher": "陳俊逸"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "二": {
+        "1": {
+          "course": "應用音樂",
+          "teacher": "劉靜江"
+        },
+        "2": {
+          "course": "應用音樂",
+          "teacher": "劉靜江"
+        },
+        "3": {
+          "course": "繪本之旅",
+          "teacher": "謝璦羽"
+        },
+        "4": {
+          "course": "繪本之旅",
+          "teacher": "謝璦羽"
+        },
+        "5": {
+          "course": "凝視──當代文學選讀",
+          "teacher": "鄭美慧"
+        },
+        "6": {
+          "course": "全民國防教育",
+          "teacher": "林奕昇"
+        },
+        "7": {
+          "course": "充實1",
+          "teacher": "陳俊逸"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "三": {
+        "1": {
+          "course": "生命教育",
+          "teacher": "廖姿穎"
+        },
+        "2": {
+          "course": "體育",
+          "teacher": "張家宜"
+        },
+        "3": {
+          "course": "表演藝術",
+          "teacher": "白欣蓉"
+        },
+        "4": {
+          "course": "藝術管理",
+          "teacher": "白欣蓉"
+        },
+        "5": {
+          "course": "國學常識",
+          "teacher": "鄭美慧"
+        },
+        "6": {
+          "course": "導師時間",
+          "teacher": "鄭美慧"
+        },
+        "7": {
+          "course": "每週團體活動時間",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "四": {
+        "1": {
+          "course": "專題閱讀與研究",
+          "teacher": "鄭美慧"
+        },
+        "2": {
+          "course": "專題閱讀與研究",
+          "teacher": "鄭美慧"
+        },
+        "3": {
+          "course": "演出製作",
+          "teacher": "林靜玟"
+        },
+        "4": {
+          "course": "藝術生活",
+          "teacher": "翁文婷"
+        },
+        "5": {
+          "course": "副修",
+          "teacher": "-"
+        },
+        "6": {
+          "course": "健康與護理",
+          "teacher": "黃雅蕾"
+        },
+        "7": {
+          "course": "健康與護理",
+          "teacher": "黃雅蕾"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "五": {
+        "1": {
+          "course": "英語聽講",
+          "teacher": "謝璦羽"
+        },
+        "2": {
+          "course": "藝術生活",
+          "teacher": "沈鉑恆"
+        },
+        "3": {
+          "course": "爵士小樂團合奏",
+          "teacher": "沈鉑恆"
+        },
+        "4": {
+          "course": "充實3",
+          "teacher": "吳家凌"
+        },
+        "5": {
+          "course": "音樂基礎訓練",
+          "teacher": "翁文婷"
+        },
+        "6": {
+          "course": "家政",
+          "teacher": "林佩琪"
+        },
+        "7": {
+          "course": "家政",
+          "teacher": "林佩琪"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      }
+    }
+  },
+  "311": {
+    "class": "311",
+    "homeroom": "王婷宇",
+    "advisor": "孟昭安",
+    "timetable": {
+      "一": {
+        "1": {
+          "course": "領導才能",
+          "teacher": "黃怡婷"
+        },
+        "2": {
+          "course": "領導才能",
+          "teacher": "黃怡婷"
+        },
+        "3": {
+          "course": "體育",
+          "teacher": "張家宜"
+        },
+        "4": {
+          "course": "充實2",
+          "teacher": "莊文治"
+        },
+        "5": {
+          "course": "充實3",
+          "teacher": "李俊賢"
+        },
+        "6": {
+          "course": "數學甲",
+          "teacher": "羅伸儀"
+        },
+        "7": {
+          "course": "數學甲",
+          "teacher": "羅伸儀"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "二": {
+        "1": {
+          "course": "英文閱讀與寫作",
+          "teacher": "王婷宇"
+        },
+        "2": {
+          "course": "英文閱讀與寫作",
+          "teacher": "王婷宇"
+        },
+        "3": {
+          "course": "選修化學-化學反應與",
+          "teacher": "李俊賢"
+        },
+        "4": {
+          "course": "選修化學-化學反應與",
+          "teacher": "李俊賢"
+        },
+        "5": {
+          "course": "音樂",
+          "teacher": "李冠儀"
+        },
+        "6": {
+          "course": "充實1",
+          "teacher": "羅伸儀"
+        },
+        "7": {
+          "course": "選修物理-波動、光及",
+          "teacher": "莊文治"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "三": {
+        "1": {
+          "course": "生物選修",
+          "teacher": "張端雅何頤華"
+        },
+        "2": {
+          "course": "生物選修",
+          "teacher": "張端雅何頤華"
+        },
+        "3": {
+          "course": "程式設計實作應用",
+          "teacher": "李漢昌"
+        },
+        "4": {
+          "course": "程式設計實作應用",
+          "teacher": "李漢昌"
+        },
+        "5": {
+          "course": "英語聽講",
+          "teacher": "王婷宇"
+        },
+        "6": {
+          "course": "導師時間",
+          "teacher": "王婷宇"
+        },
+        "7": {
+          "course": "每週團體活動時間",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "四": {
+        "1": {
+          "course": "藝術生活",
+          "teacher": "黃俊諺"
+        },
+        "2": {
+          "course": "數學甲",
+          "teacher": "羅伸儀"
+        },
+        "3": {
+          "course": "健康與護理",
+          "teacher": "黃雅蕾"
+        },
+        "4": {
+          "course": "健康與護理",
+          "teacher": "黃雅蕾"
+        },
+        "5": {
+          "course": "創造力",
+          "teacher": "李漢昌"
+        },
+        "6": {
+          "course": "創造力",
+          "teacher": "李漢昌"
+        },
+        "7": {
+          "course": "機化學與",
+          "teacher": "李俊賢"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "五": {
+        "1": {
+          "course": "數學甲",
+          "teacher": "羅伸儀"
+        },
+        "2": {
+          "course": "體育",
+          "teacher": "張家宜"
+        },
+        "3": {
+          "course": "生物選修",
+          "teacher": "張端雅黃怡婷"
+        },
+        "4": {
+          "course": "生物選修",
+          "teacher": "張端雅黃怡婷"
+        },
+        "5": {
+          "course": "美術",
+          "teacher": "王文宏"
+        },
+        "6": {
+          "course": "磁現象一",
+          "teacher": "莊文治"
+        },
+        "7": {
+          "course": "磁現象一",
+          "teacher": "莊文治"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      }
+    }
+  },
+  "312": {
+    "class": "312",
+    "homeroom": "李世雄",
+    "advisor": "翁文婷",
+    "timetable": {
+      "一": {
+        "1": {
+          "course": "健康與護理",
+          "teacher": "黃雅蕾"
+        },
+        "2": {
+          "course": "健康與護理",
+          "teacher": "黃雅蕾"
+        },
+        "3": {
+          "course": "藝術生活",
+          "teacher": "李冠儀"
+        },
+        "4": {
+          "course": "藝術生活李冠儀",
+          "teacher": "專項體能"
+        },
+        "5": {
+          "course": "訓練陳光榮梁汝農黃陞中",
+          "teacher": "專項體能"
+        },
+        "6": {
+          "course": "訓練陳光榮梁汝農黃陞中",
+          "teacher": "專項體能"
+        },
+        "7": {
+          "course": "訓練陳光榮梁汝農",
+          "teacher": "黃陞中"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "二": {
+        "1": {
+          "course": "領域課程：科技應用專",
+          "teacher": "李漢昌"
+        },
+        "2": {
+          "course": "美術",
+          "teacher": "李漢昌"
+        },
+        "3": {
+          "course": "體育",
+          "teacher": "李世雄"
+        },
+        "4": {
+          "course": "數學甲",
+          "teacher": "林映全"
+        },
+        "5": {
+          "course": "全民國防教育林奕昇",
+          "teacher": "專項技術"
+        },
+        "6": {
+          "course": "訓練陳光榮梁汝農黃陞中",
+          "teacher": "專項技術"
+        },
+        "7": {
+          "course": "訓練陳光榮梁汝農",
+          "teacher": "黃陞中"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "三": {
+        "1": {
+          "course": "職涯試探",
+          "teacher": "李卓穎"
+        },
+        "2": {
+          "course": "職涯試探",
+          "teacher": "李卓穎"
+        },
+        "3": {
+          "course": "專項體能訓練陳光榮梁汝農黃陞中",
+          "teacher": "專項戰術"
+        },
+        "4": {
+          "course": "訓練陳光榮黃陞中",
+          "teacher": "梁汝農"
+        },
+        "5": {
+          "course": "選修生物-生態、演化",
+          "teacher": "曾文宣"
+        },
+        "6": {
+          "course": "導師時間",
+          "teacher": "李世雄"
+        },
+        "7": {
+          "course": "每週團體活動時間",
+          "teacher": "-"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "四": {
+        "1": {
+          "course": "語文表達與傳播應用",
+          "teacher": "鄭宏成"
+        },
+        "2": {
+          "course": "語文表達與傳播應用",
+          "teacher": "鄭宏成"
+        },
+        "3": {
+          "course": "日語",
+          "teacher": "郭金方"
+        },
+        "4": {
+          "course": "日語",
+          "teacher": "郭金方"
+        },
+        "5": {
+          "course": "體育李世雄",
+          "teacher": "專項技術"
+        },
+        "6": {
+          "course": "訓練陳光榮黃陞中梁汝農",
+          "teacher": "專項技術"
+        },
+        "7": {
+          "course": "訓練陳光榮黃陞中",
+          "teacher": "梁汝農"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      },
+      "五": {
+        "1": {
+          "course": "創新生活與家庭",
+          "teacher": "李漢昌"
+        },
+        "2": {
+          "course": "創新生活與家庭",
+          "teacher": "李漢昌"
+        },
+        "3": {
+          "course": "族群、性別與國家的歷",
+          "teacher": "陳俊逸"
+        },
+        "4": {
+          "course": "英文閱讀與寫作李欣儒",
+          "teacher": "每週彈性學"
+        },
+        "5": {
+          "course": "習時間陳光榮梁汝農黃陞中",
+          "teacher": "每週彈性學"
+        },
+        "6": {
+          "course": "習時間陳光榮黃陞中梁汝農",
+          "teacher": "每週彈性學"
+        },
+        "7": {
+          "course": "習時間陳光榮梁汝農",
+          "teacher": "黃陞中"
+        },
+        "8": {
+          "course": "-",
+          "teacher": "-"
+        }
+      }
+    }
+  }
+}
