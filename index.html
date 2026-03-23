@@ -112,7 +112,7 @@ footer{text-align:center;padding:28px;color:var(--ink-light);
 </head>
 <body>
 <div class="hero">
-  <div class="hero-seal">花中</div>
+  <div class="hero-seal">蓮</div>
   <h1>國立花蓮高級中學<span>114 學年度 第 2 學期 ‧ 課程查詢系統</span></h1>
   <div class="hero-rule"><span>實施日期 115.02.23 ～ 115.06.30</span></div>
 </div>
@@ -166,21 +166,27 @@ footer{text-align:center;padding:28px;color:var(--ink-light);
           <option value="數學科">數學科</option>
           <option value="自然科">自然科（物理／化學／生物／地科）</option>
           <option value="社會科">社會科（歷史／地理／公民）</option>
-          <option value="藝能科">藝能科（音樂／美術／家政／生活／健護／資訊）</option>
-          <option value="體育科">體育科</option>
-          <option value="輔導科">輔導科</option>
-          <option value="國防科">國防科</option>
+          <option value="藝能科">藝能健體輔導科（音樂／美術／家政／生活／健護／資訊／體育／輔導／國防）</option>
           <option value="兼任">兼任教師</option>
         </select>
       </div>
     </div>
     <div class="qrow" id="tchFbtns" style="margin-top:12px;"></div>
-    <div class="tgrid" id="tchGrid"></div>
+    <!-- 教師課表結果（在清單上方） -->
+    <div class="rbox" id="rbox" style="margin-top:20px;">
+      <div class="rhead"><h2 id="rTitle"></h2><span class="rbadge" id="rBadge"></span></div>
+      <div class="rbody" id="rBody"></div>
+    </div>
+    <div style="margin-top:24px;">
+      <div style="font-size:.8rem;color:var(--ink-light);letter-spacing:.08em;margin-bottom:10px;font-family:'Noto Serif TC',serif;">教師清單 — 點選教師查看課表</div>
+      <div class="tgrid" id="tchGrid"></div>
+    </div>
   </div>
 
-  <div class="rbox" id="rbox">
-    <div class="rhead"><h2 id="rTitle"></h2><span class="rbadge" id="rBadge"></span></div>
-    <div class="rbody" id="rBody"></div>
+  <!-- 班級課表結果 -->
+  <div class="rbox" id="classRbox">
+    <div class="rhead"><h2 id="classRTitle"></h2><span class="rbadge" id="classRBadge"></span></div>
+    <div class="rbody" id="classRBody"></div>
   </div>
 </div>
 <footer>國立花蓮高級中學 ‧ 114學年度第2學期課程表 ‧ 資料更新：115.01.30</footer>
@@ -213,6 +219,8 @@ function switchTab(tab,btn){
   btn.classList.add('active');
   document.getElementById('classPanel').classList.toggle('active',tab==='class');
   document.getElementById('teacherPanel').classList.toggle('active',tab==='teacher');
+  // 切換時隱藏各自結果框
+  document.getElementById('classRbox').classList.remove('on');
   document.getElementById('rbox').classList.remove('on');
   if(tab==='teacher' && TDB) tchFilter();
 }
@@ -232,34 +240,29 @@ function switchTab(tab,btn){
 
 // ── 科別群組設定（與 teacher_schedule.html 一致）──
 const DEPT_GROUPS=[
-  {lbl:'國文科',   depts:['國文科']},
-  {lbl:'英文科',   depts:['英文科']},
-  {lbl:'數學科',   depts:['數學科']},
-  {lbl:'自然科',   depts:['物理科','化學科','生物科','地球科學科']},
-  {lbl:'社會科',   depts:['歷史科','地理科','公民科']},
-  {lbl:'藝能科',   depts:['音樂科','美術科','家政科','生活科','健護科','資訊科']},
-  {lbl:'體育科',   depts:['體育科']},
-  {lbl:'輔導科',   depts:['輔導科']},
-  {lbl:'國防科',   depts:['國防科']},
-  {lbl:'兼任教師', depts:['兼任']},
+  {lbl:'國文科',        depts:['國文科']},
+  {lbl:'英文科',        depts:['英文科']},
+  {lbl:'數學科',        depts:['數學科']},
+  {lbl:'自然科',        depts:['物理科','化學科','生物科','地球科學科']},
+  {lbl:'社會科',        depts:['歷史科','地理科','公民科']},
+  {lbl:'藝能健體輔導科', depts:['音樂科','美術科','家政科','生活科','健護科','資訊科','體育科','輔導科','國防科']},
+  {lbl:'兼任教師',      depts:['兼任']},
 ];
 const DEPT_FILTER_MAP={
   '自然科':['物理科','化學科','生物科','地球科學科'],
   '社會科':['歷史科','地理科','公民科'],
-  '藝能科':['音樂科','美術科','家政科','生活科','健護科','資訊科'],
+  '藝能科':['音樂科','美術科','家政科','生活科','健護科','資訊科','體育科','輔導科','國防科'],
 };
 
 const TCH_FBTNS=[
-  {lbl:'全部',   val:''},
-  {lbl:'國文科', val:'國文科'},
-  {lbl:'英文科', val:'英文科'},
-  {lbl:'數學科', val:'數學科'},
-  {lbl:'自然科', val:'自然科'},
-  {lbl:'社會科', val:'社會科'},
-  {lbl:'藝能科', val:'藝能科'},
-  {lbl:'體育科', val:'體育科'},
-  {lbl:'輔導科', val:'輔導科'},
-  {lbl:'兼任',   val:'兼任'},
+  {lbl:'全部',          val:''},
+  {lbl:'國文科',        val:'國文科'},
+  {lbl:'英文科',        val:'英文科'},
+  {lbl:'數學科',        val:'數學科'},
+  {lbl:'自然科',        val:'自然科'},
+  {lbl:'社會科',        val:'社會科'},
+  {lbl:'藝能健體輔導科', val:'藝能科'},
+  {lbl:'兼任',          val:'兼任'},
 ];
 
 function buildTchFbtns(){
@@ -363,7 +366,7 @@ async function showClass(){
   const cls=document.getElementById('classSelect').value;
   if(!cls)return;
   const rec=CDB[cls];
-  if(!rec){render(`${cls}班課表`,'班級',`<div class="nodata">找不到 ${cls} 班資料</div>`);return;}
+  if(!rec){renderClass(`${cls}班課表`,'班級',`<div class="nodata">找不到 ${cls} 班資料</div>`);return;}
   let h=`<div class="irow2">
     <div class="ii"><strong>班級：</strong>${rec.class}班</div>
     <div class="ii"><strong>導師：</strong><a class="tlink" onclick="goTeacher('${rec.homeroom}')">${rec.homeroom}</a></div>
@@ -377,7 +380,15 @@ async function showClass(){
       sub:hasT?`<a class="tlink" onclick="goTeacher('${c.teacher}')">${c.teacher}</a>`:null};
   });
   h+=`<div class="pdfrow">📄 原始課表：<a href="班級正式課表0130.pdf#page=${PMAP[cls]||1}" target="_blank">班級正式課表0130.pdf（第${PMAP[cls]||1}頁）</a></div>`;
-  render(`${cls} 班課程表`,'班級',h);
+  renderClass(`${cls} 班課程表`,'班級',h);
+}
+
+function renderClass(title,badge,html){
+  document.getElementById('classRTitle').textContent=title;
+  document.getElementById('classRBadge').textContent=badge;
+  document.getElementById('classRBody').innerHTML=html;
+  const b=document.getElementById('classRbox');b.classList.add('on');
+  b.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 
 function pickTeacher(name){
@@ -404,7 +415,7 @@ function render(title,badge,html){
   document.getElementById('rBadge').textContent=badge;
   document.getElementById('rBody').innerHTML=html;
   const b=document.getElementById('rbox');b.classList.add('on');
-  b.scrollIntoView({behavior:'smooth',block:'nearest'});
+  b.scrollIntoView({behavior:'smooth',block:'start'});
 }
 
 load();

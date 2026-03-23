@@ -128,7 +128,7 @@ footer{text-align:center;padding:26px;color:var(--ink-light);font-size:.76rem;
           <option value="數學科">數學科</option>
           <option value="自然科">自然科（物理／化學／生物／地科）</option>
           <option value="社會科">社會科（歷史／地理／公民）</option>
-          <option value="藝能科">藝能科（音樂／美術／家政／生活／健護／資訊/體育/輔導/國防）</option>
+          <option value="藝能科">藝能健體輔導科（音樂／美術／家政／生活／健護／資訊／體育／輔導／國防）</option>
           <option value="兼任">兼任教師</option>
         </select>
       </div>
@@ -139,7 +139,6 @@ footer{text-align:center;padding:26px;color:var(--ink-light);font-size:.76rem;
     </div>
     <div class="frow" id="frow"></div>
   </div>
-  <div class="tgrid" id="tgrid"></div>
   <div class="dp" id="dp">
     <div class="dp-top">
       <h2 id="dpName"></h2>
@@ -151,6 +150,12 @@ footer{text-align:center;padding:26px;color:var(--ink-light);font-size:.76rem;
       <div id="dpClasses"></div>
       <div class="pdfrow" id="dpPdf"></div>
     </div>
+  </div>
+  <div style="margin-top:28px;">
+    <div style="font-size:.8rem;color:var(--ink-light);letter-spacing:.08em;margin-bottom:10px;font-family:'Noto Serif TC',serif;">
+      教師清單 — 點選教師查看課表
+    </div>
+    <div class="tgrid" id="tgrid"></div>
   </div>
 </div>
 <footer>國立花蓮高級中學 ‧ 114學年度第2學期 ‧ 教師課表查詢</footer>
@@ -177,13 +182,12 @@ const ALL_DEPTS = [
 
 // 科別群組（用於網格分組顯示）
 const DEPT_GROUPS = [
-  { lbl:'行政人員', depts:['行政人員'] },
   { lbl:'國文科',   depts:['國文科'] },
   { lbl:'英文科',   depts:['英文科'] },
   { lbl:'數學科',   depts:['數學科'] },
   { lbl:'自然科',   depts:['物理科','化學科','生物科','地球科學科'] },
   { lbl:'社會科',   depts:['歷史科','地理科','公民科'] },
-  { lbl:'藝能科',   depts:['音樂科','美術科','家政科','生活科','健護科','資訊科','體育科','輔導科','國防科'] },
+  { lbl:'藝能健體輔導科', depts:['音樂科','美術科','家政科','生活科','健護科','資訊科','體育科','輔導科','國防科'] },
   { lbl:'兼任教師', depts:['兼任'] },
 ];
 
@@ -219,7 +223,7 @@ function filterGrid(){
   const DEPT_FILTER_MAP={
     '自然科':['物理科','化學科','生物科','地球科學科'],
     '社會科':['歷史科','地理科','公民科'],
-    '藝能科':['音樂科','美術科','家政科','生活科','健護科','資訊科','體育科','輔導科','國防科']],
+    '藝能科':['音樂科','美術科','家政科','生活科','健護科','資訊科','體育科','輔導科','國防科'],
   };
 
   const names=TCH_KEYS.filter(n=>{
@@ -259,7 +263,7 @@ const FBTNS=[
   {lbl:'數學科',  val:'數學科'},
   {lbl:'自然科',  val:'自然科'},
   {lbl:'社會科',  val:'社會科'},
-  {lbl:'藝能科',  val:'藝能科'},
+  {lbl:'藝能健體輔導科', val:'藝能科'},
   {lbl:'兼任',    val:'兼任'},
 ];
 (function(){
@@ -341,7 +345,7 @@ function selectTeacher(name,card){
     `📄 原始課表：<a href="教師正式課表0130.pdf#page=${pg}" target="_blank">教師正式課表0130.pdf（第${pg}頁）</a>`;
 
   const dp=document.getElementById('dp');dp.classList.add('on');
-  dp.scrollIntoView({behavior:'smooth',block:'nearest'});
+  dp.scrollIntoView({behavior:'smooth',block:'start'});
 }
 
 function goClass(cls){
