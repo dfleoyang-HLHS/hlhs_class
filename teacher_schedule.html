@@ -139,6 +139,12 @@ footer{text-align:center;padding:26px;color:var(--ink-light);font-size:.76rem;
     </div>
     <div class="frow" id="frow"></div>
   </div>
+  <div style="margin-top:28px;">
+    <div style="font-size:.8rem;color:var(--ink-light);letter-spacing:.08em;margin-bottom:10px;font-family:'Noto Serif TC',serif;">
+      教師清單 — 點選教師查看課表
+    </div>
+    <div class="tgrid" id="tgrid"></div>
+  </div>
   <div class="dp" id="dp">
     <div class="dp-top">
       <h2 id="dpName"></h2>
@@ -150,12 +156,6 @@ footer{text-align:center;padding:26px;color:var(--ink-light);font-size:.76rem;
       <div id="dpClasses"></div>
       <div class="pdfrow" id="dpPdf"></div>
     </div>
-  </div>
-  <div style="margin-top:28px;">
-    <div style="font-size:.8rem;color:var(--ink-light);letter-spacing:.08em;margin-bottom:10px;font-family:'Noto Serif TC',serif;">
-      教師清單 — 點選教師查看課表
-    </div>
-    <div class="tgrid" id="tgrid"></div>
   </div>
 </div>
 <footer>國立花蓮高級中學 ‧ 114學年度第2學期 ‧ 教師課表查詢</footer>
@@ -345,7 +345,7 @@ function selectTeacher(name,card){
     `📄 原始課表：<a href="教師正式課表0130.pdf#page=${pg}" target="_blank">教師正式課表0130.pdf（第${pg}頁）</a>`;
 
   const dp=document.getElementById('dp');dp.classList.add('on');
-  dp.scrollIntoView({behavior:'smooth',block:'start'});
+  dp.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 
 function goClass(cls){
@@ -365,9 +365,9 @@ load().then(()=>{
       setTimeout(()=>{
         const card=document.querySelector(`.tcard[data-name="${match}"]`);
         if(card) card.classList.add('sel');
-        // 捲動到課表（dp），而非清單中的卡片
+        // 捲動到課表（dp 在清單下方）
         const dp=document.getElementById('dp');
-        if(dp) dp.scrollIntoView({behavior:'smooth',block:'start'});
+        if(dp) dp.scrollIntoView({behavior:'smooth',block:'nearest'});
       },50);
     }
   }
