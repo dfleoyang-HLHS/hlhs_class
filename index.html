@@ -89,6 +89,23 @@ a.tlink:hover,a.clink:hover{color:var(--red);border-bottom-color:var(--red);}
 .pdfrow a{color:var(--red);text-decoration:none;}
 .pdfrow a:hover{text-decoration:underline;}
 .nodata{text-align:center;padding:40px;color:var(--ink-light);font-size:.88rem;}
+/* 教師網格 */
+.tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+  gap:1px;background:var(--border);border:1px solid var(--border);margin-top:16px;}
+.tgh{grid-column:1/-1;background:var(--cream-mid);padding:6px 13px;
+  font-size:.74rem;color:var(--ink-light);letter-spacing:.1em;
+  font-family:'Noto Serif TC',serif;border-top:2px solid var(--border);}
+.tcard{background:#fff;padding:11px 13px;cursor:pointer;transition:background .15s;
+  border:none;text-align:left;width:100%;}
+.tcard:hover{background:var(--gold-lt);}
+.tcard.sel{background:var(--ink);color:#fff;}
+.tcard.sel .tc-sub{color:var(--gold-lt);}
+.tc-nm{font-family:'Noto Serif TC',serif;font-size:.9rem;display:block;}
+.tc-sub{font-size:.68rem;color:var(--ink-light);margin-top:2px;display:block;}
+.fbtn{padding:5px 11px;background:var(--cream-mid);border:1px solid var(--border);
+  color:var(--ink-mid);font-size:.78rem;cursor:pointer;border-radius:2px;
+  transition:all .15s;font-family:'Noto Sans TC',sans-serif;}
+.fbtn:hover,.fbtn.active{background:var(--ink);color:#fff;border-color:var(--ink);}
 footer{text-align:center;padding:28px;color:var(--ink-light);
   font-size:.76rem;letter-spacing:.08em;border-top:1px solid var(--border);margin-top:40px;}
 </style>
@@ -135,15 +152,30 @@ footer{text-align:center;padding:28px;color:var(--ink-light);
   </div>
 
   <div class="panel" id="teacherPanel">
-    <div class="slabel">輸入教師姓名</div>
     <div class="irow">
       <div class="ig">
-        <input type="text" id="tchInput" placeholder="輸入姓名關鍵字，如：張銘傑" oninput="filterTchQuick()" list="tchList">
-        <datalist id="tchList"></datalist>
+        <div class="slabel">教師姓名</div>
+        <input type="text" id="tchInput" placeholder="輸入姓名關鍵字…" oninput="tchFilter()">
       </div>
-      <button class="btn" onclick="showTeacher()">查詢</button>
+      <div class="ig">
+        <div class="slabel">科別</div>
+        <select id="tchDept" onchange="tchSyncBtn();tchFilter()">
+          <option value="">── 所有科別 ──</option>
+          <option value="國文科">國文科</option>
+          <option value="英文科">英文科</option>
+          <option value="數學科">數學科</option>
+          <option value="自然科">自然科（物理／化學／生物／地科）</option>
+          <option value="社會科">社會科（歷史／地理／公民）</option>
+          <option value="藝能科">藝能科（音樂／美術／家政／生活／健護／資訊）</option>
+          <option value="體育科">體育科</option>
+          <option value="輔導科">輔導科</option>
+          <option value="國防科">國防科</option>
+          <option value="兼任">兼任教師</option>
+        </select>
+      </div>
     </div>
-    <div class="qrow" id="tchQuick"></div>
+    <div class="qrow" id="tchFbtns" style="margin-top:12px;"></div>
+    <div class="tgrid" id="tchGrid"></div>
   </div>
 
   <div class="rbox" id="rbox">
@@ -171,9 +203,8 @@ async function load(){
   if(!TDB){
     const r=await fetch('teacherdb.json');TDB=await r.json();
     TCH_KEYS=Object.keys(TDB);
-    const dl=document.getElementById('tchList');
-    TCH_KEYS.forEach(n=>{const o=document.createElement('option');o.value=n;dl.appendChild(o);});
-    buildTchQuick('');
+    buildTchFbtns();
+    renderTchGrid(TCH_KEYS);
   }
 }
 
@@ -183,6 +214,7 @@ function switchTab(tab,btn){
   document.getElementById('classPanel').classList.toggle('active',tab==='class');
   document.getElementById('teacherPanel').classList.toggle('active',tab==='teacher');
   document.getElementById('rbox').classList.remove('on');
+  if(tab==='teacher' && TDB) tchFilter();
 }
 
 // Class quick buttons
@@ -198,15 +230,106 @@ function switchTab(tab,btn){
   });
 })();
 
-function buildTchQuick(filter){
-  const w=document.getElementById('tchQuick');w.innerHTML='';
-  TCH_KEYS.filter(n=>!filter||n.includes(filter)).slice(0,30).forEach(n=>{
-    const b=document.createElement('button');b.className='qbtn';b.textContent=n;
-    b.onclick=()=>{document.getElementById('tchInput').value=n;showTeacher();};
-    w.appendChild(b);
+// ── 科別群組設定（與 teacher_schedule.html 一致）──
+const DEPT_GROUPS=[
+  {lbl:'國文科',   depts:['國文科']},
+  {lbl:'英文科',   depts:['英文科']},
+  {lbl:'數學科',   depts:['數學科']},
+  {lbl:'自然科',   depts:['物理科','化學科','生物科','地球科學科']},
+  {lbl:'社會科',   depts:['歷史科','地理科','公民科']},
+  {lbl:'藝能科',   depts:['音樂科','美術科','家政科','生活科','健護科','資訊科']},
+  {lbl:'體育科',   depts:['體育科']},
+  {lbl:'輔導科',   depts:['輔導科']},
+  {lbl:'國防科',   depts:['國防科']},
+  {lbl:'兼任教師', depts:['兼任']},
+];
+const DEPT_FILTER_MAP={
+  '自然科':['物理科','化學科','生物科','地球科學科'],
+  '社會科':['歷史科','地理科','公民科'],
+  '藝能科':['音樂科','美術科','家政科','生活科','健護科','資訊科'],
+};
+
+const TCH_FBTNS=[
+  {lbl:'全部',   val:''},
+  {lbl:'國文科', val:'國文科'},
+  {lbl:'英文科', val:'英文科'},
+  {lbl:'數學科', val:'數學科'},
+  {lbl:'自然科', val:'自然科'},
+  {lbl:'社會科', val:'社會科'},
+  {lbl:'藝能科', val:'藝能科'},
+  {lbl:'體育科', val:'體育科'},
+  {lbl:'輔導科', val:'輔導科'},
+  {lbl:'兼任',   val:'兼任'},
+];
+
+function buildTchFbtns(){
+  const wrap=document.getElementById('tchFbtns');
+  TCH_FBTNS.forEach((fb,i)=>{
+    const b=document.createElement('button');
+    b.className='fbtn'+(i===0?' active':'');
+    b.textContent=fb.lbl; b.dataset.val=fb.val;
+    b.onclick=()=>{
+      document.getElementById('tchDept').value=fb.val;
+      document.querySelectorAll('#tchFbtns .fbtn').forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');
+      tchFilter();
+    };
+    wrap.appendChild(b);
   });
 }
-function filterTchQuick(){buildTchQuick(document.getElementById('tchInput').value.trim());}
+
+function tchSyncBtn(){
+  const val=document.getElementById('tchDept').value;
+  document.querySelectorAll('#tchFbtns .fbtn').forEach(b=>{
+    b.classList.toggle('active', b.dataset.val===val);
+  });
+}
+
+function tchFilter(){
+  if(!TDB) return;
+  const kw=document.getElementById('tchInput').value.trim();
+  const rf=document.getElementById('tchDept').value;
+  const names=TCH_KEYS.filter(n=>{
+    const d=TDB[n].dept||'兼任';
+    const nameOk=!kw||(n.includes(kw)||(TDB[n].role||'').includes(kw)||d.includes(kw));
+    let deptOk=true;
+    if(rf){
+      deptOk=DEPT_FILTER_MAP[rf]?DEPT_FILTER_MAP[rf].includes(d):(d===rf);
+    }
+    return nameOk&&deptOk;
+  });
+  renderTchGrid(names);
+}
+
+function renderTchGrid(names){
+  const grid=document.getElementById('tchGrid');
+  grid.innerHTML='';
+  let any=false;
+  DEPT_GROUPS.forEach(g=>{
+    const sub=names.filter(n=>g.depts.includes(TDB[n].dept||'兼任'));
+    if(!sub.length) return;
+    any=true;
+    const gh=document.createElement('div');gh.className='tgh';
+    gh.textContent=g.lbl+` (${sub.length}人)`; grid.appendChild(gh);
+    sub.forEach(n=>{
+      const c=document.createElement('button');
+      c.className='tcard'; c.dataset.name=n;
+      c.innerHTML=`<span class="tc-nm">${n}</span><span class="tc-sub">${TDB[n].dept||'兼任'}</span>`;
+      c.onclick=()=>{ pickTeacher(n); highlightTchCard(n); };
+      grid.appendChild(c);
+    });
+  });
+  if(!any) grid.innerHTML='<div style="padding:22px;text-align:center;color:var(--ink-light);font-size:.86rem;background:#fff;grid-column:1/-1">無符合條件的教師</div>';
+}
+
+function highlightTchCard(name){
+  document.querySelectorAll('.tcard').forEach(c=>c.classList.remove('sel'));
+  const c=document.querySelector(`.tcard[data-name="${name}"]`);
+  if(c) c.classList.add('sel');
+}
+
+function buildTchQuick(){} // 保留相容性（不再使用）
+function filterTchQuick(){} // 保留相容性
 
 function buildTable(getCell){
   let h=`<div class="twrap"><table class="sch"><tr><th>節次</th><th>時間</th>`;
@@ -255,20 +378,6 @@ async function showClass(){
   });
   h+=`<div class="pdfrow">📄 原始課表：<a href="班級正式課表0130.pdf#page=${PMAP[cls]||1}" target="_blank">班級正式課表0130.pdf（第${PMAP[cls]||1}頁）</a></div>`;
   render(`${cls} 班課程表`,'班級',h);
-}
-
-async function showTeacher(){
-  await load();
-  const val=document.getElementById('tchInput').value.trim();
-  if(!val)return;
-  const hits=TCH_KEYS.filter(n=>n.includes(val));
-  if(!hits.length){render('查詢結果','教師',`<div class="nodata">找不到「${val}」的資料</div>`);return;}
-  if(hits.length>1){
-    const btns=hits.map(n=>`<button class="qbtn" style="padding:9px 16px;font-size:.88rem" onclick="pickTeacher('${n}')">${n}<small style="display:block;color:var(--ink-light);font-size:.72rem">${TDB[n].dept||TDB[n].role}</small></button>`).join('');
-    render('搜尋結果','教師',`<p style="font-size:.87rem;color:var(--ink-light);margin-bottom:14px">找到 ${hits.length} 位，請選擇：</p><div style="display:flex;flex-wrap:wrap;gap:9px">${btns}</div>`);
-    return;
-  }
-  pickTeacher(hits[0]);
 }
 
 function pickTeacher(name){
