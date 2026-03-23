@@ -173,9 +173,18 @@ const PMAP={'101':1,'102':2,'103':3,'104':4,'105':5,'106':6,'107':7,'108':8,
   '309':33,'310':34,'311':35,'312':36};
 
 let CDB=null, curView='table', curCls=null;
+window._TCH_KEYS=[];
 
 async function load(){
   if(!CDB){const r=await fetch('classdb.json');CDB=await r.json();}
+  // 載入教師名單，供 teacherHtml 拆分判斷用
+  if(!window._TCH_KEYS.length){
+    try{
+      const r=await fetch('teacherdb.json');
+      const tdb=await r.json();
+      window._TCH_KEYS=Object.keys(tdb);
+    }catch(e){}
+  }
 }
 
 // Build sidebar
@@ -246,7 +255,7 @@ function renderDayView(rec){
       const row=document.createElement('div');row.className='prow';
       row.innerHTML=`<div class="pnum"><strong>${p}</strong><span class="ptime">${times[0]}<br>${times[1]}</span></div>`;
       if(hasCourse){
-        const tchHtml=hasTeacher?`<span class="tchip"><a class="tlink" onclick="goTeacher('${cell.teacher}')" title="查看 ${cell.teacher} 老師課表">${cell.teacher}</a></span>`:'';
+        const tchHtml=hasTeacher ? teacherHtml(cell.teacher,'tchip') : '';
         row.innerHTML+=`<div class="pcontent"><span class="cpill">${cell.course}</span>${tchHtml}</div>`;
       } else if(p!=='8'){
         row.innerHTML+=`<div class="pempty">—</div>`;
@@ -270,7 +279,7 @@ function renderTableView(rec){
       const ok=cell&&cell.course&&cell.course!=='-';
       const hasT=cell&&cell.teacher&&cell.teacher!=='-';
       if(ok){
-        const tchHtml=hasT?`<span class="tn"><a class="tlink" onclick="goTeacher('${cell.teacher}')" title="查看 ${cell.teacher} 老師課表">${cell.teacher}</a></span>`:'';
+        const tchHtml=hasT ? teacherHtml(cell.teacher,'tn') : '';
         h+=`<td><div class="ci"><span class="cn">${cell.course}</span>${tchHtml}</div></td>`;
       } else if(p!=='8'){
         h+=`<td><div class="ci"><span class="ec">—</span></div></td>`;
@@ -294,6 +303,24 @@ function setView(v,btn){
 
 function goTeacher(name){
   window.location.href='teacher_schedule.html?teacher='+encodeURIComponent(name);
+}
+
+// 教師名稱連結產生器：5字→3+2、6字→3+3，各自為獨立連結
+// 若拆分後兩段都是合法教師名才拆，否則視為單一教師
+function teacherHtml(t, wrapClass){
+  if(!t || t==='-') return '';
+  const len = t.length;
+  let names = [t];
+  if((len===5||len===6) && window._TCH_KEYS){
+    const t1 = t.slice(0,3), t2 = t.slice(3);
+    if(window._TCH_KEYS.includes(t1) && window._TCH_KEYS.includes(t2)){
+      names = [t1, t2];
+    }
+  }
+  const links = names.map(n=>
+    `<a class="tlink" onclick="goTeacher('${n}')" title="查看 ${n} 老師課表">${n}</a>`
+  ).join('<span style="color:var(--border);margin:0 1px">/</span>');
+  return `<span class="${wrapClass}">${links}</span>`;
 }
 
 // URL param — 從教師課表點班級號碼跳過來時，自動展開課表並捲動到課表頂端
