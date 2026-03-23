@@ -296,9 +296,16 @@ function goTeacher(name){
   window.location.href='teacher_schedule.html?teacher='+encodeURIComponent(name);
 }
 
-// URL param
+// URL param — 從教師課表點班級號碼跳過來時，自動展開課表並捲動到課表頂端
 const p=new URLSearchParams(location.search).get('class');
-if(p) load().then(()=>showClass(p));
+if(p) load().then(()=>{
+  showClass(p);
+  // 額外延遲確保渲染完成後再捲動
+  setTimeout(()=>{
+    const sc=document.getElementById('schCard');
+    if(sc) sc.scrollIntoView({behavior:'smooth',block:'start'});
+  },150);
+});
 </script>
 </body>
 </html>

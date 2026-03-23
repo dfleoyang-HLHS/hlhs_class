@@ -354,17 +354,21 @@ function goClass(cls){
 
 load().then(()=>{
   renderGrid(TCH_KEYS);
-  // Handle ?teacher= URL param
+  // Handle ?teacher= URL param — 直接展開課表並捲動到課表位置
   const tParam=new URLSearchParams(location.search).get('teacher');
   if(tParam){
     const match=TCH_KEYS.find(n=>n===tParam)||TCH_KEYS.find(n=>n.includes(tParam));
     if(match){
-      // Scroll to and highlight that card after grid is rendered
+      // 先展開課表，再捲動到課表頂端
+      selectTeacher(match, null);
+      // 同時在清單中高亮對應卡片（不捲動到卡片）
       setTimeout(()=>{
         const card=document.querySelector(`.tcard[data-name="${match}"]`);
-        selectTeacher(match,card);
-        if(card)card.scrollIntoView({behavior:'smooth',block:'center'});
-      },100);
+        if(card) card.classList.add('sel');
+        // 捲動到課表（dp），而非清單中的卡片
+        const dp=document.getElementById('dp');
+        if(dp) dp.scrollIntoView({behavior:'smooth',block:'start'});
+      },50);
     }
   }
 });
