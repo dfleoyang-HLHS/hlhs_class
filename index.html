@@ -383,6 +383,22 @@ function goClass(cls){
   window.location.href='class_schedule.html?class='+encodeURIComponent(cls);
 }
 
+// 教師名稱連結產生器：5字→前3+後2，6字→前3+後3，各自為獨立連結
+// 若拆分後兩段都是合法教師名才拆，否則視為單一教師
+function teacherHtml(t, wrapClass){
+  if(!t||t==='-') return '';
+  const len=t.length;
+  let names=[t];
+  if((len===5||len===6)&&TCH_KEYS.length){
+    const t1=t.slice(0,3), t2=t.slice(3);
+    if(TCH_KEYS.includes(t1)&&TCH_KEYS.includes(t2)) names=[t1,t2];
+  }
+  const links=names.map(n=>
+    `<a class="tlink" onclick="goTeacher('${n}')" title="查看 ${n} 老師課表">${n}</a>`
+  ).join('<span style="color:var(--border);margin:0 1px">/</span>');
+  return `<span class="${wrapClass}">${links}</span>`;
+}
+
 async function showClass(){
   await load();
   const cls=document.getElementById('classSelect').value;
@@ -399,7 +415,7 @@ async function showClass(){
     const ok=c&&c.course&&c.course!=='-';
     const hasT=ok&&c.teacher&&c.teacher!=='-';
     return{main:ok?c.course:null,
-      sub:hasT?`<a class="tlink" onclick="goTeacher('${c.teacher}')">${c.teacher}</a>`:null};
+      sub:hasT?teacherHtml(c.teacher,'tn'):null};
   });
   h+=`<div class="pdfrow">📄 原始課表：<a href="班級正式課表0130.pdf#page=${PMAP[cls]||1}" target="_blank">班級正式課表0130.pdf（第${PMAP[cls]||1}頁）</a></div>`;
   renderClass(`${cls} 班課程表`,'班級',h);
