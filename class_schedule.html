@@ -365,14 +365,17 @@ function renderDayView(data, grid) {
 
     PERIODS.forEach(p => {
       const cell = grid[p][d];
+      const showDash = p !== '早' && p !== '8';
       const row = document.createElement('div');
       row.className = 'period-row';
       const times = PERIOD_TIMES[p].split('\n');
       row.innerHTML = `<div class="period-num"><strong>${p === '早' ? '早' : p}</strong><span class="period-time">${times[0]}<br>${times[1]}</span></div>`;
       if (cell && cell.course) {
         row.innerHTML += `<div class="period-content"><span class="course-pill">${cell.course}</span>${cell.teacher ? `<span class="teacher-chip">${cell.teacher}</span>` : ''}</div>`;
-      } else {
+      } else if (showDash) {
         row.innerHTML += `<div class="empty-period">—</div>`;
+      } else {
+        row.innerHTML += `<div class="empty-period"></div>`;
       }
       dayDiv.appendChild(row);
     });
@@ -389,13 +392,16 @@ function renderTableView(data, grid) {
 
   PERIODS.forEach(p => {
     const times = PERIOD_TIMES[p].split('\n');
+    const showDash = p !== '早' && p !== '8';
     html += `<tr><td class="pl">${p === '早' ? '早自習' : '第'+p+'節'}</td><td class="pl" style="font-size:0.7rem">${times[0]}~${times[1]}</td>`;
     DAYS.forEach(d => {
       const cell = grid[p][d];
       if (cell && cell.course) {
         html += `<td><span class="cn">${cell.course}</span>${cell.teacher ? `<span class="tn">${cell.teacher}</span>` : ''}</td>`;
-      } else {
+      } else if (showDash) {
         html += `<td><span class="ec">—</span></td>`;
+      } else {
+        html += `<td></td>`;
       }
     });
     html += '</tr>';

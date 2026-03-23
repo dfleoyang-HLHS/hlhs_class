@@ -500,10 +500,13 @@ function searchClass() {
     html += `<tr><td class="period-label">${p === '早' ? '早自習' : '第'+p+'節'}</td><td class="period-label" style="font-size:0.72rem">${PERIOD_TIMES[p]}</td>`;
     DAYS.forEach(d => {
       const cell = grid[p][d];
+      const showDash = p !== '早' && p !== '8';
       if (cell && cell.course) {
         html += `<td><span class="course-name">${cell.course}</span>${cell.teacher ? `<span class="teacher-name">${cell.teacher}</span>` : ''}</td>`;
-      } else {
+      } else if (showDash) {
         html += `<td><span class="empty-cell">—</span></td>`;
+      } else {
+        html += `<td></td>`;
       }
     });
     html += '</tr>';
