@@ -117,6 +117,7 @@
     .day-schedule.active { display: block; }
     .period-row {
       display: flex; align-items: stretch; border-bottom: 1px solid var(--cream-mid);
+      min-height: 48px;
     }
     .period-row:last-child { border-bottom: none; }
     .period-num {
@@ -140,7 +141,7 @@
       font-size: 0.8rem; color: var(--ink-light);
       padding: 3px 10px; background: var(--cream-mid); border-radius: 2px;
     }
-    .empty-period { color: var(--border); font-size: 0.8rem; padding: 12px 16px; }
+    .empty-period { color: var(--border); font-size: 0.85rem; padding: 12px 16px; display: flex; align-items: center; }
 
     /* Full week table view toggle */
     .view-toggle {
@@ -168,6 +169,7 @@
     .schedule-table td {
       border: 1px solid var(--cream-mid); padding: 8px 6px;
       text-align: center; vertical-align: middle; line-height: 1.4;
+      min-height: 44px; height: 44px;
     }
     .schedule-table tr:nth-child(even) td { background: var(--cream); }
     .schedule-table td.pl {
@@ -176,7 +178,7 @@
     }
     .cn { display: block; font-weight: 500; color: var(--ink); }
     .tn { display: block; font-size: 0.72rem; color: var(--ink-light); margin-top: 1px; }
-    .ec { color: var(--border); font-size: 0.72rem; }
+    .ec { color: var(--border); font-size: 0.85rem; display: block; line-height: 44px; }
 
     /* PDF link */
     .pdf-row {
