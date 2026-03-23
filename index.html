@@ -79,6 +79,11 @@ table.sch td.pl{background:var(--cream-mid);font-size:.78rem;color:var(--ink-mid
 .cn{font-weight:500;color:var(--ink);font-size:.82rem;line-height:1.3;}
 .tn{font-size:.72rem;color:var(--ink-light);}
 .ec{color:#ccc;font-size:.85rem;}
+/* 教師／班級連結 */
+a.tlink,a.clink{color:inherit;text-decoration:none;cursor:pointer;
+  border-bottom:1px dashed var(--border);transition:color .15s,border-color .15s;}
+a.tlink:hover,a.clink:hover{color:var(--red);border-bottom-color:var(--red);}
+.irow2 a.tlink{color:var(--ink);}
 .pdfrow{margin-top:16px;padding-top:14px;border-top:1px solid var(--cream-mid);
   font-size:.83rem;color:var(--ink-light);}
 .pdfrow a{color:var(--red);text-decoration:none;}
@@ -209,7 +214,7 @@ function buildTable(getCell){
   PERIODS.forEach(p=>{
     h+=`<tr><td class="pl">第${p}節</td><td class="pl" style="font-size:.7rem;white-space:nowrap">${PT[p]}</td>`;
     DAYS.forEach(d=>{
-      const {main,sub,empty}=getCell(d,p);
+      const {main,sub}=getCell(d,p);
       if(main){
         h+=`<td><div class="ci"><span class="cn">${main}</span>${sub?`<span class="tn">${sub}</span>`:''}</div></td>`;
       } else if(p!=='8'){
@@ -223,6 +228,13 @@ function buildTable(getCell){
   return h+'</table></div>';
 }
 
+function goTeacher(name){
+  window.location.href='teacher_schedule.html?teacher='+encodeURIComponent(name);
+}
+function goClass(cls){
+  window.location.href='class_schedule.html?class='+encodeURIComponent(cls);
+}
+
 async function showClass(){
   await load();
   const cls=document.getElementById('classSelect').value;
@@ -231,13 +243,15 @@ async function showClass(){
   if(!rec){render(`${cls}班課表`,'班級',`<div class="nodata">找不到 ${cls} 班資料</div>`);return;}
   let h=`<div class="irow2">
     <div class="ii"><strong>班級：</strong>${rec.class}班</div>
-    <div class="ii"><strong>導師：</strong>${rec.homeroom}</div>
-    <div class="ii"><strong>課諮師：</strong>${rec.advisor}</div>
+    <div class="ii"><strong>導師：</strong><a class="tlink" onclick="goTeacher('${rec.homeroom}')">${rec.homeroom}</a></div>
+    <div class="ii"><strong>課諮師：</strong><a class="tlink" onclick="goTeacher('${rec.advisor}')">${rec.advisor}</a></div>
   </div>`;
   h+=buildTable((d,p)=>{
     const c=rec.timetable[d][p];
     const ok=c&&c.course&&c.course!=='-';
-    return{main:ok?c.course:null,sub:(ok&&c.teacher&&c.teacher!=='-')?c.teacher:null};
+    const hasT=ok&&c.teacher&&c.teacher!=='-';
+    return{main:ok?c.course:null,
+      sub:hasT?`<a class="tlink" onclick="goTeacher('${c.teacher}')">${c.teacher}</a>`:null};
   });
   h+=`<div class="pdfrow">📄 原始課表：<a href="班級正式課表0130.pdf#page=${PMAP[cls]||1}" target="_blank">班級正式課表0130.pdf（第${PMAP[cls]||1}頁）</a></div>`;
   render(`${cls} 班課程表`,'班級',h);
@@ -267,7 +281,8 @@ function pickTeacher(name){
     const c=rec.timetable[d][p];
     const ok=c&&c.course&&c.course!=='-';
     const hasCls=ok&&c.class&&c.class!=='-';
-    return{main:ok?c.course:null,sub:hasCls?c.class+'班':null};
+    return{main:ok?c.course:null,
+      sub:hasCls?`<a class="clink" onclick="goClass('${c.class}')">${c.class}班</a>`:null};
   });
   const pg=TCH_KEYS.indexOf(name)+1;
   h+=`<div class="pdfrow">📄 原始課表：<a href="教師正式課表0130.pdf#page=${pg}" target="_blank">教師正式課表0130.pdf（第${pg}頁）</a></div>`;

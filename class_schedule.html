@@ -103,6 +103,12 @@ table.sch td.pl{background:var(--cream-mid);font-size:.76rem;color:var(--ink-mid
   font-size:.82rem;color:var(--ink-light);}
 .pdfrow a{color:var(--red);text-decoration:none;}
 .pdfrow a:hover{text-decoration:underline;}
+/* 教師連結 */
+a.tlink{color:inherit;text-decoration:none;cursor:pointer;
+  border-bottom:1px dashed var(--border);transition:color .15s,border-color .15s;}
+a.tlink:hover{color:var(--red);border-bottom-color:var(--red);}
+.ig-item .val a.tlink{font-family:'Noto Serif TC',serif;font-size:.92rem;color:var(--ink);}
+.tchip a.tlink{color:var(--ink-light);}
 footer{text-align:center;padding:26px;color:var(--ink-light);font-size:.76rem;
   letter-spacing:.08em;border-top:1px solid var(--border);margin-top:36px;}
 </style>
@@ -205,8 +211,8 @@ async function showClass(cls){
   document.getElementById('schBadge').textContent=cls+'班';
   document.getElementById('infoGrid').innerHTML=`
     <div class="ig-item"><span class="lbl">班級</span><span class="val">${rec.class}班</span></div>
-    <div class="ig-item"><span class="lbl">導師</span><span class="val">${rec.homeroom}</span></div>
-    <div class="ig-item"><span class="lbl">課諮師</span><span class="val">${rec.advisor}</span></div>`;
+    <div class="ig-item"><span class="lbl">導師</span><span class="val"><a class="tlink" onclick="goTeacher('${rec.homeroom}')" title="查看 ${rec.homeroom} 老師課表">${rec.homeroom}</a></span></div>
+    <div class="ig-item"><span class="lbl">課諮師</span><span class="val"><a class="tlink" onclick="goTeacher('${rec.advisor}')" title="查看 ${rec.advisor} 老師課表">${rec.advisor}</a></span></div>`;
   renderDayView(rec);
   renderTableView(rec);
   document.getElementById('pdfRow').innerHTML=
@@ -240,7 +246,8 @@ function renderDayView(rec){
       const row=document.createElement('div');row.className='prow';
       row.innerHTML=`<div class="pnum"><strong>${p}</strong><span class="ptime">${times[0]}<br>${times[1]}</span></div>`;
       if(hasCourse){
-        row.innerHTML+=`<div class="pcontent"><span class="cpill">${cell.course}</span>${hasTeacher?`<span class="tchip">${cell.teacher}</span>`:''}</div>`;
+        const tchHtml=hasTeacher?`<span class="tchip"><a class="tlink" onclick="goTeacher('${cell.teacher}')" title="查看 ${cell.teacher} 老師課表">${cell.teacher}</a></span>`:'';
+        row.innerHTML+=`<div class="pcontent"><span class="cpill">${cell.course}</span>${tchHtml}</div>`;
       } else if(p!=='8'){
         row.innerHTML+=`<div class="pempty">—</div>`;
       } else {
@@ -263,7 +270,8 @@ function renderTableView(rec){
       const ok=cell&&cell.course&&cell.course!=='-';
       const hasT=cell&&cell.teacher&&cell.teacher!=='-';
       if(ok){
-        h+=`<td><div class="ci"><span class="cn">${cell.course}</span>${hasT?`<span class="tn">${cell.teacher}</span>`:''}</div></td>`;
+        const tchHtml=hasT?`<span class="tn"><a class="tlink" onclick="goTeacher('${cell.teacher}')" title="查看 ${cell.teacher} 老師課表">${cell.teacher}</a></span>`:'';
+        h+=`<td><div class="ci"><span class="cn">${cell.course}</span>${tchHtml}</div></td>`;
       } else if(p!=='8'){
         h+=`<td><div class="ci"><span class="ec">—</span></div></td>`;
       } else {
@@ -282,6 +290,10 @@ function setView(v,btn){
   else document.querySelectorAll('.vbtn').forEach((b,i)=>b.classList.toggle('active',(i===0&&v==='day')||(i===1&&v==='table')));
   document.getElementById('dayView').style.display=v==='day'?'':'none';
   document.getElementById('tableView').classList.toggle('active',v==='table');
+}
+
+function goTeacher(name){
+  window.location.href='teacher_schedule.html?teacher='+encodeURIComponent(name);
 }
 
 // URL param

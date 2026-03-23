@@ -83,6 +83,10 @@ table.sch td.pl{background:var(--cream-mid);font-size:.76rem;color:var(--ink-mid
 .cn{font-weight:500;color:var(--ink);font-size:.81rem;line-height:1.3;}
 .tn{font-size:.7rem;color:var(--ink-light);}
 .ec{color:#ccc;font-size:.85rem;}
+/* 班級連結（表格內） */
+a.clink{color:var(--ink-light);text-decoration:none;cursor:pointer;
+  border-bottom:1px dashed var(--border);transition:color .15s,border-color .15s;}
+a.clink:hover{color:var(--red);border-bottom-color:var(--red);}
 /* Classes taught */
 .ctitle{font-size:.8rem;color:var(--ink-light);margin:18px 0 9px;letter-spacing:.06em;}
 .ctags{display:flex;flex-wrap:wrap;gap:7px;}
@@ -279,7 +283,8 @@ function selectTeacher(name,card){
       const ok=cell&&cell.course&&cell.course!=='-';
       const hasCls=ok&&cell.class&&cell.class!=='-';
       if(ok){
-        h+=`<td><div class="ci"><span class="cn">${cell.course}</span>${hasCls?`<span class="tn">${cell.class}班</span>`:''}</div></td>`;
+        const clsHtml=hasCls?`<span class="tn"><a class="clink" onclick="goClass('${cell.class}')" title="查看 ${cell.class} 班課表">${cell.class}班</a></span>`:'';
+        h+=`<td><div class="ci"><span class="cn">${cell.course}</span>${clsHtml}</div></td>`;
       } else if(p!=='8'){
         h+=`<td><div class="ci"><span class="ec">—</span></div></td>`;
       } else {
@@ -318,7 +323,26 @@ function selectTeacher(name,card){
   dp.scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 
-load().then(()=>renderGrid(TCH_KEYS));
+function goClass(cls){
+  window.location.href='class_schedule.html?class='+encodeURIComponent(cls);
+}
+
+load().then(()=>{
+  renderGrid(TCH_KEYS);
+  // Handle ?teacher= URL param
+  const tParam=new URLSearchParams(location.search).get('teacher');
+  if(tParam){
+    const match=TCH_KEYS.find(n=>n===tParam)||TCH_KEYS.find(n=>n.includes(tParam));
+    if(match){
+      // Scroll to and highlight that card after grid is rendered
+      setTimeout(()=>{
+        const card=document.querySelector(`.tcard[data-name="${match}"]`);
+        selectTeacher(match,card);
+        if(card)card.scrollIntoView({behavior:'smooth',block:'center'});
+      },100);
+    }
+  }
+});
 </script>
 </body>
 </html>
