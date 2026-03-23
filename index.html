@@ -264,7 +264,7 @@ async function showTeacher(){
   const hits=TCH_KEYS.filter(n=>n.includes(val));
   if(!hits.length){render('查詢結果','教師',`<div class="nodata">找不到「${val}」的資料</div>`);return;}
   if(hits.length>1){
-    const btns=hits.map(n=>`<button class="qbtn" style="padding:9px 16px;font-size:.88rem" onclick="pickTeacher('${n}')">${n}<small style="display:block;color:var(--ink-light);font-size:.72rem">${TDB[n].role}</small></button>`).join('');
+    const btns=hits.map(n=>`<button class="qbtn" style="padding:9px 16px;font-size:.88rem" onclick="pickTeacher('${n}')">${n}<small style="display:block;color:var(--ink-light);font-size:.72rem">${TDB[n].dept||TDB[n].role}</small></button>`).join('');
     render('搜尋結果','教師',`<p style="font-size:.87rem;color:var(--ink-light);margin-bottom:14px">找到 ${hits.length} 位，請選擇：</p><div style="display:flex;flex-wrap:wrap;gap:9px">${btns}</div>`);
     return;
   }
@@ -275,6 +275,7 @@ function pickTeacher(name){
   const rec=TDB[name];if(!rec)return;
   let h=`<div class="irow2">
     <div class="ii"><strong>教師：</strong>${rec.name}</div>
+    <div class="ii"><strong>科別：</strong>${rec.dept||'—'}</div>
     <div class="ii"><strong>職務：</strong>${rec.role||'—'}</div>
   </div>`;
   h+=buildTable((d,p)=>{
