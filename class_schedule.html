@@ -143,8 +143,8 @@ footer{text-align:center;padding:26px;color:var(--ink-light);font-size:.76rem;
           <div class="ig" id="infoGrid"></div>
           <div class="vtog">
             <span>顯示方式：</span>
-            <button class="vbtn active" onclick="setView('day',this)">每日檢視</button>
-            <button class="vbtn" onclick="setView('table',this)">整週表格</button>
+            <button class="vbtn" onclick="setView('day',this)">每日檢視</button>
+            <button class="vbtn active" onclick="setView('table',this)">整週表格</button>
           </div>
           <div id="dayView">
             <div class="dtabs" id="dayTabs"></div>
@@ -172,7 +172,7 @@ const PMAP={'101':1,'102':2,'103':3,'104':4,'105':5,'106':6,'107':7,'108':8,
   '301':25,'302':26,'303':27,'304':28,'305':29,'306':30,'307':31,'308':32,
   '309':33,'310':34,'311':35,'312':36};
 
-let CDB=null, curView='day', curCls=null;
+let CDB=null, curView='table', curCls=null;
 
 async function load(){
   if(!CDB){const r=await fetch('classdb.json');CDB=await r.json();}
