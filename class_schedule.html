@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>班級課表查詢 - 國立花蓮高中</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500&display=swap');
+    :root {
+      --ink: #1a1a2e; --ink-mid: #2d3561; --ink-light: #4a5568;
+      --gold: #c9a84c; --gold-light: #e8d49b;
+      --cream: #faf8f3; --cream-mid: #f0ece0; --red: #8b1a1a;
+      --border: #d4c9a8; --blue-light: #eef2ff;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--cream); font-family: 'Noto Sans TC', sans-serif; color: var(--ink); }
+
+    .topbar {
+      background: var(--ink); padding: 12px 32px;
+      display: flex; align-items: center; gap: 16px;
+    }
+    .topbar a { color: var(--gold-light); text-decoration: none; font-size: 0.85rem; }
+    .topbar a:hover { color: var(--gold); }
+    .topbar-sep { color: rgba(255,255,255,0.3); }
+    .topbar-title { color: #fff; font-family: 'Noto Serif TC', serif; font-size: 0.9rem; }
+
+    .page-header {
+      background: var(--ink-mid); padding: 36px 40px 32px;
+      position: relative; overflow: hidden;
+    }
+    .page-header::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 0% 50%, rgba(201,168,76,0.12) 0%, transparent 60%);
+    }
+    .page-header h1 { position: relative; font-family: 'Noto Serif TC', serif; font-size: 1.6rem; color: #fff; letter-spacing: 0.06em; }
+    .page-header p { position: relative; color: var(--gold-light); font-size: 0.85rem; margin-top: 6px; letter-spacing: 0.08em; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 36px 24px; }
+
+    /* Left-right layout */
+    .layout { display: grid; grid-template-columns: 220px 1fr; gap: 28px; }
+    @media(max-width: 768px) { .layout { grid-template-columns: 1fr; } }
+
+    /* Sidebar */
+    .sidebar { }
+    .sidebar-title {
+      font-family: 'Noto Serif TC', serif; font-size: 0.8rem;
+      color: var(--ink-light); letter-spacing: 0.12em; padding: 0 0 8px;
+      border-bottom: 1px solid var(--border); margin-bottom: 12px;
+    }
+    .grade-section { margin-bottom: 16px; }
+    .grade-label {
+      font-size: 0.75rem; color: var(--ink-light);
+      padding: 6px 0 4px; letter-spacing: 0.1em;
+    }
+    .class-list { display: flex; flex-wrap: wrap; gap: 5px; }
+    .class-btn {
+      padding: 6px 12px; background: #fff; border: 1px solid var(--border);
+      font-size: 0.83rem; cursor: pointer; color: var(--ink-mid);
+      transition: all 0.15s; border-radius: 2px; font-family: 'Noto Sans TC', sans-serif;
+      min-width: 52px; text-align: center;
+    }
+    .class-btn:hover { background: var(--gold-light); border-color: var(--gold); }
+    .class-btn.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+    /* Main area */
+    .main-area { }
+
+    /* Empty state */
+    .empty-state {
+      background: #fff; border: 1px solid var(--border);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 80px 40px; text-align: center;
+    }
+    .empty-icon { font-size: 48px; margin-bottom: 16px; opacity: 0.4; }
+    .empty-text { color: var(--ink-light); font-size: 0.9rem; line-height: 1.7; }
+
+    /* Schedule display */
+    .schedule-card { background: #fff; border: 1px solid var(--border); display: none; }
+    .schedule-card.visible { display: block; }
+    .sch-header {
+      background: var(--ink); padding: 20px 28px;
+      display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap;
+    }
+    .sch-header h2 { font-family: 'Noto Serif TC', serif; color: #fff; font-size: 1.2rem; letter-spacing: 0.06em; }
+    .sch-badge { background: var(--gold); color: var(--ink); font-size: 0.78rem; padding: 3px 10px; border-radius: 2px; }
+    .sch-body { padding: 24px; }
+
+    .info-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 12px; margin-bottom: 24px; padding-bottom: 20px;
+      border-bottom: 1px solid var(--cream-mid);
+    }
+    .info-item {
+      background: var(--cream); padding: 10px 14px; border-left: 3px solid var(--gold);
+    }
+    .info-item .label { font-size: 0.72rem; color: var(--ink-light); display: block; margin-bottom: 3px; }
+    .info-item .value { font-family: 'Noto Serif TC', serif; font-size: 0.95rem; }
+
+    /* Day tabs */
+    .day-tabs { display: flex; gap: 0; border-bottom: 2px solid var(--border); margin-bottom: 20px; overflow-x: auto; }
+    .day-tab {
+      flex: 1; min-width: 60px; padding: 10px 8px; background: transparent; border: none;
+      font-size: 0.88rem; cursor: pointer; color: var(--ink-light);
+      position: relative; transition: color 0.2s; white-space: nowrap;
+    }
+    .day-tab::after {
+      content: ''; position: absolute; bottom: -2px; left: 0; right: 0;
+      height: 2px; background: var(--gold); transform: scaleX(0); transition: transform 0.2s;
+    }
+    .day-tab.active { color: var(--ink); }
+    .day-tab.active::after { transform: scaleX(1); }
+
+    /* Day schedule list */
+    .day-schedule { display: none; }
+    .day-schedule.active { display: block; }
+    .period-row {
+      display: flex; align-items: stretch; border-bottom: 1px solid var(--cream-mid);
+    }
+    .period-row:last-child { border-bottom: none; }
+    .period-num {
+      width: 60px; min-width: 60px; padding: 12px 8px;
+      background: var(--cream-mid); text-align: center;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      font-size: 0.78rem; color: var(--ink-light); border-right: 1px solid var(--border);
+    }
+    .period-num strong { color: var(--ink); font-size: 0.88rem; display: block; }
+    .period-time { font-size: 0.65rem; color: var(--ink-light); margin-top: 2px; line-height: 1.3; }
+    .period-content {
+      flex: 1; padding: 12px 16px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .course-pill {
+      display: inline-block; padding: 5px 12px;
+      background: var(--blue-light); border-left: 3px solid var(--ink-mid);
+      font-size: 0.88rem; font-weight: 500;
+    }
+    .teacher-chip {
+      font-size: 0.8rem; color: var(--ink-light);
+      padding: 3px 10px; background: var(--cream-mid); border-radius: 2px;
+    }
+    .empty-period { color: var(--border); font-size: 0.8rem; padding: 12px 16px; }
+
+    /* Full week table view toggle */
+    .view-toggle {
+      display: flex; gap: 8px; margin-bottom: 16px; align-items: center;
+    }
+    .view-btn {
+      padding: 6px 14px; background: var(--cream-mid); border: 1px solid var(--border);
+      font-size: 0.8rem; cursor: pointer; border-radius: 2px;
+      font-family: 'Noto Sans TC', sans-serif; transition: all 0.15s;
+    }
+    .view-btn.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+    .table-view { display: none; }
+    .table-view.active { display: block; }
+    .day-view { }
+
+    /* Schedule Table */
+    .table-wrapper { overflow-x: auto; }
+    .schedule-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+    .schedule-table th {
+      background: var(--ink); color: #fff; padding: 10px 8px;
+      text-align: center; font-family: 'Noto Serif TC', serif;
+      font-weight: 400; letter-spacing: 0.06em; white-space: nowrap;
+    }
+    .schedule-table td {
+      border: 1px solid var(--cream-mid); padding: 8px 6px;
+      text-align: center; vertical-align: middle; line-height: 1.4;
+    }
+    .schedule-table tr:nth-child(even) td { background: var(--cream); }
+    .schedule-table td.pl {
+      background: var(--cream-mid); font-size: 0.78rem;
+      color: var(--ink-mid); min-width: 60px; font-weight: 500;
+    }
+    .cn { display: block; font-weight: 500; color: var(--ink); }
+    .tn { display: block; font-size: 0.72rem; color: var(--ink-light); margin-top: 1px; }
+    .ec { color: var(--border); font-size: 0.72rem; }
+
+    /* PDF link */
+    .pdf-row {
+      margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--cream-mid);
+      font-size: 0.84rem; color: var(--ink-light);
+    }
+    .pdf-row a { color: var(--red); text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+    .pdf-row a:hover { text-decoration: underline; }
+
+    footer {
+      text-align: center; padding: 28px; color: var(--ink-light);
+      font-size: 0.78rem; letter-spacing: 0.08em;
+      border-top: 1px solid var(--border); margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="topbar">
+  <a href="index.html">← 返回首頁</a>
+  <span class="topbar-sep">|</span>
+  <span class="topbar-title">班級課表查詢</span>
+</div>
+
+<div class="page-header">
+  <h1>班級課表查詢</h1>
+  <p>國立花蓮高級中學 &nbsp;·&nbsp; 114學年度 第2學期 &nbsp;·&nbsp; 共 36 個班級</p>
+</div>
+
+<div class="container">
+  <div class="layout">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <div class="sidebar-title">選擇班級</div>
+      <div id="sidebarClasses"></div>
+    </div>
+
+    <!-- Main -->
+    <div class="main-area">
+      <div class="empty-state" id="emptyState">
+        <div class="empty-icon">📋</div>
+        <div class="empty-text">請從左側選擇班級<br>即可查看完整課程表</div>
+      </div>
+
+      <div class="schedule-card" id="scheduleCard">
+        <div class="sch-header">
+          <h2 id="schTitle">班級課表</h2>
+          <span class="sch-badge" id="schBadge">班級</span>
+        </div>
+        <div class="sch-body">
+          <div class="info-grid" id="infoGrid"></div>
+          <div class="view-toggle">
+            <span style="font-size:0.8rem;color:var(--ink-light)">顯示方式：</span>
+            <button class="view-btn active" onclick="setView('day')">每日檢視</button>
+            <button class="view-btn" onclick="setView('table')">整週表格</button>
+          </div>
+          <!-- Day view -->
+          <div class="day-view" id="dayView">
+            <div class="day-tabs" id="dayTabs"></div>
+            <div id="daySchedules"></div>
+          </div>
+          <!-- Table view -->
+          <div class="table-view" id="tableView">
+            <div class="table-wrapper">
+              <table class="schedule-table" id="fullTable"></table>
+            </div>
+          </div>
+          <div class="pdf-row" id="pdfRow"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>國立花蓮高級中學 &nbsp;·&nbsp; 114學年度第2學期 &nbsp;·&nbsp; 班級課表查詢</footer>
+
+<script src="class_data.js"></script>
+<script>
+const DAYS = ['一','二','三','四','五'];
+const PERIODS = ['早','1','2','3','4','5','6','7','8'];
+const PERIOD_LABELS = { '早':'早自習','1':'第一節','2':'第二節','3':'第三節','4':'第四節','5':'第五節','6':'第六節','7':'第七節','8':'第八節' };
+const PERIOD_TIMES = {
+  '早':'07:50\n08:00', '1':'08:00\n08:50', '2':'09:00\n09:50',
+  '3':'10:10\n11:00', '4':'11:10\n12:00', '5':'13:10\n14:00',
+  '6':'14:10\n15:00', '7':'15:10\n16:00', '8':'16:10\n17:00'
+};
+const PAGE_MAP = {
+  '101':1,'102':2,'103':3,'104':4,'105':5,'106':6,'107':7,'108':8,'109':9,'110':10,'111':11,'112':12,
+  '201':13,'202':14,'203':15,'204':16,'205':17,'206':18,'207':19,'208':20,'209':21,'210':22,'211':23,'212':24,
+  '301':25,'302':26,'303':27,'304':28,'305':29,'306':30,'307':31,'308':32,'309':33,'310':34,'311':35,'312':36
+};
+
+let currentView = 'day';
+let currentClass = null;
+
+// Build sidebar
+function buildSidebar() {
+  const sidebar = document.getElementById('sidebarClasses');
+  const grades = [
+    { label: '一年級', classes: ['101','102','103','104','105','106','107','108','109','110','111','112'] },
+    { label: '二年級', classes: ['201','202','203','204','205','206','207','208','209','210','211','212'] },
+    { label: '三年級', classes: ['301','302','303','304','305','306','307','308','309','310','311','312'] },
+  ];
+  grades.forEach(g => {
+    const sec = document.createElement('div');
+    sec.className = 'grade-section';
+    sec.innerHTML = `<div class="grade-label">${g.label}</div><div class="class-list" id="list_${g.label}"></div>`;
+    sidebar.appendChild(sec);
+    const list = sec.querySelector('.class-list');
+    g.classes.forEach(c => {
+      const btn = document.createElement('button');
+      btn.className = 'class-btn';
+      btn.id = 'cbtn_' + c;
+      btn.textContent = c;
+      btn.onclick = () => showClass(c);
+      list.appendChild(btn);
+    });
+  });
+}
+
+function showClass(cls) {
+  const data = classScheduleData[cls];
+  if (!data) return;
+  currentClass = cls;
+
+  document.querySelectorAll('.class-btn').forEach(b => b.classList.remove('active'));
+  const btn = document.getElementById('cbtn_' + cls);
+  if (btn) btn.classList.add('active');
+
+  document.getElementById('emptyState').style.display = 'none';
+  document.getElementById('scheduleCard').classList.add('visible');
+
+  document.getElementById('schTitle').textContent = cls + ' 班課程表';
+  document.getElementById('schBadge').textContent = cls + '班';
+
+  document.getElementById('infoGrid').innerHTML = `
+    <div class="info-item"><span class="label">班級</span><span class="value">${data.className} 班</span></div>
+    <div class="info-item"><span class="label">導師</span><span class="value">${data.homeroom}</span></div>
+    <div class="info-item"><span class="label">課諮師</span><span class="value">${data.advisor}</span></div>
+    <div class="info-item"><span class="label">總時數</span><span class="value">${data.totalHours} 節</span></div>
+  `;
+
+  // Build grid
+  const grid = {};
+  PERIODS.forEach(p => { grid[p] = {}; DAYS.forEach(d => { grid[p][d] = null; }); });
+  data.schedule.forEach(([period, day, course, teacher]) => {
+    if (grid[period]) grid[period][day] = { course, teacher };
+  });
+
+  renderDayView(data, grid);
+  renderTableView(data, grid);
+
+  document.getElementById('pdfRow').innerHTML = `
+    📄 原始課表：<a href="班級正式課表0130.pdf#page=${PAGE_MAP[cls]}" target="_blank">班級正式課表0130.pdf（第 ${PAGE_MAP[cls]} 頁）</a>
+  `;
+
+  setView(currentView);
+  document.getElementById('scheduleCard').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function renderDayView(data, grid) {
+  const tabs = document.getElementById('dayTabs');
+  const scheds = document.getElementById('daySchedules');
+  tabs.innerHTML = '';
+  scheds.innerHTML = '';
+
+  DAYS.forEach((d, i) => {
+    const tab = document.createElement('button');
+    tab.className = 'day-tab' + (i === 0 ? ' active' : '');
+    tab.textContent = '星期' + d;
+    tab.onclick = () => {
+      document.querySelectorAll('.day-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.day-schedule').forEach(s => s.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById('day_' + d).classList.add('active');
+    };
+    tabs.appendChild(tab);
+
+    const dayDiv = document.createElement('div');
+    dayDiv.className = 'day-schedule' + (i === 0 ? ' active' : '');
+    dayDiv.id = 'day_' + d;
+
+    PERIODS.forEach(p => {
+      const cell = grid[p][d];
+      const row = document.createElement('div');
+      row.className = 'period-row';
+      const times = PERIOD_TIMES[p].split('\n');
+      row.innerHTML = `<div class="period-num"><strong>${p === '早' ? '早' : p}</strong><span class="period-time">${times[0]}<br>${times[1]}</span></div>`;
+      if (cell && cell.course) {
+        row.innerHTML += `<div class="period-content"><span class="course-pill">${cell.course}</span>${cell.teacher ? `<span class="teacher-chip">${cell.teacher}</span>` : ''}</div>`;
+      } else {
+        row.innerHTML += `<div class="empty-period">—</div>`;
+      }
+      dayDiv.appendChild(row);
+    });
+
+    scheds.appendChild(dayDiv);
+  });
+}
+
+function renderTableView(data, grid) {
+  const table = document.getElementById('fullTable');
+  let html = `<tr><th>節次</th><th>時間</th>`;
+  DAYS.forEach(d => { html += `<th>星期${d}</th>`; });
+  html += '</tr>';
+
+  PERIODS.forEach(p => {
+    const times = PERIOD_TIMES[p].split('\n');
+    html += `<tr><td class="pl">${p === '早' ? '早自習' : '第'+p+'節'}</td><td class="pl" style="font-size:0.7rem">${times[0]}~${times[1]}</td>`;
+    DAYS.forEach(d => {
+      const cell = grid[p][d];
+      if (cell && cell.course) {
+        html += `<td><span class="cn">${cell.course}</span>${cell.teacher ? `<span class="tn">${cell.teacher}</span>` : ''}</td>`;
+      } else {
+        html += `<td><span class="ec">—</span></td>`;
+      }
+    });
+    html += '</tr>';
+  });
+
+  table.innerHTML = html;
+}
+
+function setView(v) {
+  currentView = v;
+  document.querySelectorAll('.view-btn').forEach((b,i) => b.classList.toggle('active', (i===0&&v==='day')||(i===1&&v==='table')));
+  document.getElementById('dayView').style.display = v === 'day' ? '' : 'none';
+  document.getElementById('tableView').classList.toggle('active', v === 'table');
+}
+
+buildSidebar();
+
+// Check URL param
+const params = new URLSearchParams(window.location.search);
+const initClass = params.get('class');
+if (initClass && classScheduleData[initClass]) showClass(initClass);
+</script>
+</body>
+</html>
