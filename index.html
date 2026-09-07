@@ -290,6 +290,13 @@
   .stat-chip b{ color:var(--ink); font-variant-numeric:tabular-nums; }
 
   .table-scroll{ overflow-x:auto; border-radius:8px; border:1px solid var(--line); }
+  .table-hint{
+    display:none;
+    margin:0 0 8px;
+    font-size:12px;
+    color:var(--muted);
+    text-align:center;
+  }
   table.timetable{
     border-collapse:collapse;
     width:100%;
@@ -508,36 +515,56 @@
     *{ transition:none !important; }
   }
 
-  /* Phone-tier refinements: tighter spacing, bigger touch targets, a
-     narrower (but still swipeable) timetable so less horizontal scroll
-     is needed on a typical 360-430px phone screen. */
+  /* Phone-tier refinements. Reading comfort wins over compactness here:
+     text is sized UP from the desktop defaults (not down), touch targets
+     are enlarged, and the timetable is left free to scroll sideways
+     rather than being squeezed to avoid it. Order on phones is:
+     1) filter panel (.sidebar) 2) timetable (.main) 3) groups-panel —
+     which is already the source order, so no `order:` overrides needed;
+     .layout simply stacks to one column and .groups-panel follows it. */
   @media (max-width:640px){
-    .wrap{ padding:16px 12px 44px; }
+    .wrap{ padding:16px 12px 48px; }
     header.top{ padding-bottom:14px; margin-bottom:16px; }
-    header.top .meta{ text-align:left; width:100%; }
-    .brand .mark{ font-size:12.5px; padding:4px 7px 3px; }
-    h1{ font-size:19px; }
+    header.top .meta{ text-align:left; width:100%; font-size:13.5px; }
+    .brand .mark{ font-size:13px; padding:4px 7px 3px; }
+    h1{ font-size:21px; }
     .tabs{ display:flex; width:100%; }
-    .tabs button{ flex:1; padding:9px 8px; font-size:13px; }
-    .main{ padding:16px 14px 18px; }
-    .sidebar{ padding:12px; }
+    .tabs button{ flex:1; padding:12px 8px; font-size:15px; }
+    .main{ padding:16px 14px 20px; }
+    .sidebar{ padding:14px; }
     .main-head{ gap:10px; }
-    .entity-title h2{ font-size:18px; }
+    .entity-title h2{ font-size:21px; }
+    .code-tag{ font-size:14px; }
+    .stat-chip{ font-size:13.5px; padding:6px 12px; }
+    .search-box{ padding:11px 12px; }
+    .search-box input{ font-size:16px; } /* 16px keeps iOS Safari from auto-zooming on focus */
     .class-grid{ grid-template-columns:repeat(3, 1fr); gap:8px; }
-    .pill-btn{ padding:12px 4px; font-size:14px; }
-    .teacher-row{ padding:12px 10px; font-size:14px; }
+    .pill-btn{ padding:13px 4px; font-size:16px; }
+    .teacher-row{ padding:13px 10px; font-size:16px; }
+    .teacher-row .code{ font-size:13.5px; }
     .teacher-list{ max-height:50vh; }
-    .groups-panel{ padding:16px 14px 18px; }
-    .group-card{ padding:12px 14px 14px; }
+    .group-label{ font-size:12.5px; }
+    .groups-heading{ font-size:19px; }
+    .groups-sub{ font-size:14px; }
+    .groups-panel{ padding:18px 14px 20px; }
+    .group-card{ padding:14px 14px 16px; }
+    .group-card-title{ font-size:16px; }
+    .group-card-note{ font-size:12.5px; }
     .group-class-grid{ grid-template-columns:1fr; }
-    table.timetable{ min-width:520px; }
-    table.timetable td.period-col{ width:38px; font-size:11px; padding:5px 2px; }
-    table.timetable td.period-col span{ font-size:9px; }
-    table.timetable td.slot{ min-width:96px; }
-    table.timetable thead th{ font-size:11.5px; padding:7px 3px; }
-    .entry .subject{ font-size:12.5px; }
-    .entry .sub-line{ font-size:10.5px; }
-    .cell-inner{ padding:6px 6px; }
+    .group-class-card .class-code-link{ font-size:15px; }
+    .group-track-row{ font-size:13.5px; }
+    .group-track-chip{ font-size:12.5px; }
+    .table-hint{ display:block; }
+    table.timetable thead th{ font-size:14px; padding:9px 4px; }
+    table.timetable td.period-col{ width:50px; font-size:14px; padding:7px 3px; }
+    table.timetable td.period-col span{ font-size:11.5px; }
+    table.timetable td.slot{ min-width:126px; }
+    .entry .subject{ font-size:15px; }
+    .entry .sub-line{ font-size:13px; }
+    .entry .tag{ font-size:11px; }
+    .cell-inner{ padding:8px 9px; gap:5px; }
+    .legend{ font-size:13.5px; }
+    footer.foot{ font-size:12.5px; }
   }
 </style>
 
@@ -585,6 +612,7 @@
         <div class="stats" id="statChips"></div>
       </div>
 
+      <p class="table-hint">← 左右滑動可查看整週課表 →</p>
       <div class="table-scroll">
         <table class="timetable" id="timetable">
           <thead>
