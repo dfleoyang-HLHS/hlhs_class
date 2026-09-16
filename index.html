@@ -616,7 +616,7 @@
       <h1>花蓮高中課表查詢系統</h1>
     </div>
     <div class="meta">
-      資料來源：<b>班級手排課（2026-09-07 匯出）</b><br>
+      資料來源：<b>115-1班級正式課表（2026-09-14）</b><br>
       收錄 <b id="metaClassCount">—</b> 個班級・<b id="metaTeacherCount">—</b> 位教師
     </div>
   </header>
@@ -686,7 +686,7 @@
     <div id="electiveGroups"></div>
   </section>
 
-  <footer class="foot">花蓮高中課表查詢系統・資料以「班級手排課（2026-09-07 匯出）」原始檔為準，如有調課請以教務處公告為準</footer>
+  <footer class="foot">花蓮高中課表查詢系統・資料以「115-1班級正式課表（2026-09-14）」原始檔為準，如有調課請以教務處公告為準</footer>
 </div>
 
 <script>
@@ -814,6 +814,14 @@ function entryHtml(e, mode){
       lines.push(rotationLinesHtml(e.rotation_tracks));
       lines.push('<span class="tag rotation">跑班選修</span>');
     }
+  } else if(e.is_rotation_partner && e.__multiClass){
+    // Several eligible classes collapsed into one box (see
+    // collapseMultiClassPartners) — no single class code would be
+    // accurate, so name the room instead of guessing a class.
+    let t = "跨班選修";
+    if(e.room_name) t += "・"+escapeHtml(e.room_name);
+    lines.push('<div class="sub-line">'+t+'</div>');
+    lines.push('<span class="tag rotation">跑班選修</span>');
   } else {
     let t = e.class_code === "901" ? "全校/科務" : classLinkHtml(e.class_code, e.class_name+"班");
     if(e.room_name) t += "・"+escapeHtml(e.room_name);
@@ -896,9 +904,38 @@ function renderClassView(code){
   renderTable(grid, "class");
 }
 
+// A 跑班 partner session with no known per-class attribution (see
+// rotation_overrides "free-choice elective" pattern in schema.md) gets one
+// synthetic record per eligible class, so the *same* session can appear
+// many times on one teacher's page — e.g. 6 near-identical boxes for a
+// single Thursday period. On a teacher's own timetable that's just noise:
+// collapse every group of records that share (day, period, subject,
+// teacher, room) down to one, marked `__multiClass` so entryHtml shows a
+// generic "跨班選修" line instead of a (arbitrary, since there are several)
+// specific class code. Class-view is unaffected — it never sees
+// is_rotation_partner records at all.
+function collapseMultiClassPartners(entries){
+  const seen = new Map();
+  const result = [];
+  entries.forEach(e => {
+    if(!e.is_rotation_partner){ result.push(e); return; }
+    const key = [e.day, e.start_period, e.subject_name, e.teacher_code, e.room_name].join("|");
+    if(seen.has(key)){
+      seen.get(key).__multiClass = true;
+      return;
+    }
+    const copy = {...e};
+    seen.set(key, copy);
+    result.push(copy);
+  });
+  return result;
+}
+
 function renderTeacherView(code){
   const t = DB.teachers.find(x => x.code === code);
-  const own = DB.schedule.filter(r => r.teacher_code === code).map(e => ({...e, __co:false}));
+  const own = collapseMultiClassPartners(
+    DB.schedule.filter(r => r.teacher_code === code).map(e => ({...e, __co:false}))
+  );
   const co = DB.schedule.filter(r => {
     if(!r.co_teacher_codes) return false;
     return r.co_teacher_codes.split(",").map(s=>s.trim()).includes(code);
@@ -907,7 +944,7 @@ function renderTeacherView(code){
   document.getElementById("entityCode").textContent = code;
   document.getElementById("entityName").textContent = t ? t.name+" 教師" : code;
   document.getElementById("entityMeta").innerHTML = "";
-  const classSet = new Set(own.filter(e=>e.class_code!=="901").map(e=>e.class_code));
+  const classSet = new Set(own.filter(e=>e.class_code!=="901" && !e.__multiClass).map(e=>e.class_code));
   const meetingCount = co.length;
   document.getElementById("statChips").innerHTML =
     '<span class="stat-chip">每週授課節數 <b>'+countPeriods(own.filter(e=>e.class_code!=="901"))+'</b></span>' +
