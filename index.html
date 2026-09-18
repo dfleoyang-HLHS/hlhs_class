@@ -646,6 +646,7 @@
   <div class="tabs" role="tablist">
     <button class="tab-btn active" data-tab="class" role="tab" aria-selected="true">依班級查詢</button>
     <button class="tab-btn" data-tab="teacher" role="tab" aria-selected="false">依教師查詢</button>
+    <button class="tab-btn" data-tab="room" role="tab" aria-selected="false">依教室查詢</button>
   </div>
 
   <div class="layout">
@@ -663,6 +664,13 @@
           <input type="text" id="teacherSearch" placeholder="搜尋教師姓名或代碼…">
         </div>
         <div class="teacher-list" id="teacherList"></div>
+      </div>
+      <div id="roomSidebar" style="display:none;">
+        <div class="search-box">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+          <input type="text" id="roomSearch" placeholder="搜尋教室（班級號碼、選修一/選修1、家政、語言…）">
+        </div>
+        <div id="roomGroups"></div>
       </div>
     </aside>
 
@@ -718,11 +726,63 @@ const teacherByCode = {};
 DB.teachers.forEach(t => teacherByCode[t.code] = t.name);
 const classCodeSet = new Set(DB.classes.map(c => c.code));
 
-const state = { tab: "class", classCode: null, teacherCode: null };
+const state = { tab: "class", classCode: null, teacherCode: null, roomKey: null };
 
 function gradeOf(code){ return code[0]; }
 const gradeLabel = { "1":"一年級", "2":"二年級", "3":"三年級" };
 const dayNames = {1:"一",2:"二",3:"三",4:"四",5:"五"};
+
+const PERIOD_TIMES = {
+  "1": "08:00~08:50", "2": "09:00~09:50", "3": "10:10~11:00", "4": "11:10~12:00",
+  "5": "13:10~14:00", "6": "14:10~15:00", "7": "15:10~16:00", "8": "16:10~17:00",
+};
+
+// 教室名稱正規化：中文數字轉阿拉伯數字（例如「選修一」與「選修1」視為同一間），
+// 並去除「教室」字尾（例如「101教室」與班級代碼「101」對應同一間教室。
+const CN_DIGIT_MAP = {"一":"1","二":"2","三":"3","四":"4","五":"5","六":"6","七":"7","八":"8","九":"9"};
+function normalizeRoomKey(name){
+  if(!name) return "";
+  let s = String(name).trim();
+  s = s.replace(/[一二三四五六七八九]/g, c => CN_DIGIT_MAP[c] || c);
+  s = s.replace(/教室$/, "");
+  return s;
+}
+function isHomeroomKey(key){ return /^\d{3}$/.test(key) && classCodeSet.has(key); }
+
+const homeroomKeys = DB.classes.map(c => c.code);
+const specialRoomKeySet = new Set();
+DB.schedule.forEach(e => {
+  if(e.room_name){
+    const k = normalizeRoomKey(e.room_name);
+    if(k && !isHomeroomKey(k)) specialRoomKeySet.add(k);
+  }
+  if(Array.isArray(e.rotation_tracks)){
+    e.rotation_tracks.forEach(rt => {
+      if(rt.room){
+        const k = normalizeRoomKey(rt.room);
+        if(k && !isHomeroomKey(k)) specialRoomKeySet.add(k);
+      }
+    });
+  }
+});
+const specialRoomList = Array.from(specialRoomKeySet).sort((a,b)=>a.localeCompare(b,'zh-Hant'));
+
+function entriesForRoom(key){
+  // 注意：跑班選修在原始資料中，每一堂課都會同時以「主班 entry 的 rotation_tracks 巢狀資料」
+  // 與「該分組班級自己的 is_rotation_partner 獨立 entry」兩種形式各記錄一次，
+  // 兩者是同一堂課，只用後者（獨立 entry，room_name 已經是正確的分組教室）即可，
+  // 否則同一堂課會在教室課表中被重複列出兩次。
+  const homeroom = isHomeroomKey(key);
+  const out = [];
+  DB.schedule.forEach(e => {
+    if(e.room_name && normalizeRoomKey(e.room_name) === key){
+      out.push(e);
+    } else if(homeroom && !e.room_name && e.class_code === key){
+      out.push(e);
+    }
+  });
+  return out;
+}
 
 function renderClassSidebar(filter){
   const el = document.getElementById("classGroups");
@@ -809,11 +869,18 @@ function classLinkHtml(code, label){
   if(!code || !classCodeSet.has(code)) return escapeHtml(label);
   return '<span class="link" role="link" tabindex="0" data-goto-class="'+escapeHtml(code)+'">'+escapeHtml(label)+'</span>';
 }
+function roomLinkHtml(roomText){
+  if(!roomText) return "";
+  const key = normalizeRoomKey(roomText);
+  const known = isHomeroomKey(key) || specialRoomKeySet.has(key);
+  if(!known) return escapeHtml(roomText);
+  return '<span class="link" role="link" tabindex="0" data-goto-room="'+escapeHtml(key)+'">'+escapeHtml(roomText)+'</span>';
+}
 
 function rotationLinesHtml(tracks){
   return tracks.map(rt => {
     const t = teacherLinkHtml(rt.teacher_code, rt.teacher_name);
-    const room = rt.room ? '・'+escapeHtml(rt.room) : '';
+    const room = rt.room ? '・'+roomLinkHtml(rt.room) : '';
     return '<div class="sub-line rotation-line">跑班｜'+escapeHtml(rt.subject)+' '+t+room+'</div>';
   }).join("");
 }
@@ -829,24 +896,37 @@ function entryHtml(e, mode){
     if(e.teacher_name) teacherLinks.push(teacherLinkHtml(e.teacher_code, e.teacher_name));
     if(hasCoTeachers) e.co_teachers.forEach(ct => teacherLinks.push(teacherLinkHtml(ct.code, ct.name)));
     let t = teacherLinks.join("、");
-    if(e.room_name) t += (t?"・":"") + escapeHtml(e.room_name);
+    if(e.room_name) t += (t?"・":"") + roomLinkHtml(e.room_name);
     if(t) lines.push('<div class="sub-line">'+t+'</div>');
     if(hasCoTeachers) lines.push('<span class="tag">協同教學</span>');
     if(hasRotation){
       lines.push(rotationLinesHtml(e.rotation_tracks));
       lines.push('<span class="tag rotation">跑班選修</span>');
     }
-  } else if(e.is_rotation_partner && e.__multiClass){
+  } else if(mode === "teacher" && e.is_rotation_partner && e.__multiClass){
     // Several eligible classes collapsed into one box (see
     // collapseMultiClassPartners) — no single class code would be
     // accurate, so name the room instead of guessing a class.
     let t = "跨班選修";
-    if(e.room_name) t += "・"+escapeHtml(e.room_name);
+    if(e.room_name) t += "・"+roomLinkHtml(e.room_name);
     lines.push('<div class="sub-line">'+t+'</div>');
     lines.push('<span class="tag rotation">跑班選修</span>');
+  } else if(mode === "room"){
+    // 教室課表只顯示主要上課的課程/班級/教師，跑班分組的對照細節不重複列出，
+    // 只保留「跑班選修」標籤提示這節有分組跑班。
+    const cls = e.class_code === "901" ? "全校/科務" : classLinkHtml(e.class_code, e.class_name+"班");
+    const t = teacherLinkHtml(e.teacher_code, e.teacher_name);
+    const sub = [cls, t].filter(Boolean).join("・");
+    if(sub) lines.push('<div class="sub-line">'+sub+'</div>');
+    if(hasCoTeachers){
+      lines.push('<div class="sub-line">協同：'+e.co_teachers.map(ct => teacherLinkHtml(ct.code, ct.name)).join("、")+'</div>');
+    }
+    if(hasRotation || (e.is_rotation_partner && e.rotation_peer)){
+      lines.push('<span class="tag rotation">跑班選修</span>');
+    }
   } else {
     let t = e.class_code === "901" ? "全校/科務" : classLinkHtml(e.class_code, e.class_name+"班");
-    if(e.room_name) t += "・"+escapeHtml(e.room_name);
+    if(e.room_name) t += "・"+roomLinkHtml(e.room_name);
     lines.push('<div class="sub-line">'+t+'</div>');
     if(!isCo && hasCoTeachers){
       lines.push('<div class="sub-line">協同：'+e.co_teachers.map(ct => teacherLinkHtml(ct.code, ct.name)).join("、")+'</div>');
@@ -880,7 +960,7 @@ function renderTable(grid, mode){
     const tr = document.createElement("tr");
     const th = document.createElement("td");
     th.className = "period-col";
-    th.innerHTML = "第"+p+"節";
+    th.innerHTML = "第"+p+"節<span>"+(PERIOD_TIMES[String(p)]||"")+"</span>";
     tr.appendChild(th);
     for(let d=1; d<=5; d++){
       const cellInfo = grid[d][p];
@@ -976,6 +1056,75 @@ function renderTeacherView(code){
   renderTable(grid, "teacher");
 }
 
+function renderRoomSidebar(filter){
+  const el = document.getElementById("roomGroups");
+  el.innerHTML = "";
+  const raw = (filter||"").trim();
+  const f = normalizeRoomKey(raw) || raw;
+  ["1","2","3"].forEach(g => {
+    const items = homeroomKeys.filter(k => gradeOf(k) === g && (k.includes(f) || k.includes(raw)));
+    if(!items.length) return;
+    const label = document.createElement("div");
+    label.className = "group-label";
+    label.textContent = gradeLabel[g] + "教室";
+    el.appendChild(label);
+    const grid = document.createElement("div");
+    grid.className = "class-grid";
+    items.forEach(k => {
+      const b = document.createElement("button");
+      b.className = "pill-btn" + (state.roomKey === k ? " active" : "");
+      b.textContent = k;
+      b.onclick = () => selectRoom(k);
+      grid.appendChild(b);
+    });
+    el.appendChild(grid);
+  });
+  const specialItems = specialRoomList.filter(k => k.includes(f) || k.includes(raw));
+  if(specialItems.length){
+    const label = document.createElement("div");
+    label.className = "group-label";
+    label.textContent = "專科／選修教室";
+    el.appendChild(label);
+    const grid = document.createElement("div");
+    grid.className = "class-grid";
+    specialItems.forEach(k => {
+      const b = document.createElement("button");
+      b.className = "pill-btn" + (state.roomKey === k ? " active" : "");
+      b.textContent = k;
+      b.onclick = () => selectRoom(k);
+      grid.appendChild(b);
+    });
+    el.appendChild(grid);
+  }
+  if(!el.children.length){
+    el.innerHTML = '<div class="empty-hint">找不到符合的教室</div>';
+  }
+}
+
+function selectRoom(key){
+  state.roomKey = key;
+  renderRoomSidebar(document.getElementById("roomSearch").value);
+  renderRoomView(key);
+}
+
+function renderRoomView(key){
+  const homeroom = isHomeroomKey(key);
+  document.getElementById("entityCode").textContent = homeroom ? key : "";
+  document.getElementById("entityName").textContent = homeroom ? (key+"教室") : key;
+  document.getElementById("entityMeta").innerHTML = homeroom
+    ? "原班教室：" + classLinkHtml(key, key+"班")
+    : "";
+  const entries = entriesForRoom(key);
+  const teacherSet = new Set(entries.filter(e=>e.teacher_code).map(e=>e.teacher_code));
+  const classSet = new Set(entries.filter(e=>e.class_code).map(e=>e.class_code));
+  document.getElementById("statChips").innerHTML =
+    '<span class="stat-chip">每週使用節數 <b>'+countPeriods(entries)+'</b></span>' +
+    '<span class="stat-chip">授課教師 <b>'+teacherSet.size+'</b> 位</span>' +
+    (classSet.size ? '<span class="stat-chip">使用班級 <b>'+classSet.size+'</b> 班</span>' : '');
+  const grid = buildGrid(entries);
+  renderTable(grid, "room");
+}
+
 function switchTab(tab){
   document.querySelectorAll(".tab-btn").forEach(b => {
     const active = b.dataset.tab === tab;
@@ -985,16 +1134,21 @@ function switchTab(tab){
   state.tab = tab;
   document.getElementById("classSidebar").style.display = tab === "class" ? "" : "none";
   document.getElementById("teacherSidebar").style.display = tab === "teacher" ? "" : "none";
+  document.getElementById("roomSidebar").style.display = tab === "room" ? "" : "none";
 }
 
 document.querySelectorAll(".tab-btn").forEach(btn => {
   btn.addEventListener("click", () => {
     switchTab(btn.dataset.tab);
     if(state.tab === "class") renderClassView(state.classCode);
-    else {
+    else if(state.tab === "teacher"){
       if(!state.teacherCode) state.teacherCode = DB.teachers[0].code;
       renderTeacherSidebar(document.getElementById("teacherSearch").value);
       renderTeacherView(state.teacherCode);
+    } else {
+      if(!state.roomKey) state.roomKey = homeroomKeys[0];
+      renderRoomSidebar(document.getElementById("roomSearch").value);
+      renderRoomView(state.roomKey);
     }
   });
 });
@@ -1017,23 +1171,35 @@ function goToClass(code){
   selectClass(code);
   scrollToMain();
 }
+function goToRoom(key){
+  if(!isHomeroomKey(key) && !specialRoomKeySet.has(key)) return;
+  switchTab("room");
+  document.getElementById("roomSearch").value = "";
+  selectRoom(key);
+  scrollToMain();
+}
 
 document.addEventListener("click", e => {
   const teacherEl = e.target.closest("[data-goto-teacher]");
   if(teacherEl){ goToTeacher(teacherEl.dataset.gotoTeacher); return; }
   const classEl = e.target.closest("[data-goto-class]");
   if(classEl){ goToClass(classEl.dataset.gotoClass); return; }
+  const roomEl = e.target.closest("[data-goto-room]");
+  if(roomEl){ goToRoom(roomEl.dataset.gotoRoom); return; }
 });
 document.addEventListener("keydown", e => {
   if(e.key !== "Enter" && e.key !== " ") return;
   const teacherEl = e.target.closest("[data-goto-teacher]");
   if(teacherEl){ e.preventDefault(); goToTeacher(teacherEl.dataset.gotoTeacher); return; }
   const classEl = e.target.closest("[data-goto-class]");
-  if(classEl){ e.preventDefault(); goToClass(classEl.dataset.gotoClass); }
+  if(classEl){ e.preventDefault(); goToClass(classEl.dataset.gotoClass); return; }
+  const roomEl = e.target.closest("[data-goto-room]");
+  if(roomEl){ e.preventDefault(); goToRoom(roomEl.dataset.gotoRoom); }
 });
 
 document.getElementById("classSearch").addEventListener("input", e => renderClassSidebar(e.target.value));
 document.getElementById("teacherSearch").addEventListener("input", e => renderTeacherSidebar(e.target.value));
+document.getElementById("roomSearch").addEventListener("input", e => renderRoomSidebar(e.target.value));
 
 document.getElementById("metaClassCount").textContent = DB.classes.length;
 document.getElementById("metaTeacherCount").textContent = DB.teachers.length;
@@ -1048,7 +1214,7 @@ const GROUP_COLOR_VARS = {
 
 function groupClassCardHtml(cls){
   const rows = (cls.tracks || cls.groups || []).map(t => {
-    const room = t.room ? '<span class="room">・' + escapeHtml(t.room) + '</span>' : '';
+    const room = t.room ? '<span class="room">・' + roomLinkHtml(t.room) + '</span>' : '';
     const detail = escapeHtml(t.teacher) + room;
     return '<div class="group-track-row"><span class="group-track-chip">' + escapeHtml(t.name) + '</span>' +
            '<span class="group-track-detail">' + detail + '</span></div>';
