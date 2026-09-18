@@ -914,14 +914,17 @@ function entryHtml(e, mode){
   } else if(mode === "room"){
     // 教室課表只顯示主要上課的課程/教師，跑班分組的對照細節、以及跑班進來的
     // 個別班級都不重複列出，只保留「跑班選修」標籤提示這節有分組跑班。
-    const cls = e.is_rotation_partner ? "" : (e.class_code === "901" ? "全校/科務" : classLinkHtml(e.class_code, e.class_name+"班"));
+    // 不論是「主班 entry 自己就有 rotation_tracks」還是「本身就是跑班分組的
+    // is_rotation_partner entry」，只要牽涉跑班就一律不顯示班級代碼。
+    const involvesRotation = hasRotation || e.is_rotation_partner === true;
+    const cls = involvesRotation ? "" : (e.class_code === "901" ? "全校/科務" : classLinkHtml(e.class_code, e.class_name+"班"));
     const t = teacherLinkHtml(e.teacher_code, e.teacher_name);
     const sub = [cls, t].filter(Boolean).join("・");
     if(sub) lines.push('<div class="sub-line">'+sub+'</div>');
     if(hasCoTeachers){
       lines.push('<div class="sub-line">協同：'+e.co_teachers.map(ct => teacherLinkHtml(ct.code, ct.name)).join("、")+'</div>');
     }
-    if(hasRotation || e.is_rotation_partner){
+    if(involvesRotation){
       lines.push('<span class="tag rotation">跑班選修</span>');
     }
   } else {
@@ -1033,6 +1036,24 @@ function collapseMultiClassPartners(entries){
   return result;
 }
 
+// 教室課表專用的合併規則：只要這節課牽涉跑班（不論是主班 entry 自己帶
+// rotation_tracks，還是它本身就是跑班分組的 is_rotation_partner entry），
+// 同一節、同科目、同老師的紀錄就只留一筆（entryHtml room 模式本來就不顯示
+// 班級代碼，這裡再把重複的格子合併掉，避免同一節出現好幾個一模一樣的格子）。
+function collapseRoomGroups(entries){
+  const seen = new Map();
+  const result = [];
+  entries.forEach(e => {
+    const involvesRotation = (Array.isArray(e.rotation_tracks) && e.rotation_tracks.length > 0) || e.is_rotation_partner === true;
+    if(!involvesRotation){ result.push(e); return; }
+    const key = [e.day, e.start_period, e.subject_name, e.teacher_code].join("|");
+    if(seen.has(key)) return;
+    seen.set(key, e);
+    result.push(e);
+  });
+  return result;
+}
+
 function renderTeacherView(code){
   const t = DB.teachers.find(x => x.code === code);
   const own = collapseMultiClassPartners(
@@ -1123,7 +1144,7 @@ function renderRoomView(key){
     (classSet.size ? '<span class="stat-chip">使用班級 <b>'+classSet.size+'</b> 班</span>' : '');
   // 同一節跑班選修若有多個班級的學生一起進來這間教室上課，原始資料會各班各記一筆，
   // 顯示時合併成一格（entryHtml room 模式本來就不顯示跑班班級了），避免同一節重複出現好幾格。
-  const grid = buildGrid(collapseMultiClassPartners(entries));
+  const grid = buildGrid(collapseRoomGroups(entries));
   renderTable(grid, "room");
 }
 
