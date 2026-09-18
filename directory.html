@@ -1687,10 +1687,20 @@ function renderSeatOffice(office, anchor){
   return html;
 }
 
+// 有些人員因為與班級導師同名同人而被併入「XX班導師」那一筆資料，
+// 導致原本處室別（例如「藝能大樓」體育組）清單掃描不到他們。
+// ROSTER_OVERRIDE 讓特定 office 卡片改用明確指定的姓名清單（含順序），
+// 透過 nameMap 找回這些人，清單內同時混合一般人員與已併入班導師的人員也沒問題。
+const ROSTER_OVERRIDE = {
+  "office:藝能大樓:1樓:藝能大樓": ["1F體育組","代理兼組長 黃陞中","李世雄","楊宗樺","郭文杰","專任教練 梁汝農","兼任教練 陳光榮","代理教師 莊明璋","運動防護員 劉威彣"]
+};
+
 function renderDirCard(office, rows, anchor){
   const isPhoneLine = office === "各處室專線電話";
+  const overrideNames = anchor && ROSTER_OVERRIDE[anchor];
+  const list = overrideNames ? overrideNames.map(n => nameMap[n]).filter(Boolean) : rows;
   let html = `<div class="panel dir-card${isPhoneLine ? " phone-card" : ""}"${anchor ? ` data-anchor="${escapeHtml(anchor)}"` : ""}><p class="dir-card-title">${escapeHtml(office)}${isPhoneLine ? "（直撥線）" : ""}</p>`;
-  rows.forEach(r => {
+  list.forEach(r => {
     const {name, tag} = personLabel(r);
     html += `<div class="dir-row"><span class="who">${escapeHtml(name)}${tag ? `<span class="tag">${escapeHtml(tag)}</span>` : ""}</span><span class="ext">${escapeHtml(r.分機) || "—"}</span></div>`;
   });
