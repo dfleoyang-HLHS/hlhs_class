@@ -912,16 +912,16 @@ function entryHtml(e, mode){
     lines.push('<div class="sub-line">'+t+'</div>');
     lines.push('<span class="tag rotation">跑班選修</span>');
   } else if(mode === "room"){
-    // 教室課表只顯示主要上課的課程/班級/教師，跑班分組的對照細節不重複列出，
-    // 只保留「跑班選修」標籤提示這節有分組跑班。
-    const cls = e.class_code === "901" ? "全校/科務" : classLinkHtml(e.class_code, e.class_name+"班");
+    // 教室課表只顯示主要上課的課程/教師，跑班分組的對照細節、以及跑班進來的
+    // 個別班級都不重複列出，只保留「跑班選修」標籤提示這節有分組跑班。
+    const cls = e.is_rotation_partner ? "" : (e.class_code === "901" ? "全校/科務" : classLinkHtml(e.class_code, e.class_name+"班"));
     const t = teacherLinkHtml(e.teacher_code, e.teacher_name);
     const sub = [cls, t].filter(Boolean).join("・");
     if(sub) lines.push('<div class="sub-line">'+sub+'</div>');
     if(hasCoTeachers){
       lines.push('<div class="sub-line">協同：'+e.co_teachers.map(ct => teacherLinkHtml(ct.code, ct.name)).join("、")+'</div>');
     }
-    if(hasRotation || (e.is_rotation_partner && e.rotation_peer)){
+    if(hasRotation || e.is_rotation_partner){
       lines.push('<span class="tag rotation">跑班選修</span>');
     }
   } else {
@@ -1121,7 +1121,9 @@ function renderRoomView(key){
     '<span class="stat-chip">每週使用節數 <b>'+countPeriods(entries)+'</b></span>' +
     '<span class="stat-chip">授課教師 <b>'+teacherSet.size+'</b> 位</span>' +
     (classSet.size ? '<span class="stat-chip">使用班級 <b>'+classSet.size+'</b> 班</span>' : '');
-  const grid = buildGrid(entries);
+  // 同一節跑班選修若有多個班級的學生一起進來這間教室上課，原始資料會各班各記一筆，
+  // 顯示時合併成一格（entryHtml room 模式本來就不顯示跑班班級了），避免同一節重複出現好幾格。
+  const grid = buildGrid(collapseMultiClassPartners(entries));
   renderTable(grid, "room");
 }
 
