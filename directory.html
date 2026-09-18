@@ -124,6 +124,15 @@
   .seat-person{ font-size:13px; color:var(--ink-soft); line-height:1.5; }
   .seat-person .tag{ display:block; font-size:10px; color:var(--accent); font-weight:700; }
 
+  .teacher-link{
+    color:var(--primary);
+    text-decoration-line:underline;
+    text-decoration-style:dotted;
+    text-decoration-color:currentColor;
+    text-underline-offset:2px;
+  }
+  .teacher-link:hover{ color:var(--ocean); }
+
   .empty-hint{ color:var(--muted); font-size:13.5px; padding:18px 4px; text-align:center; }
 
   .class-grid{ display:grid; grid-template-columns:repeat(8, 1fr); gap:6px; margin-bottom:16px; }
@@ -1564,6 +1573,118 @@ const DB = [
     "座位分區": ""
   }
 ];
+const TEACHER_CODE_BY_NAME = {
+ "徐素珍": "101",
+ "鄭宏成": "102",
+ "陳淑萍": "103",
+ "林慧菁": "104",
+ "鄭美慧": "105",
+ "江錦玨": "107",
+ "李依蓉": "108",
+ "林翠華": "109",
+ "王清平": "113",
+ "黃怡婷": "116",
+ "彭定源": "120",
+ "陳俊坊": "121",
+ "林鈺珊": "123",
+ "陳昱璋": "124",
+ "何靜萍": "202",
+ "黃燕靜": "203",
+ "游若玲": "205",
+ "麥芃芃": "206",
+ "楊成勛": "208",
+ "謝璦羽": "210",
+ "洪佳琳": "212",
+ "張育瑛": "223",
+ "莊明倩": "225",
+ "徐尚如": "226",
+ "黃聖峰": "227",
+ "何頤華": "280",
+ "墨漢": "282",
+ "羅伸儀": "303",
+ "何璩如": "305",
+ "邱培杰": "306",
+ "林哲宇": "308",
+ "姜姿戎": "310",
+ "李易儒": "311",
+ "李典匡": "313",
+ "陳盈諭": "314",
+ "李郁庭": "316",
+ "吳東岳": "317",
+ "江鎮宇": "318",
+ "葉紫玲": "401",
+ "陳俊逸": "402",
+ "張銘傑": "403",
+ "葉集凱": "404",
+ "徐清雲": "405",
+ "陳曉玲": "407",
+ "陳暐婷": "408",
+ "吳家凌": "409",
+ "李運生": "411",
+ "孫錫忠": "413",
+ "李勵佳": "414",
+ "李卓穎": "419",
+ "江其叡": "422",
+ "陳辭人": "423",
+ "林柏志": "424",
+ "莊文治": "501",
+ "陳耿維": "502",
+ "黃聖智": "503",
+ "胡育豪": "504",
+ "黃蕾靜": "505",
+ "林于人": "508",
+ "李俊賢": "509",
+ "孟昭安": "510",
+ "張端雅": "512",
+ "吳曙序": "513",
+ "侯統源": "516",
+ "楊亮星": "518",
+ "賴冠瑋": "519",
+ "黃科贏": "602",
+ "李世雄": "603",
+ "呂彥瑩": "604",
+ "梁汝農": "605",
+ "張家宜": "606",
+ "楊宗樺": "607",
+ "翁文婷": "608",
+ "李冠儀": "609",
+ "白欣蓉": "610",
+ "王文宏": "611",
+ "楊媛婷": "614",
+ "林佩琪": "615",
+ "黃雅蕾": "616",
+ "黃楨喻": "619",
+ "郭文杰": "620",
+ "趙義雄": "622",
+ "王宇武": "7006",
+ "曾文宣": "7012",
+ "黃陞中": "7014",
+ "李振宇": "7015",
+ "何昌澤": "7018",
+ "王瓊涓": "7019",
+ "張錦萍": "7020",
+ "蔡欣恬": "7021",
+ "吳秉寰": "7022",
+ "莊明璋": "7023",
+ "黃詩賢": "7024",
+ "林仲威": "7304",
+ "王弘奇": "7305",
+ "陳光榮": "731",
+ "林靜玟": "7501",
+ "江忻薇": "7503",
+ "沈鉑恆": "7504",
+ "伍登雄": "7507",
+ "馬萱如": "7508",
+ "李韋翰": "752",
+ "劉靜江": "757",
+ "郭金方": "7701",
+ "徐堃明": "7801",
+ "邱稔雅": "7802",
+ "林佩穎": "7804",
+ "張文良": "7902",
+ "簡光雄": "7903",
+ "溫李秋": "7904"
+};
 
 document.getElementById('metaCount').textContent = DB.length;
 
@@ -1575,6 +1696,33 @@ function personLabel(r){
   const m = r.處室別.match(/^(\d+)班導師$/);
   if(m) tag = m[1]+"班導師";
   return {name:label, tag};
+}
+
+// 判斷一個姓名字串（可能帶「職稱 」前綴或「（備註）」後綴）裡，
+// 是否包含一個能對應到課表系統教師代碼的姓名片段。
+function matchTeacherCode(fullName){
+  if(TEACHER_CODE_BY_NAME[fullName]) return {code:TEACHER_CODE_BY_NAME[fullName], name:fullName};
+  const stripped = fullName.replace(/（[^）]*）\s*$/, "");
+  if(stripped !== fullName && TEACHER_CODE_BY_NAME[stripped]) return {code:TEACHER_CODE_BY_NAME[stripped], name:stripped};
+  const idx = fullName.lastIndexOf(" ");
+  if(idx >= 0){
+    const tail = fullName.slice(idx + 1);
+    if(TEACHER_CODE_BY_NAME[tail]) return {code:TEACHER_CODE_BY_NAME[tail], name:tail};
+  }
+  return null;
+}
+
+// 把姓名字串輸出成 HTML：若能對應到課表系統的教師，姓名的部分會變成連結
+// （前綴職稱／後綴備註維持純文字），點擊會開啟課表查詢頁該教師的課表。
+function personNameHtml(fullName){
+  const m = matchTeacherCode(fullName);
+  if(!m) return escapeHtml(fullName);
+  const idx = fullName.indexOf(m.name);
+  const before = fullName.slice(0, idx);
+  const after = fullName.slice(idx + m.name.length);
+  return escapeHtml(before) +
+    `<a class="teacher-link" href="index.html?teacher=${encodeURIComponent(m.code)}">${escapeHtml(m.name)}</a>` +
+    escapeHtml(after);
 }
 
 const BUILDINGS = ["綜合大樓","科學館","忠孝樓","學生宿舍","圖資大樓","藝能大樓","和平樓","仁愛樓","郭子究音樂文化館","（全校）","班級導師"];
@@ -1674,7 +1822,7 @@ function renderSeatOffice(office, anchor){
           desk.people.forEach(name => {
             const r = nameMap[name];
             const {name:label, tag} = r ? personLabel(r) : {name, tag:""};
-            html += `<div class="seat-person">${escapeHtml(label)}${tag ? `<span class="tag">${escapeHtml(tag)}</span>` : ""}</div>`;
+            html += `<div class="seat-person">${personNameHtml(label)}${tag ? `<span class="tag">${escapeHtml(tag)}</span>` : ""}</div>`;
           });
         }
         html += `</div></div>`;
@@ -1702,7 +1850,7 @@ function renderDirCard(office, rows, anchor){
   let html = `<div class="panel dir-card${isPhoneLine ? " phone-card" : ""}"${anchor ? ` data-anchor="${escapeHtml(anchor)}"` : ""}><p class="dir-card-title">${escapeHtml(office)}${isPhoneLine ? "（直撥線）" : ""}</p>`;
   list.forEach(r => {
     const {name, tag} = personLabel(r);
-    html += `<div class="dir-row"><span class="who">${escapeHtml(name)}${tag ? `<span class="tag">${escapeHtml(tag)}</span>` : ""}</span><span class="ext">${escapeHtml(r.分機) || "—"}</span></div>`;
+    html += `<div class="dir-row"><span class="who">${personNameHtml(name)}${tag ? `<span class="tag">${escapeHtml(tag)}</span>` : ""}</span><span class="ext">${escapeHtml(r.分機) || "—"}</span></div>`;
   });
   html += `</div>`;
   return html;
@@ -1726,7 +1874,7 @@ function showClassInfo(cls){
   if(!r || !box) return;
   box.innerHTML = `<div class="panel class-info">
     <h3>${cls} 班導師</h3>
-    <div class="row">導師：<b>${escapeHtml(r.姓名)}</b></div>
+    <div class="row">導師：<b>${personNameHtml(r.姓名)}</b></div>
     <div class="row">分機：<b>${escapeHtml(r.分機) || "—"}</b></div>
     <div class="row">座位：<b>${escapeHtml(r.建築物)} ${escapeHtml(r.樓層)}</b>${r.座位分區 ? `（${escapeHtml(r.座位分區)}）` : ""}</div>
     ${r.建築物 && BUILDINGS.includes(r.建築物) ? `<span class="jump" data-jump="${escapeHtml(r.建築物)}">查看 ${escapeHtml(r.建築物)} 座位圖 →</span>` : ""}
@@ -1783,7 +1931,7 @@ function renderSearchResults(query){
   let html = `<div class="panel dir-card"><table class="search-table"><thead><tr>
     <th>建築物</th><th>樓層</th><th>處室別</th><th>姓名</th><th>分機</th></tr></thead><tbody>`;
   results.forEach(r => {
-    html += `<tr><td>${escapeHtml(r.建築物)}</td><td>${escapeHtml(r.樓層)}</td><td>${escapeHtml(r.處室別)}</td><td>${escapeHtml(r.姓名)}</td><td class="ext">${escapeHtml(r.分機)||"—"}</td></tr>`;
+    html += `<tr><td>${escapeHtml(r.建築物)}</td><td>${escapeHtml(r.樓層)}</td><td>${escapeHtml(r.處室別)}</td><td>${personNameHtml(r.姓名)}</td><td class="ext">${escapeHtml(r.分機)||"—"}</td></tr>`;
   });
   html += `</tbody></table></div>`;
   return html;

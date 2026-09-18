@@ -1077,6 +1077,11 @@ renderClassSidebar("");
 renderTeacherSidebar("");
 selectClass(DB.classes[0].code);
 renderElectiveGroups();
+
+// 支援從外部頁面（例如分機座位查詢）用 ?teacher=<代碼> 直接跳轉到該教師課表
+const __urlParams = new URLSearchParams(location.search);
+const __teacherParam = __urlParams.get("teacher");
+if(__teacherParam) goToTeacher(__teacherParam);
 </script>
 
 </body>
